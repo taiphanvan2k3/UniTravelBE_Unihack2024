@@ -17,10 +17,5 @@ This checklist encourages us to confirm any changes have been analyzed to reduce
 * [ ] Do not abbreviate member names. Unless is a very well know abbreviation like: Dto.
 * [ ] Always use brackets for any kind of statement. If, for, while, etc.
 * [ ] Comments for functions and confusing code.
-
-### For Backend
 * [ ] Do NOT use the name of the operation or verb in the route.
 * [ ] Need to remove unused namespaces and sort the namespaces.
-
-### For Frontend
-* [ ] Using const/let instead of var in js file.
