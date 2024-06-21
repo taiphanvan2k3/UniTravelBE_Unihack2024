@@ -1,20 +1,27 @@
-import express from "express";
-import dotenv from "dotenv";
-import cors from "cors";
-import mongoose from "mongoose";
-import userRouter from "./routes/user.js";
+const express = require('express');
+const dotenv = require('dotenv');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const userRouter = require("./src/routes/user.route.js");
+const errorHandler = require('./helpers/errorHandler');
 
 dotenv.config();
 
 const app = express();
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     origin: "*",
     methods: ["GET", "POST"],
   })
 );
+
+const UserRoute = require('./src/routes/user.route');
+app.use('/user', UserRoute);
+
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
