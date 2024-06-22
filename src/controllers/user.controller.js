@@ -1,5 +1,5 @@
 const User = require("../models/user.model.js");
-const UserService = require('../services/user.service');
+const userService = require('../services/user.service');
 
 module.exports = {
   createUser: async (req, res) => {

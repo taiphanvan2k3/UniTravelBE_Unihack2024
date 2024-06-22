@@ -15,21 +15,25 @@ const createLogDirectory = async () => {
 const manageLogFiles = async (logDirectory, maxFiles) => {
     try {
         const files = await fs.readdir(logDirectory);
-        const logFiles = files
-            .map((file) => ({
-                name: file,
+        const logFiles = await Promise.all(
+            files.map(async (file) => {
+                // Lấy thông tin về file này
+                const stat = await fs.stat(path.join(logDirectory, file));
+                return {
+                    name: file,
 
-                // Lấy thời gian sửa file cuối cùng để sắp xếp các file theo thời gian
-                time: fs
-                    .statSync(path.join(logDirectory, file))
-                    .mtime.getTime(),
-            }))
-            .sort((a, b) => b.time - a.time)
-            .map((file) => file.name);
+                    // Thời gian sửa đổi lần cuối cùng của file
+                    time: stat.mtime.getTime(),
+                };
+            })
+        );
+
+        logFiles.sort((a, b) => a.time - b.time);
+        const sortedLogFiles = logFiles.map((file) => file.name);
 
         // Xóa các file log cũ nếu vượt quá số file tối đa
-        if (logFiles.length > maxFiles) {
-            const filesToDelete = logFiles.slice(maxFiles);
+        if (sortedLogFiles.length > maxFiles) {
+            const filesToDelete = sortedLogFiles.slice(maxFiles);
             for (const file of filesToDelete) {
                 await fs.unlink(path.join(logDirectory, file));
             }

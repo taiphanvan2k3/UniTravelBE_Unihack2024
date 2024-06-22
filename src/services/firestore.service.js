@@ -1,16 +1,6 @@
-const admin = require("firebase-admin");
-const dotenv = require("dotenv");
-const constants = require("../common/constants.js");
+const { admin } = require("../config/firebase");
 const fs = require("fs");
 const path = require("path");
-
-dotenv.config();
-
-const serviceAccount = require("../../key.json");
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    storageBucket: process.env.STORAGE_BUCKET || constants.STORAGE_BUCKET,
-});
 
 const db = admin.firestore();
 const bucket = admin.storage().bucket();
@@ -99,4 +89,4 @@ const uploadFileFromFilePath = async (filePath, bucketName) => {
     }
 };
 
-module.exports = { db, uploadFileToStorage, uploadFileFromFilePath };
+module.exports = { db, admin, uploadFileToStorage, uploadFileFromFilePath };

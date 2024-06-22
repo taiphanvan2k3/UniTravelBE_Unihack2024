@@ -2,19 +2,19 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const userRouter = require("./src/routes/user.route.js");
-const errorHandler = require("./src/helpers/error-handler.js");
 const constants = require("./src/common/constants.js");
+
+// Routers
+const userRouter = require("./src/routes/user.route.js");
+const authRouter = require("./src/routes/auth.route.js");
+const errorHandler = require("./src/helpers/error-handler.js");
 const {
     uploadFileFromFilePath,
 } = require("./src/services/firestore.service.js");
 
 dotenv.config();
-
 const app = express();
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 app.use(
     cors({
         origin: "*",
@@ -27,6 +27,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Nạp các route vào ứng dụng
 app.use("/user", userRouter);
+app.use("/auth", authRouter);
+
 app.get("/upload-image", async (req, res, next) => {
     try {
         const url = await uploadFileFromFilePath("./image.jpg", "images");
