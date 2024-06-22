@@ -1,0 +1,11 @@
+@baseUrl = http://localhost:5001
+
+### ==========================================================================================
+### Testing
+GET {{baseUrl}}
+
+### Get list user
+GET {{baseUrl}}/user
+
+### Get user by id
+GET {{baseUrl}}/user/get-user-by-id
