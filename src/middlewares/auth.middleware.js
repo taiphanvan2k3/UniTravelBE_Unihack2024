@@ -1,13 +1,13 @@
-const User = require('../src/models/user.model');
+const User = require("../models/user.model");
 
 const authUser = async (req, res, next) => {
     try {
         const userId = req.payload.userId;
-        const user = await User.findById(userId)
+        const user = await User.findById(userId);
         if (!user) {
-            return res.status(403).json('You need sign in!');
+            return res.status(403).json("You need sign in!");
         } else if (user.delflag) {
-            return res.status(403).json('User is deleted!');
+            return res.status(403).json("User is deleted!");
         }
         req.user = user;
     } catch (error) {
