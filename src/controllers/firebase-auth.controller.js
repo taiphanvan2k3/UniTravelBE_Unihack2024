@@ -1,16 +1,7 @@
-const {
-    getAuth,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    signOut,
-    sendEmailVerification,
-    sendPasswordResetEmail,
-} = require("../config/firebase");
-
-const auth = getAuth();
+const firebaseAuthService = require("../services/firebase-auth.service.js");
 
 class FirebaseAuthController {
-    registerUser(req, res) {
+    async registerUser(req, res, next) {
         const { email, password } = req.body;
         if (!email || !password) {
             return res.status(422).json({
@@ -19,32 +10,17 @@ class FirebaseAuthController {
             });
         }
 
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                sendEmailVerification(userCredential.user)
-                    .then(() => {
-                        // Lấy url của verification email của user từ userCredential.user.emailVerified
-                        res.status(201).json({
-                            message:
-                                "Verification email sent! User created successfully!",
-                        });
-                    })
-                    .catch(() => {
-                        res.status(500).json({
-                            type: "email_verification_error",
-                            error: "Error sending email verification",
-                        });
-                    });
-            })
-            .catch((error) => {
-                res.status(500).json({
-                    type: "create_user_error",
-                    error: error.message,
-                });
+        try {
+            await firebaseAuthService.registerUser(email, password);
+            res.status(201).json({
+                message: "Verification email sent! User created successfully!",
             });
+        } catch (error) {
+            next(error);
+        }
     }
 
-    loginUser(req, res) {
+    async loginUser(req, res, next) {
         const { email, password } = req.body;
         if (!email || !password) {
             return res.status(422).json({
@@ -53,83 +29,61 @@ class FirebaseAuthController {
             });
         }
 
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                if (!userCredential.user.emailVerified) {
-                    return res.status(403).json({
-                        type: "email_verification_error",
-                        error: "Email is not verified",
-                    });
-                }
+        try {
+            const { token, userInfo } = await firebaseAuthService.loginUser(
+                email,
+                password
+            );
 
-                userCredential.user
-                    .getIdToken()
-                    .then((token) => {
-                        res.cookie("token", token, {
-                            httpOnly: true,
-                            secure: false,
-                            maxAge: 60 * 60 * 1000,
-                        });
+            res.cookie("access_token", token, {
+                maxAge: 3600000,
+                httpOnly: true,
+            });
 
-                        res.status(200).json({
-                            message: "Login successfully!",
-                            token: token,
-                            userInfo: {
-                                userId: userCredential.user.uid,
-                                displayName: userCredential.user.displayName,
-                                providerId:
-                                    userCredential.user.providerData[0]
-                                        .providerId,
-                            },
-                        });
-                    })
-                    .catch((error) => {
-                        res.status(500).json({
-                            type: "get_token_error",
-                            error: error.message,
-                        });
-                    });
-            })
-            .catch((error) => {
-                res.status(500).json({
-                    type: "login_error",
+            res.status(200).json({
+                token,
+                user: userInfo,
+            });
+        } catch (error) {
+            if (error.message === "Email is not verified") {
+                return res.status(403).json({
+                    type: "email_verification_error",
                     error: error.message,
                 });
-            });
+            } else {
+                next(error);
+            }
+        }
     }
 
-    signOutUser(req, res) {
-        signOut(auth)
-            .then(() => {
-                const user = req.user;
-                res.clearCookie("access_token");
-                res.status(200).json({
-                    message: `user with ${user.email} signed out successfully!`,
-                });
-            })
-            .catch((error) => {
-                console.error(error);
-                res.status(500).json({ error: "Internal Server Error" });
+    signOutUser(req, res, next) {
+        try {
+            firebaseAuthService.signOut();
+            res.clearCookie("access_token");
+            res.status(200).json({
+                message: `user with email ${req.user.email} signed out successfully!`,
             });
+        } catch (error) {
+            next(error);
+        }
     }
 
-    resetPassword(req, res) {
+    async resetPassword(req, res) {
         const { email } = req.body;
         if (!email) {
             return res.status(422).json({
                 email: "Email is required",
             });
         }
-        sendPasswordResetEmail(auth, email)
-            .then(() => {
-                res.status(200).json({
-                    message: "Password reset email sent successfully!",
-                });
-            })
-            .catch((error) => {
-                console.error(error);
-                res.status(500).json({ error: "Internal Server Error" });
+
+        try {
+            await firebaseAuthService.resetPassword(email);
+            res.status(200).json({
+                message: "Password reset email sent!",
             });
+        } catch (error) {
+            next(error);
+        }
     }
 }
 
