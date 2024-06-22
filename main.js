@@ -4,6 +4,10 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const userRouter = require("./src/routes/user.route.js");
 const errorHandler = require("./src/helpers/error-handler.js");
+const constants = require("./src/common/constants.js");
+const {
+    uploadFileFromFilePath,
+} = require("./src/services/firestore.service.js");
 
 dotenv.config();
 
@@ -18,23 +22,29 @@ app.use(
     })
 );
 
-app.use("/user", userRouter);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
+// Nạp các route vào ứng dụng
+app.use("/user", userRouter);
+app.get("/upload-image", async (req, res, next) => {
+    try {
+        const url = await uploadFileFromFilePath("./image.jpg", "images");
+        res.json({ url });
+    } catch (error) {
+        next(error);
+    }
+});
+
+// Middleware xử lý lỗi
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000;
-
+const PORT = process.env.PORT || constants.SERVER_PORT;
 mongoose
     .connect(process.env.MONGO_URI)
     .then(() => console.log("UniTravel database connected!"))
     .catch((err) => console.log(err));
 
-app.use("/user", userRouter);
-
-app.get("/", (req, res) => {
-    res.send("Hello World!");
-});
-
 app.listen(PORT, () => {
-    console.log(`Server backend is running on port ${PORT}`);
+    console.log(`Server backend is running at localhost:${PORT}`);
 });
