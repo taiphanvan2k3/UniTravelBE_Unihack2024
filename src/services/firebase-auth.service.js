@@ -6,6 +6,7 @@ const {
     sendEmailVerification,
     sendPasswordResetEmail,
 } = require("../config/firebase.js");
+const userService = require("./user.service.js");
 
 class FirebaseAuthService {
     constructor() {
@@ -20,7 +21,10 @@ class FirebaseAuthService {
                 password
             );
 
-            await sendEmailVerification(userCredential.user);
+            await sendEmailVerification(
+                userCredential.user,
+                actionCodeSettings
+            );
         } catch (error) {
             throw new Error(error.message);
         }
@@ -33,11 +37,13 @@ class FirebaseAuthService {
                 email,
                 password
             );
+
             if (!userCredential.user.emailVerified) {
                 throw new Error("Email is not verified");
             }
 
-            const token = await userCredential.user.getIdToken();
+            await userService.createUser(userCredential.user);
+            const token = userCredential._tokenResponse.idToken;
             const user = userCredential.user;
             return {
                 token,
@@ -48,13 +54,14 @@ class FirebaseAuthService {
                 },
             };
         } catch (error) {
-            throw new Error(error.message);
+            throw new Error("Invalid email or password");
         }
     }
 
-    async signOut() {
+    async signOut(userId) {
         try {
             await signOut(this.auth);
+            await userService.updateUser(userId, { isOnline: false });
         } catch (error) {
             throw new Error(error.message);
         }
