@@ -15,10 +15,12 @@
     "date-fns": "^3.6.0",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "firebase": "^10.12.2",
     "firebase-admin": "^12.2.0",
     "jsonwebtoken": "^9.0.2",
     "mime": "^4.0.3",
-    "mongoose": "^8.4.3"
+    "mongoose": "^8.4.3",
+    "request-promise": "^4.2.6"
   },
   "devDependencies": {
     "nodemon": "^3.1.4",
