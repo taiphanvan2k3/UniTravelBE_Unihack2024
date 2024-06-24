@@ -51,14 +51,26 @@ class FirebaseAuthController {
                     error: error.message,
                 });
             } else {
-                next(error);
+                return res.status(401).json({
+                    type: "login_error",
+                    error: error.message,
+                });
             }
         }
     }
 
-    signOutUser(req, res, next) {
+    async signOutUser(req, res, next) {
         try {
-            firebaseAuthService.signOut();
+            const { email } = req.body;
+            const emailFromAccessToken = req.user.email;
+
+            if (email !== emailFromAccessToken) {
+                return res.status(403).json({
+                    message: "Email does not match with the token!",
+                });
+            }
+
+            await firebaseAuthService.signOut(req.user.uid);
             res.clearCookie("access_token");
             res.status(200).json({
                 message: `user with email ${req.user.email} signed out successfully!`,
