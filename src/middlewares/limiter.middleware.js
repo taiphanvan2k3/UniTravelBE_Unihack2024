@@ -1,4 +1,4 @@
-const client = require('../helpers/init_redis')
+const client = require('../helpers/redis-initialize')
 
 const limitRequest = async (req, res, next) => {
     try {
