@@ -5,7 +5,7 @@
 const { admin } = require("../config/firebase.js");
 
 const verifyToken = async (req, res, next) => {
-    let accessToken = req.headers.authorization || req.cookies.access_token;
+    let accessToken = req.headers?.authorization || req.cookies?.access_token;
     accessToken = accessToken?.startsWith("Bearer ")
         ? accessToken.split("Bearer ")[1]
         : accessToken;
