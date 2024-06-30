@@ -5,6 +5,6 @@ const { limitRequest } = require("../middlewares/limiter.middleware");
 
 const router = Router();
 
-router.get("/", limitRequest, authUser, UserController.getAllUsers);
+router.get("/users", limitRequest, authUser, UserController.getAllUsers);
 
 module.exports = router;
