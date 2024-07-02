@@ -1,0 +1,237 @@
+{
+  "provinceName": "Lâm Đồng",
+  "country": "Vietnam",
+  "experienceLocations": [
+    {
+      "locationId": "traveloka_2001455035254",
+      "locationName": "Vé ZooDoo Đà Lạt",
+      "address": "xã Đạ Nhim,Lạc Dương",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/2001455035254/ZooDoo-Dalat-Tickets-a64ea759-07fa-428a-a7fd-82a055a3bbbc.png?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/zoodoo-dalat-tickets-2001455035254",
+      "price": {
+        "originalPrice": "150000 VND",
+        "discountedPrice": "130000 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_3924063023481",
+      "locationName": "Vé Nông trại cún Puppy Farm Đà Lạt",
+      "address": "Phường 7,Đà Lạt",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/3924063023481/Puppy-Farm-Da-Lat-Tickets-9f92e796-36ce-4061-869e-7c30adc51f58.png?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/puppy-farm-da-lat-tickets-3924063023481",
+      "price": {
+        "originalPrice": "100000 VND",
+        "discountedPrice": "90000 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_7601132543334",
+      "locationName": "[Combo độc quyền Traveloka] Thác Datanla: Xe trượt Alpine Coaster, Zipline, Đu dây mạo hiểm",
+      "address": "Phường 3,Đà Lạt",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/7601132543334/-Traveloka-Exclusive-Combos-Datanla-Waterfall-Alpine-Coaster-Zipline-High-Rope-Course-f68d7b5c-7808-44b3-8618-1d3b86102084.png?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/[traveloka-exclusive-combos]-datanla-waterfall:-alpine-coaster,-zipline,-high-rope-course-7601132543334",
+      "price": {
+        "originalPrice": "50000 VND",
+        "discountedPrice": "50000 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_2001271397959",
+      "locationName": "Vé Vườn Ánh Sáng - Lumiere Đà Lạt ",
+      "address": "Phường 8,Đà Lạt",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/2001271397959/Light-Garden-Tickets---Lumiere-Dalat--71b830aa-126a-4891-a88d-471d93e4144a.png?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/light-garden-tickets---lumiere-dalat-2001271397959",
+      "price": {
+        "originalPrice": "150000 VND",
+        "discountedPrice": "140000 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_4617322222677",
+      "locationName": "Vé Fresh Garden Đà Lạt",
+      "address": "Phường 5,Đà Lạt",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/4617322222677/Fresh-Garden-Da-Lat-Tickets-5aad89ad-3350-4ac3-af98-8395e0b26526.png?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/fresh-garden-da-lat-tickets-4617322222677",
+      "price": {
+        "originalPrice": "120000 VND",
+        "discountedPrice": "108000 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_2001021451288",
+      "locationName": "Vé cáp treo đồi Robin Đà Lạt",
+      "address": "Phường 3,Đà Lạt",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/2001021451288/Robin-Hill-Cable-Car-Tickets-6bbaf7d1-e440-4548-ac14-6bb541c633dc.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/robin-hill-cable-car-tickets-2001021451288",
+      "price": {
+        "originalPrice": "120000 VND",
+        "discountedPrice": "120000 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_5397481524158",
+      "locationName": "Vé Khu du lịch Rừng Thông Núi Voi tại Đà Lạt ",
+      "address": "xã Hiệp An,Đức Trọng",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/5397481524158/Elephant-Mountain-Pine-Forest-Park-Tickets-0f14866a-d30b-4d19-9e2b-e9ea7c38b070.png?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/elephant-mountain-pine-forest-resort-da-lat-tickets-5397481524158",
+      "price": {
+        "originalPrice": "190000 VND",
+        "discountedPrice": "180000 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_6039358152331",
+      "locationName": "Valley of Love Da Lat Ticket",
+      "address": "Phường 8,Đà Lạt",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/6039358152331/Valley-of-Love-Da-Lat-Ticket-49b182ab-933e-4f02-a15c-24998e369b99.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/valley-of-love-da-lat-ticket-6039358152331",
+      "price": {
+        "originalPrice": "338726 VND",
+        "discountedPrice": "338726 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_9071702727035",
+      "locationName": "Vé Đường hầm điêu khắc Đà Lạt ",
+      "address": "Phường 4,Đà Lạt",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/9071702727035/Clay-Tunnel-Da-Lat-Tickets-81ec89d3-9b9d-4ed6-be1a-f2f02f2f51e0.png?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/clay-tunnel-da-lat-tickets-9071702727035",
+      "price": {
+        "originalPrice": "120000 VND",
+        "discountedPrice": "120000 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_7189678890025",
+      "locationName": "Vé Euro Garden Vườn châu Âu Đà Lạt ",
+      "address": "Trạm Hành,Đà Lạt",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/7189678890025/Euro-Garden-Da-Lat-Tickets-0cee0096-e5f6-4fa9-bc02-22f093baf5bd.png?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/euro-garden-da-lat-tickets-7189678890025",
+      "price": {
+        "originalPrice": "120000 VND",
+        "discountedPrice": "50000 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_3842397312836",
+      "locationName": "Vé Tham Quan Đà Lạt Fairytale Land & Hầm Rượu Vang Vĩnh Tiến",
+      "address": "Phường 5,Đà Lạt",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/3842397312836/Fairytale-Land-And-Vinh-Tien-Wine-Cellar-Admission-Ticket-4f418e24-002e-4a4f-ac00-d60e90dc2846.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/fairytale-land-and-vinh-tien-wine-cellar-admission-ticket-3842397312836",
+      "price": {
+        "originalPrice": "77976 VND",
+        "discountedPrice": "77976 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_7358390862984",
+      "locationName": "Vé Thị trấn Nobi Đà Lạt",
+      "address": "phường 10,Đà Lạt",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/7358390862984/Nobi-Town-Da-Lat-Tickets-7d21c2c2-6d92-4b20-817e-104dbc7d9d2b.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/nobi-town-da-lat-tickets-7358390862984",
+      "price": {
+        "originalPrice": "65000 VND",
+        "discountedPrice": "65000 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_3119645445645",
+      "locationName": "Long Dinh Tea Museum Ticket in Da Lat",
+      "address": "Trạm Hành,Đà Lạt",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/3119645445645/Long-Dinh-Tea-Museum-Ticket-in-Da-Lat-a3260320-b81d-4296-a9e4-e60827cbebd7.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/long-dinh-tea-museum-ticket-in-da-lat-3119645445645",
+      "price": {
+        "originalPrice": "107904 VND",
+        "discountedPrice": "107904 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_7608201008250",
+      "locationName": "Vé Núi Langbiang Đà Lạt ",
+      "address": "thị trấn Lạc Dương,Lạc Dương",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/7608201008250/Langbiang-Mountain-Tickets--b361ab21-36ae-4e7f-8650-5a2ea6d6cf52.png?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/langbiang-mountain-tickets-7608201008250",
+      "price": {
+        "originalPrice": "50000 VND",
+        "discountedPrice": "50000 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_5309708184627",
+      "locationName": "Pawsome Haven Pet Cafe Zoo Doo Đà Lạt ",
+      "address": "xã Đạ Nhim,Lạc Dương",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/5309708184627/Pawsome-Haven-Pet-Cafe-by-ZooDoo-Da-Lat-79cfd477-77f2-4db0-a9c7-fecf513d050f.png?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/pawsome-haven-pet-cafe-by-zoodoo-da-lat-5309708184627",
+      "price": {
+        "originalPrice": "100000 VND",
+        "discountedPrice": "95000 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_5465111841647",
+      "locationName": "Samten Hills Da Lat Ticket",
+      "address": "xã Tu Tra,Đơn Dương",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/5465111841647/Samten-Hills-Da-Lat-Ticket-6fc23ede-ca4a-4c19-a0e1-3609e74c7872.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/samten-hills-da-lat-ticket-5465111841647",
+      "price": {
+        "originalPrice": "292409 VND",
+        "discountedPrice": "292409 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_6847542439019",
+      "locationName": "GOD Valley Admission in Da Lat",
+      "address": "Tà Nung,Đà Lạt",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/6847542439019/GOD-Valley-Admission-in-Da-Lat-11a677bd-f6a6-473c-91e2-6874a32ee71b.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/god-valley-admission-in-da-lat-6847542439019",
+      "price": {
+        "originalPrice": "161856 VND",
+        "discountedPrice": "161856 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_8059444638092",
+      "locationName": "Coffee Farm Visit and Coffee Experience at Tam Trinh Coffee Farm",
+      "address": "xã Gia Lâm,Lâm Hà",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/8059444638092/Coffee-Farm-Visit-and-Coffee-Experience-at-Tam-Trinh-Coffee-Farm-5e837eb4-5aa7-488e-ba97-751175740b15.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/coffee-farm-visit-and-coffee-experience-at-tam-trinh-coffee-farm-8059444638092",
+      "price": {
+        "originalPrice": "101542 VND",
+        "discountedPrice": "101542 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_7297759020787",
+      "locationName": "Full Day Experience & Trekking Tour at Twin Beans Farm",
+      "address": "xã Đạ Sar,Lạc Dương",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/7297759020787/Full-Day-Experience-Trekking-Tour-at-Twin-Beans-Farm-58855fe7-ec1f-45af-8c11-4dc64df91f52.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/full-day-experience-&-trekking-tour-at-twin-beans-farm-7297759020787",
+      "price": {
+        "originalPrice": "810805 VND",
+        "discountedPrice": "810805 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_6759814007635",
+      "locationName": "Thác Datanla: Xe trượt Alpine Coaster, Zipline, Đu dây mạo hiểm",
+      "address": "Phường 3,Đà Lạt",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/6759814007635/Datanla-Waterfall-Tickets-Alpine-Coaster-Zipline-High-Rope-Course-3f0ff4eb-5fb6-4826-ad76-987c55e0e38f.png?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/datanla-waterfall-tickets:-alpine-coaster,-zipline,-high-rope-course-6759814007635",
+      "price": {
+        "originalPrice": "50000 VND",
+        "discountedPrice": "50000 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_8847506514842",
+      "locationName": "Dalat Flower Highland Ticket ",
+      "address": "Tà Nung,Đà Lạt",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/8847506514842/Dalat-Flower-Highland-Ticket--86379efb-5aab-4d41-b0b6-104271266fcd.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/dalat-flower-highland-ticket-8847506514842",
+      "price": {
+        "originalPrice": "161856 VND",
+        "discountedPrice": "161856 VND"
+      }
+    }
+  ]
+}

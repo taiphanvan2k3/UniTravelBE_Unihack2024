@@ -1,0 +1,54 @@
+{
+  "provinces": [
+    {
+      "name": "Lâm Đồng",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/loc-asset/gNr3hLh55ZCkPJisyxFK-v9MmzxPu57ZRVI+10VZ2S4b1PNW4T++cbA6yK4gzhAhs9o2HLZ9vs7gy3rpcIU+oKi5EygzQLRjTUv7fRblEVA=/images/1709704098116-1000x666-FIT_AND_TRIM-9ff512c904fe92570c0693f5292a6d5f.jpeg?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+      "attractionsLink": "https://www.traveloka.com/vi-vn/activities/vietnam/region/lam-dong-province-10010000/attraction"
+    },
+    {
+      "name": "Bình Thuận",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/loc-asset/gNr3hLh55ZCkPJisyxFK-v9MmzxPu57ZRVI+10VZ2S4b1PNW4T++cbA6yK4gzhAhs9o2HLZ9vs7gy3rpcIU+oKi5EygzQLRjTUv7fRblEVA=/images/1710234250819-1000x667-FIT_AND_TRIM-4f6aa9ca25d8bf0d4dfbe8a7d085b4e3.jpeg?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+      "attractionsLink": "https://www.traveloka.com/vi-vn/activities/vietnam/region/binh-thuan-province-10009825/attraction"
+    },
+    {
+      "name": "Hà Nội",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/loc-asset/gNr3hLh55ZCkPJisyxFK-v9MmzxPu57ZRVI+10VZ2S4b1PNW4T++cbA6yK4gzhAhs9o2HLZ9vs7gy3rpcIU+oKi5EygzQLRjTUv7fRblEVA=/images/1548748295060-1600x1200-FIT_AND_TRIM-917411b49daa380d594ea7e61e8216be.jpeg?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+      "attractionsLink": "https://www.traveloka.com/vi-vn/activities/vietnam/region/hanoi-10009843/attraction"
+    },
+    {
+      "name": "Đà Nẵng",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/loc-asset/gNr3hLh55ZCkPJisyxFK-v9MmzxPu57ZRVI+10VZ2S4b1PNW4T++cbA6yK4gzhAhs9o2HLZ9vs7gy3rpcIU+oKi5EygzQLRjTUv7fRblEVA=/images/1548818046002-1600x1200-FIT_AND_TRIM-9b196b4f45b914b3dbfea061903379d8.jpeg?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+      "attractionsLink": "https://www.traveloka.com/vi-vn/activities/vietnam/region/da-nang-10010083/attraction"
+    },
+    {
+      "name": "Phú Yên",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/loc-asset/gNr3hLh55ZCkPJisyxFK-v9MmzxPu57ZRVI+10VZ2S4b1PNW4T++cbA6yK4gzhAhs9o2HLZ9vs7gy3rpcIU+oKi5EygzQLRjTUv7fRblEVA=/images/1709046923640-5616x2808-FIT_AND_TRIM-611c95c05e504000d5fee5d919442666.jpeg?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+      "attractionsLink": "https://www.traveloka.com/vi-vn/activities/vietnam/region/phu-yen-province-10009823/attraction"
+    },
+    {
+      "name": "Ninh Bình",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/loc-asset/gNr3hLh55ZCkPJisyxFK-v9MmzxPu57ZRVI+10VZ2S4b1PNW4T++cbA6yK4gzhAhs9o2HLZ9vs7gy3rpcIU+oKi5EygzQLRjTUv7fRblEVA=/images/1561964480757-1200x824-FIT_AND_TRIM-0fb17578073eedf5ef00d999f8c2c4d1.jpeg?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+      "attractionsLink": "https://www.traveloka.com/vi-vn/activities/vietnam/region/ninh-binh-10009897/attraction"
+    },
+    {
+      "name": "Thừa Thiên Huế",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/loc-asset/gNr3hLh55ZCkPJisyxFK-v9MmzxPu57ZRVI+10VZ2S4b1PNW4T++cbA6yK4gzhAhs9o2HLZ9vs7gy3rpcIU+oKi5EygzQLRjTUv7fRblEVA=/images/1710404479441-4928x3280-FIT_AND_TRIM-746cb9e4fe635a79f0612c1501616841.jpeg?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+      "attractionsLink": "https://www.traveloka.com/vi-vn/activities/vietnam/region/thua-thien-hue-province-10010312/attraction"
+    },
+    {
+      "name": "Quảng Bình",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/loc-asset/gNr3hLh55ZCkPJisyxFK-v9MmzxPu57ZRVI+10VZ2S4b1PNW4T++cbA6yK4gzhAhs9o2HLZ9vs7gy3rpcIU+oKi5EygzQLRjTUv7fRblEVA=/images/1571397056251-1100x825-FIT_AND_TRIM-b937b305d73ac62172d1d7c56b3a02dc.jpeg?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+      "attractionsLink": "https://www.traveloka.com/vi-vn/activities/vietnam/region/quang-binh-province-10009827/attraction"
+    },
+    {
+      "name": "Hồ Chí Minh",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/loc-asset/gNr3hLh55ZCkPJisyxFK-v9MmzxPu57ZRVI+10VZ2S4b1PNW4T++cbA6yK4gzhAhs9o2HLZ9vs7gy3rpcIU+oKi5EygzQLRjTUv7fRblEVA=/images/1557388988370-2124x1411-FIT_AND_TRIM-d8e53c0d3efa793a7120c2f4eb30fbc4.jpeg?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+      "attractionsLink": "https://www.traveloka.com/vi-vn/activities/vietnam/region/ho-chi-minh-city-10009794/attraction"
+    },
+    {
+      "name": "Bà Rịa - Vũng Tàu",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/loc-asset/gNr3hLh55ZCkPJisyxFK-v9MmzxPu57ZRVI+10VZ2S4b1PNW4T++cbA6yK4gzhAhs9o2HLZ9vs7gy3rpcIU+oKi5EygzQLRjTUv7fRblEVA=/images/1709704024211-1000x518-FIT_AND_TRIM-71cee409804ead6271d02302312ce428.jpeg?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+      "attractionsLink": "https://www.traveloka.com/vi-vn/activities/vietnam/region/ba-ria-vung-tau-province-10009889/attraction"
+    }
+  ]
+}

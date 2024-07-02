@@ -1,0 +1,83 @@
+{
+  "provinceName": "Bình Thuận",
+  "country": "Vietnam",
+  "experienceLocations": [
+    {
+      "locationId": "traveloka_5263249679618",
+      "locationName": "Vé Wonderland Water Park Phan Thiết 12345",
+      "address": "Tiến Thành,Phan Thiết",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/5263249679618/Wonderland-Water-Park-Phan-Thiet-Tickets-26a19891-6755-4b00-8222-318cd1fd67f0.png?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/wonderland-water-park-phan-thiet-tickets-5263249679618",
+      "price": {
+        "originalPrice": "640000 VND",
+        "discountedPrice": "299000 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_6624089866891",
+      "locationName": "Vé Circus Land",
+      "address": "Tiến Thành,Phan Thiết",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/6624089866891/Circus-Land-Tickets--992cd6fc-e7f6-47a7-9371-43c613e479a9.png?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/circus-land-tickets-6624089866891",
+      "price": {
+        "originalPrice": "160000 VND",
+        "discountedPrice": "120000 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_7646003089456",
+      "locationName": "Vé Dino Park Công viên khủng long Phan Thiết",
+      "address": "Tiến Thành,Phan Thiết",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/7646003089456/Dino-Park-Tickets-173a11b5-ef57-4365-b4ba-968caa1be7c4.png?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/dino-park-phan-thiet-tickets-7646003089456",
+      "price": {
+        "originalPrice": "160000 VND",
+        "discountedPrice": "120000 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_9351254298931",
+      "locationName": "Vé Safari Cafe Phan Thiết ",
+      "address": "Tiến Thành,Phan Thiết",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/9351254298931/Safari-Cafe-Phan-Thiet-Tickets--8bb3b0bb-bcf0-4147-b0f8-b7b962e8cbcb.png?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/safari-cafe-phan-thiet-tickets-9351254298931",
+      "price": {
+        "originalPrice": "160000 VND",
+        "discountedPrice": "120000 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_8315438386948",
+      "locationName": "Vé Wonder Hill - Đồi Kỳ quan Phan Thiết ",
+      "address": "Tiến Thành,Phan Thiết",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/8315438386948/Wonder-Hill-Phan-Thiet-Tickets-afeebff0-6e11-4e4b-9c98-edaad94d4bb5.png?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/wonder-hill-phan-thiet-tickets-8315438386948",
+      "price": {
+        "originalPrice": "160000 VND",
+        "discountedPrice": "120000 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_8866052565708",
+      "locationName": "TTC World Ta Cu Cable Car Ticket",
+      "address": "Thị trấn Thuận Nam,Hàm Thuận Nam",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/8866052565708/TTC-World-Ta-Cu-Cable-Car-Ticket-fe973ce7-c7ce-4960-8532-33580ffa1b94.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/ttc-world-ta-cu-cable-car-ticket-8866052565708",
+      "price": {
+        "originalPrice": "47335 VND",
+        "discountedPrice": "47335 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_9366549910861",
+      "locationName": "Fishermen Show Ticket in Phan Thiet",
+      "address": "Phú Hài,Phan Thiết",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/9366549910861/Fishermen-Show-Ticket-in-Phan-Thiet-c5b4c577-72c2-40c4-a8fd-0237cd796722.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/fishermen-show-ticket-in-phan-thiet-9366549910861",
+      "price": {
+        "originalPrice": "345088 VND",
+        "discountedPrice": "345088 VND"
+      }
+    }
+  ]
+}

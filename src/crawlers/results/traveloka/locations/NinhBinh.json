@@ -1,0 +1,17 @@
+{
+  "provinceName": "Ninh Bình",
+  "country": "Vietnam",
+  "experienceLocations": [
+    {
+      "locationId": "traveloka_7917457664194",
+      "locationName": "Thung Nham Bird Park",
+      "address": "Ninh Hải,Hoa Lư",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/7917457664194/Thung-Nham-Bird-Park-Ticket-a0e1ca80-d255-46c1-b4cf-81c05630a284.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/thung-nham-bird-park-ticket-7917457664194",
+      "price": {
+        "originalPrice": "122410 VND",
+        "discountedPrice": "122410 VND"
+      }
+    }
+  ]
+}

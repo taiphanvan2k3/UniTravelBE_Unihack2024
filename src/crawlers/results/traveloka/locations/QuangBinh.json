@@ -1,0 +1,17 @@
+{
+  "provinceName": "Quảng Bình",
+  "country": "Vietnam",
+  "experienceLocations": [
+    {
+      "locationId": "traveloka_7426006085323",
+      "locationName": "Ozo Park Ticket in Quang Binh",
+      "address": "Huyện Bố Trạch,Huyện Bố Trạch",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/7426006085323/Ozo-Park-Ticket-in-Quang-Binh-752fb826-c459-4dbc-b23e-e0435090ea5b.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/ozo-park-ticket-in-quang-binh-7426006085323",
+      "price": {
+        "originalPrice": "230568 VND",
+        "discountedPrice": "230568 VND"
+      }
+    }
+  ]
+}
