@@ -1,0 +1,39 @@
+{
+  "provinceName": "Bà Rịa - Vũng Tàu",
+  "country": "Vietnam",
+  "experienceLocations": [
+    {
+      "locationId": "traveloka_2001384235948",
+      "locationName": "Vé khu du lịch Hồ Mây",
+      "address": "Phường 6,Thành phố Vũng Tàu",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/2001384235948/Ho-May-Park-Tickets-baea018d-c677-4437-8842-46d4b334b041.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/ho-may-park-tickets-2001384235948",
+      "price": {
+        "originalPrice": "500000 VND",
+        "discountedPrice": "460000 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_7042516362981",
+      "locationName": "Vé Công viên nước Tropicana Park Hồ Tràm",
+      "address": "Bình Châu,Xuyên Mộc",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/7042516362981/Tropicana-Park-Tickets--fb0076fc-20f5-4330-8aeb-83ceec171851.png?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/tropicana-park-tickets-7042516362981",
+      "price": {
+        "originalPrice": "190000 VND",
+        "discountedPrice": "181000 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_7875777926088",
+      "locationName": "Minera Hot Springs Binh Chau Tickets",
+      "address": "Bình Châu,Xuyên Mộc",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/7875777926088/Minera-Hot-Springs-Binh-Chau-Tickets-6d483ef8-25cd-4b5a-95c7-529744b2b5fd.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/minera-hot-springs-binh-chau-tickets-7875777926088",
+      "price": {
+        "originalPrice": "211997 VND",
+        "discountedPrice": "211997 VND"
+      }
+    }
+  ]
+}

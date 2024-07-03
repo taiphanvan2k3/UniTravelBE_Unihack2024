@@ -1,0 +1,72 @@
+{
+  "provinceName": "Hồ Chí Minh",
+  "country": "Vietnam",
+  "experienceLocations": [
+    {
+      "locationId": "traveloka_6825879014353",
+      "locationName": "Vé Khu du lịch Văn hóa Suối Tiên",
+      "address": "Tân Phú,Quận 9",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/6825879014353/Suoi-Tien-Theme-Park-Tickets-bec9b9ae-5c9c-4260-8361-b17cdc43cd51.png?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/suoi-tien-theme-park-tickets-6825879014353",
+      "price": {
+        "originalPrice": "150000 VND",
+        "discountedPrice": "142500 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_2000639648830",
+      "locationName": "Vé đài quan sát SkyView tại Vincom Center Landmark 81",
+      "address": "Phường 22,Quận Bình Thạnh",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/2000639648830/Vincom-Center-Landmark-81-SkyView-Observation-Deck-Tickets-b4d70815-836d-44cc-adf5-00002ef2a27b.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/vincom-center-landmark-81-skyview-observation-deck-tickets-2000639648830",
+      "price": {
+        "originalPrice": "450000 VND",
+        "discountedPrice": "420000 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_2001465639912",
+      "locationName": "Vé Saigon Skydeck tại Bitexco Financial Tower",
+      "address": "Bến Nghé,Quận 1",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/2001465639912/Saigon-Skydeck-at-Bitexco-Financial-Tower-Tickets--599c3fa4-e6ee-471f-87bf-dd0a580cdbdd.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/saigon-skydeck-at-bitexco-financial-tower-tickets-2001465639912",
+      "price": {
+        "originalPrice": "240000 VND",
+        "discountedPrice": "220000 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_5769617169457",
+      "locationName": "Vé chơi bắn súng tại Saigon Sniper ",
+      "address": "Bến Nghé,Quận 1",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/5769617169457/Saigon-Sniper-Shooting-Range-Tickets-1f18a622-b279-406b-bc4d-9d5219a4e292.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/saigon-sniper-shooting-range-tickets-5769617169457",
+      "price": {
+        "originalPrice": "35000 VND",
+        "discountedPrice": "35000 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_3316402748426",
+      "locationName": "Vé xem múa rối nước tại nhà hát Rồng Vàng TPHCM",
+      "address": "Phường Bến Thành,Quận 1",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/3316402748426/Golden-Dragon-Water-Puppet-Show-Ho-Chi-Minh-City--ee4ff6a5-5328-4a9a-b52a-7b55af217106.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/golden-dragon-water-puppet-show-ho-chi-minh-city-3316402748426",
+      "price": {
+        "originalPrice": "333084 VND",
+        "discountedPrice": "333084 VND"
+      }
+    },
+    {
+      "locationId": "traveloka_6191086972432",
+      "locationName": "Fito Museum Ticket in Ho Chi Minh City",
+      "address": "Phường 12,Quận 10",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/6191086972432/Fito-Museum-Ticket-in-Ho-Chi-Minh-City-8f929571-53cc-4f6a-a984-d9d5776be15e.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/fito-museum-ticket-in-ho-chi-minh-city-6191086972432",
+      "price": {
+        "originalPrice": "219116 VND",
+        "discountedPrice": "219116 VND"
+      }
+    }
+  ]
+}

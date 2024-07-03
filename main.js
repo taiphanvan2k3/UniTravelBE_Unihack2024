@@ -11,9 +11,9 @@ const { swaggerUI, specs } = require("./src/config/swagger.js");
 const userRouter = require("./src/routes/user.route.js");
 const authRouter = require("./src/routes/auth.route.js");
 const errorHandler = require("./src/helpers/error-handler.js");
+const seedData = require("./src/models/InitDB/DBinitialize.js");
 
 const app = express();
-
 app.use(
     cors({
         origin: "*",
@@ -35,7 +35,10 @@ app.use(errorHandler);
 const PORT = process.env.PORT || constants.SERVER_PORT;
 mongoose
     .connect(process.env.MONGO_URI)
-    .then(() => console.log("UniTravel database connected!"))
+    .then(() => {
+        console.log("Connected to MongoDB");
+        seedData();
+    })
     .catch((err) => console.log(err));
 
 app.listen(PORT, () => {
