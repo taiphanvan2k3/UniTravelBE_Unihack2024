@@ -6,6 +6,12 @@ module.exports = (err, req, res, next) => {
     logEvents(
         `idError ----- ${errorId} ----- ${req.url} ----- ${req.method} ----- ${err.message}`
     );
+
+    // Kiểm tra xem headers đã được gửi chưa
+    if (res.headersSent) {
+        return next(err);
+    }
+
     res.status(err.status || 500);
     res.send({
         error: {

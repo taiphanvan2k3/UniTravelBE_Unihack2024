@@ -1,4 +1,4 @@
-const { admin } = require("../config/firebase");
+const { admin } = require("../../config/firebase");
 const fs = require("fs");
 const path = require("path");
 
