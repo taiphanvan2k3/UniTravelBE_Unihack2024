@@ -67,6 +67,8 @@ router.post("/register-with-email", firebaseAuthController.registerUser);
  */
 router.post("/login-with-email", firebaseAuthController.loginUser);
 
+router.post("/verify-token", firebaseAuthController.verifyToken);
+
 /**
  * @swagger
  * /auth/sign-out:

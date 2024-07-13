@@ -1,4 +1,5 @@
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -16,11 +17,15 @@ const seedData = require("./src/models/InitDB/DBinitialize.js");
 const app = express();
 app.use(
     cors({
-        origin: "*",
+        origin: ["http://localhost:5173"],
         methods: ["GET", "POST"],
+
+        // Nhằm cho phép client gửi cookie lên server
+        credentials: true,
     })
 );
 
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -37,7 +42,7 @@ mongoose
     .connect(process.env.MONGO_URI)
     .then(() => {
         console.log("Connected to MongoDB");
-        seedData();
+        // seedData();
     })
     .catch((err) => console.log(err));
 
