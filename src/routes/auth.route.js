@@ -67,6 +67,32 @@ router.post("/register-with-email", firebaseAuthController.registerUser);
  */
 router.post("/login-with-email", firebaseAuthController.loginUser);
 
+/**
+ * @swagger
+ * /auth/verify-token:
+ *   post:
+ *     summary: Verify token
+ *     tags: [FirebaseAuthController]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 example: "taiphan2403a@gmail.com"
+ *     responses:
+ *       200:
+ *         description: user and token verified
+ *       401:
+ *         description: Verify token failed!
+ *       422:
+ *         description: Invalid input, missing email
+ */
 router.post("/verify-token", firebaseAuthController.verifyToken);
 
 /**

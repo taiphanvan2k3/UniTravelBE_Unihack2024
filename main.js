@@ -12,7 +12,10 @@ const { swaggerUI, specs } = require("./src/config/swagger.js");
 const userRouter = require("./src/routes/user.route.js");
 const authRouter = require("./src/routes/auth.route.js");
 const errorHandler = require("./src/helpers/error-handler.js");
-const seedData = require("./src/models/InitDB/DBinitialize.js");
+const { logInfo } = require("./src/services/logger.service.js");
+
+// Crawl data
+// const seedData = require("./src/models/InitDB/DBinitialize.js");
 
 const app = express();
 app.use(
@@ -41,11 +44,10 @@ const PORT = process.env.PORT || constants.SERVER_PORT;
 mongoose
     .connect(process.env.MONGO_URI)
     .then(() => {
-        console.log("Connected to MongoDB");
-        // seedData();
+        logInfo("main.js", "Connected to MongoDB successfully");
     })
     .catch((err) => console.log(err));
 
 app.listen(PORT, () => {
-    console.log(`Server backend is running at localhost:${PORT}`);
+    logInfo("main.js", `Server backend is running at localhost:${PORT}`);
 });
