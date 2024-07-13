@@ -1,19 +1,10 @@
-const redis = require('redis');
-// const client = redis.createClient({
-//     port: 6379,
-//     host: '127.0.0.1',
-// });
+const redis = require("redis");
+const { logInfo, logError } = require("../services/logger.service");
 
-const redisCloudUrl = 'redis://default:yuHkdZzi1uaLkikay83VGDXvn9QpbLHT@redis-16013.c252.ap-southeast-1-1.ec2.redns.redis-cloud.com:16013';
-
-const client = redis.createClient({
-    url: redisCloudUrl
-});
-
-client.on('error', (err) => console.log('Redis Client Error', err));
-
-client.on('connect', () => {
-    console.log('Connected to Redis');
+const client = redis.createClient({ url: process.env.REDIS_CLOUD_URL });
+client.on("error", (err) => logError("redis-initialize.js", err.message));
+client.on("connect", () => {
+    logInfo("redis-initialize.js", "Connected to Redis");
 });
 
 client.connect();

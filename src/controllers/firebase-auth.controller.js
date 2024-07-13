@@ -32,6 +32,7 @@ class FirebaseAuthController {
         }
 
         if (!token) {
+            logInfo("verifyToken", "End");
             return res.status(422).json({
                 token: "Token is required",
             });
