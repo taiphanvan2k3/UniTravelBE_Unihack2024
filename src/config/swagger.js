@@ -14,6 +14,11 @@ const options = {
         servers: [
             {
                 url: `http://localhost:${process.env.PORT}`,
+                description: "Local server",
+            },
+            {
+                url: "https://travelunihackbe.onrender.com",
+                description: "Production server",
             },
         ],
     },
