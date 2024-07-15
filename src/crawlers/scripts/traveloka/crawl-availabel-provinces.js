@@ -25,7 +25,7 @@ const targetResponseUrl =
 const fileOutputPath = path.join(
     __dirname,
     "../../results/traveloka",
-    "available-provinces.json"
+    "available-provinces_2.json"
 );
 
 createFolderIfNotExist(path.dirname(fileOutputPath));

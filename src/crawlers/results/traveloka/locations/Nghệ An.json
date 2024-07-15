@@ -1,0 +1,19 @@
+{
+  "provinceName": "Nghệ An",
+  "country": "Vietnam",
+  "experienceLocations": [
+    {
+      "locationId": "traveloka_9652234516405",
+      "locationName": "Vé VinWonders Cửa Hội",
+      "address": "phường Nghi Hòa,Cửa Lò",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/9652234516405/VinWonders-Cua-Hoi-Tickets-dcd80173-4ecb-48b1-9ee0-a96bec84358c.png?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/vinwonders-cua-hoi-tickets-9652234516405",
+      "price": {
+        "originalPrice": "100000 VND",
+        "discountedPrice": "100000 VND"
+      },
+      "score": 8,
+      "totalReview": 2
+    }
+  ]
+}

@@ -22,29 +22,42 @@ const extractImportantFields = (data) => {
                     originalPrice: `${location.basePrice.originalPrice.currencyValue.amount} ${location.basePrice.originalPrice.currencyValue.currency}`,
                     discountedPrice: `${location.basePrice.discountedPrice.currencyValue.amount} ${location.basePrice.discountedPrice.currencyValue.currency}`,
                 },
+                score: Number.parseFloat(location.score),
+                totalReview: Number.parseInt(location.totalReview),
             };
         }),
     };
 };
 
-const pageUrl =
-    "https://www.traveloka.com/vi-vn/activities/vietnam/region/ba-ria-vung-tau-province-10009889/attraction";
 const targetResponseUrl =
     "https://www.traveloka.com/api/v2/experience/searchV2";
 
-const fileOutputPath = path.join(
+const provincePath = path.join(
     __dirname,
-    "../../results/traveloka",
-    "BaRia-VungTau.json"
+    "../../results/traveloka/available-provinces.json"
 );
 
-createFolderIfNotExist(path.dirname(fileOutputPath));
+const provinces = require(provincePath).provinces;
+const crawlAllProvinces = async () => {
+    for (const province of provinces) {
+        const pageUrl = province.attractionsLink;
+        const fileOutputPath = path.join(
+            __dirname,
+            "../../results/traveloka/locations",
+            `${province.name}.json`
+        );
+
+        console.log(`Crawling ${province.name}...`);
+        createFolderIfNotExist(path.dirname(fileOutputPath));
+        await crawlData(
+            pageUrl,
+            targetResponseUrl,
+            fileOutputPath,
+            extractImportantFields
+        );
+    }
+};
 
 (async () => {
-    await crawlData(
-        pageUrl,
-        targetResponseUrl,
-        fileOutputPath,
-        extractImportantFields
-    );
+    await crawlAllProvinces();
 })();

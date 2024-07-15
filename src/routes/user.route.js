@@ -1,5 +1,5 @@
 const Router = require("express");
-const UserController = require("../controllers/user.controller.js");
+const UserController = require("../controllers/users.controller.js");
 const verifyToken = require("../middlewares/firebase-auth.middleware.js");
 const { limitRequest } = require("../middlewares/limiter.middleware");
 

@@ -11,7 +11,9 @@
       "price": {
         "originalPrice": "500000 VND",
         "discountedPrice": "460000 VND"
-      }
+      },
+      "score": 8.1,
+      "totalReview": 133
     },
     {
       "locationId": "traveloka_7042516362981",
@@ -22,7 +24,9 @@
       "price": {
         "originalPrice": "190000 VND",
         "discountedPrice": "181000 VND"
-      }
+      },
+      "score": 9.4,
+      "totalReview": 25
     },
     {
       "locationId": "traveloka_7875777926088",
@@ -31,9 +35,11 @@
       "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/7875777926088/Minera-Hot-Springs-Binh-Chau-Tickets-6d483ef8-25cd-4b5a-95c7-529744b2b5fd.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
       "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/minera-hot-springs-binh-chau-tickets-7875777926088",
       "price": {
-        "originalPrice": "211997 VND",
-        "discountedPrice": "211997 VND"
-      }
+        "originalPrice": "211784 VND",
+        "discountedPrice": "211784 VND"
+      },
+      "score": null,
+      "totalReview": 0
     }
   ]
 }

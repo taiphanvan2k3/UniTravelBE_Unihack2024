@@ -11,7 +11,9 @@
       "price": {
         "originalPrice": "150000 VND",
         "discountedPrice": "142500 VND"
-      }
+      },
+      "score": 8.9,
+      "totalReview": 31
     },
     {
       "locationId": "traveloka_2000639648830",
@@ -22,7 +24,9 @@
       "price": {
         "originalPrice": "450000 VND",
         "discountedPrice": "420000 VND"
-      }
+      },
+      "score": 9,
+      "totalReview": 103
     },
     {
       "locationId": "traveloka_2001465639912",
@@ -33,7 +37,9 @@
       "price": {
         "originalPrice": "240000 VND",
         "discountedPrice": "220000 VND"
-      }
+      },
+      "score": 8.9,
+      "totalReview": 78
     },
     {
       "locationId": "traveloka_5769617169457",
@@ -44,7 +50,9 @@
       "price": {
         "originalPrice": "35000 VND",
         "discountedPrice": "35000 VND"
-      }
+      },
+      "score": 9.7,
+      "totalReview": 32
     },
     {
       "locationId": "traveloka_3316402748426",
@@ -53,9 +61,11 @@
       "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/3316402748426/Golden-Dragon-Water-Puppet-Show-Ho-Chi-Minh-City--ee4ff6a5-5328-4a9a-b52a-7b55af217106.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
       "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/golden-dragon-water-puppet-show-ho-chi-minh-city-3316402748426",
       "price": {
-        "originalPrice": "333084 VND",
-        "discountedPrice": "333084 VND"
-      }
+        "originalPrice": "332723 VND",
+        "discountedPrice": "332723 VND"
+      },
+      "score": 9.9,
+      "totalReview": 8
     },
     {
       "locationId": "traveloka_6191086972432",
@@ -64,9 +74,11 @@
       "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/6191086972432/Fito-Museum-Ticket-in-Ho-Chi-Minh-City-8f929571-53cc-4f6a-a984-d9d5776be15e.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
       "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/fito-museum-ticket-in-ho-chi-minh-city-6191086972432",
       "price": {
-        "originalPrice": "219116 VND",
-        "discountedPrice": "219116 VND"
-      }
+        "originalPrice": "182259 VND",
+        "discountedPrice": "182259 VND"
+      },
+      "score": null,
+      "totalReview": 0
     }
   ]
 }
