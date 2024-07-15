@@ -1,0 +1,19 @@
+{
+  "provinceName": "Đắk Lắk",
+  "country": "Vietnam",
+  "experienceLocations": [
+    {
+      "locationId": "traveloka_9456714292546",
+      "locationName": "Vé Bảo Tàng Thế Giới Cà Phê & Tour Trải Nghiệm 03 Nền Văn Minh Cà Phê",
+      "address": "Phường Thắng Lợi,Thành phố Buôn Ma Thuột",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/9456714292546/The-World-Of-Coffee-Museum-Admission-Minitours-Experiences-Tickets-Vietnam-b3e5f2a3-a725-4e96-86b4-5b39f5e3e844.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/the-world-of-coffee-museum-admission,-minitours-&-experiences-tickets-|-vietnam-9456714292546",
+      "price": {
+        "originalPrice": "161646 VND",
+        "discountedPrice": "161646 VND"
+      },
+      "score": 10,
+      "totalReview": 1
+    }
+  ]
+}

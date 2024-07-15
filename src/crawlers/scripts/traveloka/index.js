@@ -25,7 +25,11 @@ const saveExperienceLocations = async (filePath) => {
                             originalPrice: location.price.originalPrice,
                             discountedPrice: location.price.discountedPrice,
                         },
+                        provinceCode: province.code,
                         province: province._id,
+                        score: location.score ?? 0,
+                        crawledTotalReview: location.totalReview ?? 0,
+                        actualTotalReview: 0,
                     });
                 }
             );

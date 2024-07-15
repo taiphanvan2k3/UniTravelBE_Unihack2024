@@ -7,12 +7,11 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const constants = require("./src/common/constants.js");
 const { swaggerUI, specs } = require("./src/config/swagger.js");
+const { logInfo } = require("./src/services/logger.service.js");
 
 // Routers
-const userRouter = require("./src/routes/user.route.js");
-const authRouter = require("./src/routes/auth.route.js");
+const routes = require("./src/routes");
 const errorHandler = require("./src/helpers/error-handler.js");
-const { logInfo } = require("./src/services/logger.service.js");
 
 // Crawl data
 // const seedData = require("./src/models/InitDB/DBinitialize.js");
@@ -33,8 +32,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Nạp các route vào ứng dụng
-app.use("/user", userRouter);
-app.use("/auth", authRouter);
+routes(app);
 app.use("/swagger", swaggerUI.serve, swaggerUI.setup(specs));
 
 // Middleware xử lý lỗi

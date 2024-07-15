@@ -4,14 +4,16 @@
   "experienceLocations": [
     {
       "locationId": "traveloka_5263249679618",
-      "locationName": "Vé Wonderland Water Park Phan Thiết 12345",
+      "locationName": "Vé Wonderland Water Park Phan Thiết ",
       "address": "Tiến Thành,Phan Thiết",
       "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/5263249679618/Wonderland-Water-Park-Phan-Thiet-Tickets-26a19891-6755-4b00-8222-318cd1fd67f0.png?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
       "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/wonderland-water-park-phan-thiet-tickets-5263249679618",
       "price": {
         "originalPrice": "640000 VND",
         "discountedPrice": "299000 VND"
-      }
+      },
+      "score": 9,
+      "totalReview": 22
     },
     {
       "locationId": "traveloka_6624089866891",
@@ -22,7 +24,9 @@
       "price": {
         "originalPrice": "160000 VND",
         "discountedPrice": "120000 VND"
-      }
+      },
+      "score": 9,
+      "totalReview": 14
     },
     {
       "locationId": "traveloka_7646003089456",
@@ -33,7 +37,9 @@
       "price": {
         "originalPrice": "160000 VND",
         "discountedPrice": "120000 VND"
-      }
+      },
+      "score": 9.3,
+      "totalReview": 3
     },
     {
       "locationId": "traveloka_9351254298931",
@@ -44,7 +50,9 @@
       "price": {
         "originalPrice": "160000 VND",
         "discountedPrice": "120000 VND"
-      }
+      },
+      "score": 8,
+      "totalReview": 4
     },
     {
       "locationId": "traveloka_8315438386948",
@@ -55,18 +63,9 @@
       "price": {
         "originalPrice": "160000 VND",
         "discountedPrice": "120000 VND"
-      }
-    },
-    {
-      "locationId": "traveloka_8866052565708",
-      "locationName": "TTC World Ta Cu Cable Car Ticket",
-      "address": "Thị trấn Thuận Nam,Hàm Thuận Nam",
-      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/8866052565708/TTC-World-Ta-Cu-Cable-Car-Ticket-fe973ce7-c7ce-4960-8532-33580ffa1b94.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
-      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/ttc-world-ta-cu-cable-car-ticket-8866052565708",
-      "price": {
-        "originalPrice": "47335 VND",
-        "discountedPrice": "47335 VND"
-      }
+      },
+      "score": null,
+      "totalReview": 0
     },
     {
       "locationId": "traveloka_9366549910861",
@@ -75,9 +74,37 @@
       "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/9366549910861/Fishermen-Show-Ticket-in-Phan-Thiet-c5b4c577-72c2-40c4-a8fd-0237cd796722.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
       "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/fishermen-show-ticket-in-phan-thiet-9366549910861",
       "price": {
-        "originalPrice": "345088 VND",
-        "discountedPrice": "345088 VND"
-      }
+        "originalPrice": "344641 VND",
+        "discountedPrice": "344641 VND"
+      },
+      "score": null,
+      "totalReview": 0
+    },
+    {
+      "locationId": "traveloka_3530364697343",
+      "locationName": "Mango Beach Phan Thiet Ticket",
+      "address": "Hàm Tiến,Phan Thiết",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/3530364697343/Mango-Beach-Phan-Thiet-Ticket-dd20ba6f-2b8f-4e17-97f3-fb18db410935.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/mango-beach-phan-thiet-ticket-3530364697343",
+      "price": {
+        "originalPrice": "160375 VND",
+        "discountedPrice": "160375 VND"
+      },
+      "score": null,
+      "totalReview": 0
+    },
+    {
+      "locationId": "traveloka_8866052565708",
+      "locationName": "TTC World Ta Cu Cable Car Ticket",
+      "address": "Thị trấn Thuận Nam,Hàm Thuận Nam",
+      "thumbnailUrl": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/8866052565708/TTC-World-Ta-Cu-Cable-Car-Ticket-e06508cc-c215-40ae-bfcc-d376f1843ff8.jpeg?tr=q-60,c-at_max,w-540,h-960&_src=imagekit",
+      "detailedPageUrl": "https://www.traveloka.com/vi-vn/activities/vietnam/product/ttc-world-ta-cu-cable-car-ticket-8866052565708",
+      "price": {
+        "originalPrice": "47274 VND",
+        "discountedPrice": "47274 VND"
+      },
+      "score": 10,
+      "totalReview": 1
     }
   ]
 }
