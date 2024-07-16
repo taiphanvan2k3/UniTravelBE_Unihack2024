@@ -1,5 +1,23 @@
 const mongoose = require("mongoose");
 
+const ReviewPhotoSchema = new mongoose.Schema({
+    photoUrl: String,
+    date: {
+        month: String,
+        day: String,
+        year: String
+    }
+});
+
+const ReviewSchema = new mongoose.Schema({
+    reviewerName: String,
+    timestamp: String,
+    reviewText: String,
+    score: String,
+    language: String,
+    reviewPhotos: [ReviewPhotoSchema]
+});
+
 const ExperienceLocationSchema = new mongoose.Schema(
     {
         locationId: { type: String, required: true },
@@ -7,7 +25,10 @@ const ExperienceLocationSchema = new mongoose.Schema(
         thumbnailUrl: { type: String },
         detailedPageUrl: { type: String, required: true },
         address: { type: String, required: true },
-        price: {
+        time: { type: String },
+    description: { type: String },
+    reviews: [ReviewSchema],
+    price: {
             originalPrice: {
                 type: String,
                 required: true,

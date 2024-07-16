@@ -1,0 +1,328 @@
+{
+  "reviews": [
+    {
+      "reviewerName": "Le T. T. H. ",
+      "timestamp": "1718042463279",
+      "reviewText": "View đẹp, sang trọng \nMang đến cho khách tham quan một trải nghiệm mới mẻ về hình ảnh của TP HCM",
+      "score": "8.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": []
+    },
+    {
+      "reviewerName": "Nguyen T. T. M. ",
+      "timestamp": "1683676950704",
+      "reviewText": "nói chung trong bối cảnh này thì giá vé hơi đắt, lên trên đó thấy hụt hẫng vì không có dịch vụ gì",
+      "score": "6.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": []
+    },
+    {
+      "reviewerName": "Thuc P. N. D. ",
+      "timestamp": "1666008755281",
+      "reviewText": "Quy đổi vé tham quan cực kỳ tiện lợi. Chúng tôi đã hẹn hò ở nơi đây. Ngắm toàn cảnh thành phố Sài Gòn lúc hoàng hôn và buổi tối. Rất là đẹp. Trải nghiệm tuyệt vời\n",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": [
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/164531829_REVIEW_1666008752045_67b83bec62a98726?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "10",
+            "day": "17",
+            "year": "2022"
+          }
+        }
+      ]
+    },
+    {
+      "reviewerName": "Mai V. P. ",
+      "timestamp": "1640789645590",
+      "reviewText": "Rất đáng để trải nghiệm, nên đi lúc chiều để ngắm hoàng hôn. \n",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": [
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/176037368_REVIEW_1640789639976_3a4bea2a91bd7724?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "12",
+            "day": "29",
+            "year": "2021"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/176037368_REVIEW_1640789639976_28d0320494ad00f4?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "12",
+            "day": "29",
+            "year": "2021"
+          }
+        }
+      ]
+    },
+    {
+      "reviewerName": "Tran V. A. ",
+      "timestamp": "1609559531131",
+      "reviewText": "thủ tục nhanh chóng, ngắm Sài Gòn về đêm rất đẹp!",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": [
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/178946672_REVIEW_1609559517872_4e62d48d0d6a1263?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "1",
+            "day": "2",
+            "year": "2021"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/178946672_REVIEW_1609559517873_ed6b6dc84eb24212?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "1",
+            "day": "2",
+            "year": "2021"
+          }
+        }
+      ]
+    },
+    {
+      "reviewerName": "Nguyen N. D. ",
+      "timestamp": "1607441001530",
+      "reviewText": "Rất tuyệt vời, trải nghiệm thú vị!",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": [
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/134717034_REVIEW_1607440993646_3a7c660b5f643be8?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "12",
+            "day": "8",
+            "year": "2020"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/134717034_REVIEW_1607440993647_e222e8f9e3030fbc?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "12",
+            "day": "8",
+            "year": "2020"
+          }
+        }
+      ]
+    },
+    {
+      "reviewerName": "Phan H. T. D. ",
+      "timestamp": "1603169864887",
+      "reviewText": "ngắm cảnh thì ok, còn thiếu dịch vụ tiện ích",
+      "score": "7.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": []
+    },
+    {
+      "reviewerName": "Nguyen T. X. H. ",
+      "timestamp": "1597593814254",
+      "reviewText": "Mọi người nên đi từ chiều muộn để nhìn rõ thành phố, rồi đến tối ngắm thành phố về đêm. ",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": []
+    },
+    {
+      "reviewerName": "Nguyen N. K. V. ",
+      "timestamp": "1595224936519",
+      "reviewText": "Lịch sự, đổi vé nhanh, sẽ mua dịch vụ tiếp nếu giá hợp lý. \n\n",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": []
+    },
+    {
+      "reviewerName": "Chung N. ",
+      "timestamp": "1595167954269",
+      "reviewText": "Tôi rất thích địa điểm này. Các bạn nhân viên rất thân thiện. ",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": []
+    },
+    {
+      "reviewerName": "Ngoc T. M. N. ",
+      "timestamp": "1594878020206",
+      "reviewText": "Lúc mua vé thì sẽ được tặng nước suối nhưng khi đến nơi thì không có chai nước suối nào.",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": [
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/31008162_REVIEW_1594878011666_18564f358e93c193?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "7",
+            "day": "16",
+            "year": "2020"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/31008162_REVIEW_1594878011667_e79cda1cc0c1ad80?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "7",
+            "day": "16",
+            "year": "2020"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/31008162_REVIEW_1594878011667_32dbcc55e7a91f9b?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "7",
+            "day": "16",
+            "year": "2020"
+          }
+        }
+      ]
+    },
+    {
+      "reviewerName": "Tran T. T. V. ",
+      "timestamp": "1592831655783",
+      "reviewText": "Nhân viên hỗ trợ nhiệt tình, nếu có thêm nhiều tiểu cảnh để chụp hình sẽ ok hơn.",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": []
+    },
+    {
+      "reviewerName": "Vo N. B. M. ",
+      "timestamp": "1592145258904",
+      "reviewText": "Không có gì quá đặc biệt. Thành phố từ tầng 49 cũng không khác mấy với từ tầng 20 nếu bạn từng cafe trên cao ở nơi khác. Nhưng sảnh là 1 vòng nên nhìn được thành phố nhiều góc hơn. Khá sạch sẽ, nhân viên thân thiện, được chụp hình miễn phí nhưng giá in ảnh thì khá cao nếu muốn in. Nói chung mua với giá sau giảm còn 100k có thể chấp nhận được. ",
+      "score": "7.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": [
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/61126248_REVIEW_1592145254998_1e4d1d803b73c2e4?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "6",
+            "day": "14",
+            "year": "2020"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/61126248_REVIEW_1592145254999_2275e8d0a76dc09d?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "6",
+            "day": "14",
+            "year": "2020"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/61126248_REVIEW_1592145254999_cb3c24ee75ce5916?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "6",
+            "day": "14",
+            "year": "2020"
+          }
+        }
+      ]
+    },
+    {
+      "reviewerName": "Duc ",
+      "timestamp": "1591006909753",
+      "reviewText": "Đổi vé nhanh chóng mỗi tội một điểm bảo có chai nước suối không thấy đâu. Lỗi này chắc do bên bitexco thôi. Còn lại rất tốt.",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": [
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/33844088_REVIEW_1591006904990_fa3b3e9a73b9f144?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "6",
+            "day": "1",
+            "year": "2020"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/33844088_REVIEW_1591006904990_ffcd904ef7586b52?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "6",
+            "day": "1",
+            "year": "2020"
+          }
+        }
+      ]
+    },
+    {
+      "reviewerName": "Mai T. N. ",
+      "timestamp": "1590033829776",
+      "reviewText": "Vé mua qua Traveloka quy đổi rất dễ, không phải chờ lâu. Xem Sài Gòn 360 độ từ cao rất thích, xem được hầu hết các điểm hot nhất của thành phố: đường đi bộ, Landmark, quận 2, chợ bến thành,...",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": [
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/153446685_REVIEW_1590033827708_ef586754bc6aabd8?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "5",
+            "day": "21",
+            "year": "2020"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/153446685_REVIEW_1590033827709_293c4f5ad74ac021?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "5",
+            "day": "21",
+            "year": "2020"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/153446685_REVIEW_1590033827709_a17eeea1e3ab4f93?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "5",
+            "day": "21",
+            "year": "2020"
+          }
+        }
+      ]
+    },
+    {
+      "reviewerName": "Trinh H. T. N. ",
+      "timestamp": "1583084281884",
+      "reviewText": "Trải nghiệm vào buổi chiều hoàng hôn thực sự rất đáng giá!",
+      "score": "8.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": [
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/15340483_REVIEW_1583084276521_f579b5240c4e4e92?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "3",
+            "day": "1",
+            "year": "2020"
+          }
+        }
+      ]
+    },
+    {
+      "reviewerName": "Vo T. S. ",
+      "timestamp": "1576028720773",
+      "reviewText": "Trải nghiệm một lần với gia đình thôi. Cũng rất thú vị.",
+      "score": "8.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": []
+    },
+    {
+      "reviewerName": "Tong H. T. P. ",
+      "timestamp": "1568560514750",
+      "reviewText": "Đi ngay dịp Trung Thu nên được tặng lồng đèn cho các bé.",
+      "score": "8.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": []
+    },
+    {
+      "reviewerName": "Dac T. N. ",
+      "timestamp": "1561767143584",
+      "reviewText": "View toàn cảnh bao quát thành phố rất đẹp",
+      "score": "8.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": []
+    },
+    {
+      "reviewerName": "Xuan H. N. ",
+      "timestamp": "1558577113828",
+      "reviewText": "Tôi có thời gian rất vui vẻ, mong sẽ dc tro lại lân sau.",
+      "score": "8.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": []
+    }
+  ],
+  "address": "36 Hồ Tùng Mậu, Bến Nghé, Quận 1, Hồ Chí Minh, Vietnam",
+  "time": "Mở | Thứ, 09:30-21:30",
+  "content": "<span>Ghé thăm một trong những biểu tượng của thành phố Sài Gòn</span><span>Ngắm nhìn toàn cảnh Sài Gòn tuyệt vời từ tầng 49 của Bitexco Financial Tower</span><span>Chụp những bức ảnh tuyệt vời với khung cảnh lộng lẫy của thành phố</span><span>Thưởng thức đồ uống trong khi chiêm ngưỡng vẻ đẹp hoàng hôn từ đài quan sát</span><p>Khi bạn đặt chân đến Sài Gòn, thật thiếu sót nếu không ghé thăm một trong những biểu tượng của thành phố—Bitexco Financial Tower. Ở độ cao 262 mét với 68 tầng, Bitexco Financial Tower là tòa nhà hạng A đạt tiêu chuẩn quốc tế đầu tiên của Việt Nam. Lấy cảm hứng từ hoa sen, quốc hoa của Việt Nam, biểu tượng đô thị này gợi lên vẻ đẹp, sự tiến bộ và tiềm năng to lớn của Việt Nam cũng như khát vọng toàn cầu.</p><p>Kể từ khi khai trương vào năm 2011, tòa tháp này đón hàng nghìn lượt khách mỗi năm nhờ có đài quan sát mang tên Saigon Skydeck ở tầng 49. Với cái nhìn toàn cảnh lộng lẫy của thành phố, đây là một điểm đến mà bạn không muốn bỏ lỡ.</p><p>Ngoài tầm nhìn ngoạn mục, chuyến đi đến Saigon Skydeck còn mang đến cho bạn cái nhìn độc quyền về Triển lãm Áo dài—hợp tác với Bảo tàng Phụ nữ Nam Bộ, nơi trưng bày và giới thiệu nhiều kiểu áo dài đẹp qua các thời kỳ và giúp bảo tồn và phát huy những di sản văn hóa đặc sắc của Việt Nam đến với du khách.</p><p>Bên cạnh đó, bạn sẽ có rất nhiều cơ hội chụp ảnh, và tầm nhìn ngoạn mục ra thành phố sẽ mang đến khung cảnh tuyệt vời cho những bữa trưa nhẹ nhàng hay bữa tối lãng mạn mà bạn đang tìm kiếm.</p>"
+}
