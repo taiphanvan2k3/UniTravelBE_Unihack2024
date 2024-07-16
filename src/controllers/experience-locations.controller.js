@@ -1,4 +1,5 @@
 const listOfExperienceLocationService = require("../services/experience-location/list-of-experience-locations.service.js");
+const experienceLocationsDetailSerivice = require("../services/experience-location/experience-location-detail.service.js");
 
 class ExperienceLocationController {
     async getListExperienceLocationsByProvince(req, res, next) {
@@ -22,6 +23,17 @@ class ExperienceLocationController {
                     limit
                 );
             return res.status(200).json(experienceLocations);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async getExperienceLocationsById(req, res, next) {
+        try {
+            const experienceLocationId = req.params.id;
+            console.log("experienceLocationId", experienceLocationId);
+            const experienceLocation = await experienceLocationsDetailSerivice.getExperienceLocationsById(experienceLocationId);
+            return res.status(200).json(experienceLocation);
         } catch (error) {
             next(error);
         }
