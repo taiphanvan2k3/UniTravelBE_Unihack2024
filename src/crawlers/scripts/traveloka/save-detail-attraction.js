@@ -58,14 +58,47 @@ const saveCrawledData = function () {
     });
 };
 
+const updateDefaultValuesForAllLocations = async () => {
+    const locations = await ExperienceLocation.find({});
+
+    const promises = locations.map(async (location) => {
+        let updated = false;
+
+        if (!location.address) {
+            location.address = "";
+            updated = true;
+        }
+        if (!location.time) {
+            location.time = "Mở | Thứ, 09:00-21:00";
+            updated = true;
+        }
+        if (!location.description) {
+            location.description = "";
+            updated = true;
+        }
+        if (!location.reviews || location.reviews.length === 0) {
+            location.reviews = [];
+            updated = true;
+        }
+
+        if (updated) {
+            await location.save();
+            console.log("Updated default values for location:", location.locationId);
+        }
+    });
+
+    await Promise.all(promises);
+};
+
 // Kết nối đến MongoDB và chạy hàm saveCrawledData
 mongoose
     .connect(process.env.MONGO_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
-    .then(() => {
+    .then(async () => {
         console.log("Connected to MongoDB");
         saveCrawledData();
+        await updateDefaultValuesForAllLocations();
     })
     .catch((err) => console.log(err));

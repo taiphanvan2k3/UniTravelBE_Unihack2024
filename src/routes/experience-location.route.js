@@ -22,4 +22,5 @@ const router = Router();
  *         description: List of top experience locations
  */
 router.get("/top", experienceLocationController.getTopExperienceLocations);
+router.get("/get-detail/:id", experienceLocationController.getExperienceLocationsById);
 module.exports = router;
