@@ -1,7 +1,6 @@
 const Router = require("express");
 const verifyToken = require("../middlewares/firebase-auth.middleware.js");
-const firebaseAuthController = require("../controllers/firebase-auth.controller.js");
-
+const firebaseAuthController = require("../controllers/auth.controller.js");
 const router = Router();
 
 /**
@@ -150,5 +149,33 @@ router.post("/sign-out", verifyToken, firebaseAuthController.signOutUser);
  *         description: Invalid input, missing email
  */
 router.post("/reset-password", firebaseAuthController.resetPassword);
+
+/**
+ * @swagger
+ * /auth/check-email-exist:
+ *  post:
+ *   summary: Check email is exist
+ *   tags: [FirebaseAuthController]
+ *   requestBody:
+ *     required: true
+ *     content:
+ *       application/json:
+ *         schema:
+ *           type: object
+ *           required:
+ *             - email
+ *           properties:
+ *             email:
+ *               type: string
+ *               example: "taiphan2403a@gmail.com"
+ *   responses:
+ *    200:
+ *      description: Email is exist or not
+ *    422:
+ *      description: Invalid input, missing email
+ *    500:
+ *      description: Internal server error
+ */
+router.post("/check-email-exist", firebaseAuthController.checkEmailIsExist);
 
 module.exports = router;

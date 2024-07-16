@@ -28,8 +28,22 @@ const findUserById = async (userId) => {
     }
 };
 
+const findUserByEmail = async (email) => {
+    try {
+        const user = await User.findOne({ email });
+        if (user) {
+            return convertUserDBToUser(user);
+        }
+        return null;
+    } catch (error) {
+        console.log(error.message);
+        throw error;
+    }
+};
+
 const updateUserOnlineStatus = async (userDB) => {
     userDB.isOnline = true;
+    userDB.isVerified = true;
     await userDB.save();
     return {
         userId: userDB.userId,
@@ -42,7 +56,30 @@ const updateUserOnlineStatus = async (userDB) => {
         isAdmin: userDB.isAdmin,
         isVerified: userDB.isVerified,
         isOnline: userDB.isOnline,
+        roles: userDB.roles,
     };
+};
+
+const createTempUser = async (user) => {
+    let userDB = await User.findOne({ userId: user.uid });
+    if (!userDB) {
+        const userInfo = {
+            userId: user.uid,
+            email: user.email,
+            username: user.email.split("@")[0],
+            displayName: user.displayName,
+            imageUrl: "",
+            phoneNumber: "",
+            address: "",
+            isAdmin: false,
+            isVerified: false,
+            isOnline: false,
+            roles: ["traveler"],
+        };
+
+        userDB = new User(userInfo);
+        await userDB.save();
+    }
 };
 
 const createOrUpdateUser = async (user) => {
@@ -89,6 +126,8 @@ const updateUser = async (userId, data) => {
 
 module.exports = {
     findUserById,
+    findUserByEmail,
+    createTempUser,
     createOrUpdateUser,
     updateUser,
 };

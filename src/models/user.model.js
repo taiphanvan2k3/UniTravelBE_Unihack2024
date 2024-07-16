@@ -12,6 +12,7 @@ const UserSchema = new mongoose.Schema({
     isVerified: { type: Boolean, required: true },
     createdAt: { type: Date, default: Date.now },
     isOnline: { type: Boolean, default: false },
+    roles: { type: [String], default: ["traveler"] },
 });
 
 const User = mongoose.model("User", UserSchema);
