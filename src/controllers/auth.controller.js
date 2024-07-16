@@ -1,25 +1,36 @@
-const firebaseAuthService = require("../services/auth/firebase-auth.service.js");
+const authService = require("../services/auth/auth.service.js");
 const { logInfo, logError } = require("../services/logger.service.js");
 
-class FirebaseAuthController {
+class AuthController {
     async registerUser(req, res, next) {
         logInfo("registerUser", "Start");
-        const { email, password } = req.body;
+        const { email, password, displayName, role } = req.body;
         if (!email || !password) {
             return res.status(422).json({
                 email: "Email is required",
                 password: "Password is required",
+                displayName: "Display name is required",
+                role: "Role is required",
             });
         }
 
         try {
-            await firebaseAuthService.registerUser(email, password);
+            await authService.registerUser(email, password, displayName, role);
             logInfo("registerUser", "End");
             return res.status(201).json({
                 message: "Verification email sent! User created successfully!",
             });
         } catch (error) {
+            if (error.message == "Verification email is re-sent") {
+                return res.status(200).json({
+                    message: error.message,
+                });
+            }
+
             logError("registerUser", error.message);
+            res.status(500).json({
+                message: error.message,
+            });
             next(error);
         }
     }
@@ -39,7 +50,7 @@ class FirebaseAuthController {
         }
 
         try {
-            const userInfo = await firebaseAuthService.verifyToken(token);
+            const userInfo = await authService.verifyToken(token);
             if (!userInfo) {
                 return res.status(404).json({
                     message: "User not found!",
@@ -57,7 +68,7 @@ class FirebaseAuthController {
 
             res.status(401).json({
                 type: "token_error",
-                error: "Verify token failed!",
+                message: "Verify token failed!",
             });
             next(error);
         }
@@ -75,7 +86,7 @@ class FirebaseAuthController {
         }
 
         try {
-            const { token, userInfo } = await firebaseAuthService.loginUser(
+            const { token, userInfo } = await authService.loginUser(
                 email,
                 password
             );
@@ -97,12 +108,12 @@ class FirebaseAuthController {
             if (error.message === "Email is not verified") {
                 res.status(403).json({
                     type: "email_verification_error",
-                    error: error.message,
+                    message: error.message,
                 });
             } else {
                 res.status(401).json({
                     type: "login_error",
-                    error: error.message,
+                    message: error.message,
                 });
             }
             next(error);
@@ -121,7 +132,7 @@ class FirebaseAuthController {
                 });
             }
 
-            await firebaseAuthService.signOut(req.user.uid);
+            await authService.signOut(req.user.uid);
             res.clearCookie("access_token");
             res.status(200).json({
                 message: `user with email ${req.user.email} signed out successfully!`,
@@ -144,7 +155,7 @@ class FirebaseAuthController {
         }
 
         try {
-            await firebaseAuthService.resetPassword(email);
+            await authService.resetPassword(email);
             res.status(200).json({
                 message: "Password reset email sent!",
             });
@@ -154,6 +165,29 @@ class FirebaseAuthController {
             next(error);
         }
     }
+
+    async checkEmailIsExist(req, res) {
+        logInfo("checkEmailIsExist", "Start");
+        const { email } = req.body;
+        if (!email) {
+            return res.status(422).json({
+                email: "Email is required",
+            });
+        }
+
+        try {
+            const isExist = await authService.checkEmailIsExist(email);
+            res.status(200).json({
+                isExist,
+            });
+            logInfo("checkEmailIsExist", "End");
+        } catch (error) {
+            res.status(500).json({
+                message: error.message,
+            });
+            logError("checkEmailIsExist", error.message);
+        }
+    }
 }
 
-module.exports = new FirebaseAuthController();
+module.exports = new AuthController();
