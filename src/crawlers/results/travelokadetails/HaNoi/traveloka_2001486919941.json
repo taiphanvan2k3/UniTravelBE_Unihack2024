@@ -1,0 +1,49 @@
+{
+  "reviews": [
+    {
+      "reviewerName": "Hoang D. T. ",
+      "timestamp": "1701503530431",
+      "reviewText": "Âm thanh hình ảnh hiệu ứng rất tuyệt",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": [
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/119046675_REVIEW_1701503528429_746c7de1e7db0ccb?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "12",
+            "day": "2",
+            "year": "2023"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/119046675_REVIEW_1701503528429_ccefd59a09c3c022?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "12",
+            "day": "2",
+            "year": "2023"
+          }
+        }
+      ]
+    },
+    {
+      "reviewerName": "Tran G. H. ",
+      "timestamp": "1698923185146",
+      "reviewText": "Sân khấu đẹp, phục trang đẹp, con rối đẹp, các chị các anh hát hay, nhạc hay. Cốt truyện còn hơi rời rạc, chưa hay lắm.\n\nTrước khi tới rạp cần ghé qua phòng lấy vé trước. Giá vé trên app đang cao hơn so với vé mua tại chỗ. Nhưng được cái đỡ xếp hàng mua vé. Nhìn cái hàng người dài mua vé mà cảm thấy mừng vì đã đặt vé trước ",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": [
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/21113979_REVIEW_1698923182649_786a54ab22d93b06?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "11",
+            "day": "2",
+            "year": "2023"
+          }
+        }
+      ]
+    }
+  ],
+  "address": "57b Đinh Tiên Hoàng, Hàng Trống, Hoàn Kiếm, Hà Nội, Vietnam",
+  "time": "Mở | Thứ, 07:00-20:30",
+  "content": "<span>Thưởng thức một trong những loại hình nghệ thuật lâu đời được hình thành trên đồng bằng sông Hồng</span><span>Hiểu hơn về đời sống văn hóa của người nông dân Bắc Bộ qua các tiết mục múa rối nước</span><span>Tiện lợi với loại vé giao ngay đến khách sạn ở Hà Nội</span><span>Vào cửa dễ dàng mà không phải xếp hàng</span><p>Đến với múa rối nước Thăng Long, bạn sẽ có cơ hội hiểu hơn về một trong những loại hình nghệ thuật lâu đời được hình thành trên đồng bằng sông Hồng cách đây hơn 1.000 năm. Đảm bảo bạn sẽ không thể rời mắt khi xem những vở múa rối tái hiện lại những câu chuyện cổ tích và các sinh hoạt đời thường của người nông dân Bắc Bộ ngày xưa.</p>"
+}

@@ -1,0 +1,359 @@
+{
+  "reviews": [
+    {
+      "reviewerName": "Nguyen T. M. N. ",
+      "timestamp": "1720487701630",
+      "reviewText": "Công viên khủng long rất thích. Các bé nhà mình mê đắm luôn",
+      "score": "8.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": []
+    },
+    {
+      "reviewerName": "-",
+      "timestamp": "1720080323293",
+      "reviewText": "Đẹp! Sạch sẽ! Nhân viên tận tình và chu đáo với khách!",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": []
+    },
+    {
+      "reviewerName": "-",
+      "timestamp": "1718853473273",
+      "reviewText": "một địa điểm du lịch thú vị. rất rộng, có thể vừa chơi vừa đi tham quan. các bạn nhân viên tại đây rất thân thiện và sẽ luôn hỗ trợ bạn nếu cần. rất đáng để đi thử",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": [
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/328175196_REVIEW_1718853396947_562c985ec16c739c?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "6",
+            "day": "20",
+            "year": "2024"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/328175196_REVIEW_1718853396948_4170762eae8f01bd?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "6",
+            "day": "20",
+            "year": "2024"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/328175196_REVIEW_1718853396948_cfc77a006af6b755?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "6",
+            "day": "20",
+            "year": "2024"
+          }
+        }
+      ]
+    },
+    {
+      "reviewerName": "-",
+      "timestamp": "1718755506232",
+      "reviewText": "suối khoáng núi Thần Tài phù hợp cho gia đình đến nghỉ dưỡng, vui chơi",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": []
+    },
+    {
+      "reviewerName": "-",
+      "timestamp": "1713617249388",
+      "reviewText": "Giá hợp lý, nhiều chỗ chơi nhưng ít chỗ tham quan",
+      "score": "8.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": [
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/322777780_REVIEW_1713617139056_5f44f8e1892c64f0?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "4",
+            "day": "20",
+            "year": "2024"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/322777780_REVIEW_1713617139056_ee88d0c4a2a4e1b1?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "4",
+            "day": "20",
+            "year": "2024"
+          }
+        }
+      ]
+    },
+    {
+      "reviewerName": "Thi T. N. T. ",
+      "timestamp": "1713498865334",
+      "reviewText": "Cả nhà mình đã có 1 buổi vui chơi rất vui tại đây, ở đây là 1 nơi đáng đi trong dịp hè. Nhân viên phục vụ dễ thương, nhiệt tình, buffet trưa ăn ok.",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": []
+    },
+    {
+      "reviewerName": "Nguyen T. L. A. ",
+      "timestamp": "1712284494476",
+      "reviewText": "Không có mấy chỗ chơi cho các bạn nhỏ nhưng nhiều khu bơi nên cũng khá ổn",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": [
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/64626762_REVIEW_1712284463247_c2521c9f3e80f9df?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "4",
+            "day": "5",
+            "year": "2024"
+          }
+        }
+      ]
+    },
+    {
+      "reviewerName": "-",
+      "timestamp": "1709263000371",
+      "reviewText": "Đi với bạn ai cũng thích ạ, Núi Thần Tài rộng đẹp, trò chơi công viên nước rất vui. Mê nhất khu khoáng nóng, ngâm chân, xông hơi. Các bạn nên đi theo nhóm chơi trò chơi sẽ vui hơn. Ngoài ra, mang theo vật dụng cần thiết: kem chống nắng, khăn tắm, quần áo. ",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": [
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/256253276_REVIEW_1709262714822_01febc5ec3cf6d19?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "3",
+            "day": "1",
+            "year": "2024"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/256253276_REVIEW_1709262714821_6d6f894c120db161?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "3",
+            "day": "1",
+            "year": "2024"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/256253276_REVIEW_1709262714819_e6a0282b6cf170f8?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "3",
+            "day": "1",
+            "year": "2024"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/256253276_REVIEW_1709262714818_6e391619b59265e6?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "3",
+            "day": "1",
+            "year": "2024"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/256253276_REVIEW_1709262714818_c6baac734f39adc9?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "3",
+            "day": "1",
+            "year": "2024"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/256253276_REVIEW_1709262714817_ccb355a4ec347457?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "3",
+            "day": "1",
+            "year": "2024"
+          }
+        }
+      ]
+    },
+    {
+      "reviewerName": "Nguyen V. H. ",
+      "timestamp": "1695611892296",
+      "reviewText": "dịch vụ rất là oke, buổi trưa buffer rất là ưng ý và nếu có lần sau sẽ dẫn nhiều người đi hơn",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": [
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/296571558_REVIEW_1695611890628_b0dfdf048f4ea8bd?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "9",
+            "day": "25",
+            "year": "2023"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/296571558_REVIEW_1695611890629_081b48306f7490cb?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "9",
+            "day": "25",
+            "year": "2023"
+          }
+        }
+      ]
+    },
+    {
+      "reviewerName": "Hng P. ",
+      "timestamp": "1695606150695",
+      "reviewText": "KDL có rất nhiều điểm vui chơi, nghỉ ngơi giải trí cho nhiều độ tuổi, gia đình có ng lớn tuổi. Nhân viên rất nhiệt tình hỗ trợ ng lớn tuổi. 10 điểm ko có nhưng",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": [
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/18544529_REVIEW_1695606147614_6965e7fdcf028054?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "9",
+            "day": "25",
+            "year": "2023"
+          }
+        }
+      ]
+    },
+    {
+      "reviewerName": "Quân B. ",
+      "timestamp": "1694157352551",
+      "reviewText": "Ok",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": []
+    },
+    {
+      "reviewerName": "Pham L. A. ",
+      "timestamp": "1693884241756",
+      "reviewText": "vì tối muộn mới bay về mà đang suy nghĩ chưa biết đi đâu thì vô tình mình tìm được trên Traveloka thông tin chuyến đi chơi có lịch trình đúng thời gian rảnh của bọn mình . Có chi tiết lịch trình cũng như thời gian để bọn mình có thể sắp xếp cụ thể  , đặc biệt đặt qua TVLK còn được giảm giá. Vậy là chúng mình book luôn đến nơi thật sự Núi Thần Tài không làm mình thất vọng vui hết sức chơi hết mình . Nhân viên hướng dẫn nhiệt tình các khu vui chơi đa dạng chỉ có điều muốn chơi hết chắc phải cả ngày mất. Nói chung bọn mình thất rất happy với trải nghiệm lần này",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": []
+    },
+    {
+      "reviewerName": "Nguyen T. T. L. ",
+      "timestamp": "1693711114146",
+      "reviewText": "công viên rộng, các bạn NV chỉ dẫn nhiệt tình mặc dù lễ khách rất đông. Trứng luộc thì ngon nha, tắm suối khoáng nóng đã lắm. Tuy nhiên có điều là còn ít trò chơi.\nBuffet thì bạn nào khó tính thấy ko ngon chứ m thấy bình thường, ăn đủ loại mà đỡ phải mang đồ ăn lỉnh kỉnh theo, có điều so với giá tiền thì hơi chênh với chất lượng",
+      "score": "8.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": []
+    },
+    {
+      "reviewerName": "Anh N. Q. ",
+      "timestamp": "1690111313211",
+      "reviewText": "mua voucher nhanh gọn lẹ, đến nơi cũng được xử lý nhanh. nên mua trước cho tiện",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": []
+    },
+    {
+      "reviewerName": "Nguyen T. C. ",
+      "timestamp": "1689928758797",
+      "reviewText": "Có nhiều trò vui chơi,tắm khoáng nóng lạnh công viên trò chơi có đủ. Tắm onsen xông hơi đầy đủ. Nói chung ok",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": []
+    },
+    {
+      "reviewerName": "Trần L. ",
+      "timestamp": "1689920628043",
+      "reviewText": "Trải nghiệm thú vị ",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": [
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/290445457_REVIEW_1689920596473_9f9a6f0ead4eec38?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "7",
+            "day": "21",
+            "year": "2023"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/290445457_REVIEW_1689920596473_be324718f0e51a02?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "7",
+            "day": "21",
+            "year": "2023"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/290445457_REVIEW_1689920596474_3517bc905aefeac4?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "7",
+            "day": "21",
+            "year": "2023"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/290445457_REVIEW_1689920596474_606a880d55f8b4e7?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "7",
+            "day": "21",
+            "year": "2023"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/290445457_REVIEW_1689920596474_3037119fcfe33c78?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "7",
+            "day": "21",
+            "year": "2023"
+          }
+        }
+      ]
+    },
+    {
+      "reviewerName": "Le T. Y. ",
+      "timestamp": "1689842903488",
+      "reviewText": "hơi ít khu chơi dành cho trẻ em trải nghiệm, khu khủng long ko có gì đặc sắc . Chỉ tạm hài lòng chứu ko ấn tượng nhiều khi trải nghiệm vui chơi tại Núi thần tài ",
+      "score": "8.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": []
+    },
+    {
+      "reviewerName": "Vy T. ",
+      "timestamp": "1689557890318",
+      "reviewText": "ok đó, trẻ em thích",
+      "score": "8.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": []
+    },
+    {
+      "reviewerName": "Le T. P. T. ",
+      "timestamp": "1689211684151",
+      "reviewText": "Tiện lợi nhưng có 1 khuyết điểm nhỏ. Mình đặt trước 1 tiếng nhưng khi tới nơi đơn vẫn chưa đổ về hệ thống. Thành ra phải đợi 1 lúc mới được nhận vé. Nói chung bữa đó không đông lắm nên vẫn ổn. Mình mua vé gồm tắm bùn. Dịch tắm khoáng khá ok. \n",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": [
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/18315975_REVIEW_1689211678778_1afc14c168d4a679?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "7",
+            "day": "13",
+            "year": "2023"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/18315975_REVIEW_1689211678778_1658a5b53fd85ac0?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "7",
+            "day": "13",
+            "year": "2023"
+          }
+        },
+        {
+          "photoUrl": "https://ik.imagekit.io/tvlk/ugc-review/guys1L+Yyer9kzI3sp-pb0CG1j2bhflZGFUZOoIf1YOBAm37kEUOKR41ieUZm7ZJ/ugc-photo-ap-southeast-1-581603780057-acd24e232f75f09e/REVIEW/18315975_REVIEW_1689211678778_c8e16908669c51c2?tr=q-40,c-at_max,w-740,h-500&_src=imagekit",
+          "date": {
+            "month": "7",
+            "day": "13",
+            "year": "2023"
+          }
+        }
+      ]
+    },
+    {
+      "reviewerName": "Minh A. ",
+      "timestamp": "1687736919323",
+      "reviewText": "đáng để trải nghiệm có nhiều khu vui chơi rất vui",
+      "score": "10.0",
+      "language": "VIETNAMESE",
+      "reviewPhotos": []
+    }
+  ],
+  "address": "Thôn Phú Túc, Hoà Phú, Hòa Vang, Đà Nẵng, Vietnam",
+  "time": "Mở | Thứ, 08:30-17:30",
+  "content": "<span>Đắm mình trong suối nước nóng khoáng thiên nhiên nổi tiếng với đặc tính trị liệu giúp mang lại thư giãn và nhiều lợi ích sức khỏe</span><span>Thư giãn tại các hồ bơi chứa nước nóng giàu khoáng chất, từ hồ suối nước nóng truyền thống đến bể sục jacuzzi thảo dược và tắm bùn</span><span>Tận hưởng các đường trượt nước, bể bơi và trò chơi dưới nước hiện đại giữa khung cảnh thiên nhiên xanh mát của Đà Nẵng</span><span>Dễ dàng trải nghiệm với dịch vụ xe khứ hồi đón bạn bất cứ đâu tại trung tâm Đà Nẵng</span><p>Công viên suối nước nóng Núi Thần Tài là nơi nghỉ dưỡng ẩn mình giữa khung cảnh thiên nhiên tuyệt đẹp. Nổi tiếng với suối nước nóng khoáng thiên nhiên, công viên mang đến cho du khách trải nghiệm trị liệu ngâm mình đem lại thư giãn và nhiều lợi ích sức khỏe.</p><span>Hồ khoáng nóng tự nhiên & đa dạng: Công viên có nhiều hồ bơi chứa đầy nước nóng giàu khoáng chất. Từ các hồ suối nước nóng truyền thống đến các hồ bơi theo chủ đề độc đáo như tắm thảo dược, bể sục jacuzzi và tắm bùn, bạn có thể tận hưởng nhiều trải nghiệm phong phú phù hợp với sở thích của mình với nhiều gói dịch vụ dành riêng cho bạn trên Traveloka.</span><span>Hoạt động giải trí: Bạn sẽ tìm thấy Công viên Khủng long thú vị, đảm bảo mang đến những chuyến khám phá hấp dẫn cùng bạn bè và gia đình, cũng như có thể ghé thăm Đền Thần Tài và tượng Phật Di Lặc. Những ai thích phiêu lưu còn có thể tận hưởng nhiều hoạt động và trò chơi trượt ống nước đa dạng.</span><img importance=\"low\" loading=\"lazy\" src=\"https://ik.imagekit.io/tvlk/xpe-asset/dsIfD0QxFcgaDmB6sQchobk5CmBu9PzsWhwFXGFxJ179jzSxIGG5kZNhhHY-p7nw/xxt/experience/image/C-ng-vi-n-Kh-ng-Long--3--jpg-ec24e90f650e75f4a952ef0a08cd8dce.jpeg?_src=imagekit&amp;tr=c-at_max,h-500,q-60,w-740\" srcset=\"https://ik.imagekit.io/tvlk/xpe-asset/dsIfD0QxFcgaDmB6sQchobk5CmBu9PzsWhwFXGFxJ179jzSxIGG5kZNhhHY-p7nw/xxt/experience/image/C-ng-vi-n-Kh-ng-Long--3--jpg-ec24e90f650e75f4a952ef0a08cd8dce.jpeg?_src=imagekit&amp;tr=c-at_max,h-500,q-60,w-740 1x, https://ik.imagekit.io/tvlk/xpe-asset/dsIfD0QxFcgaDmB6sQchobk5CmBu9PzsWhwFXGFxJ179jzSxIGG5kZNhhHY-p7nw/xxt/experience/image/C-ng-vi-n-Kh-ng-Long--3--jpg-ec24e90f650e75f4a952ef0a08cd8dce.jpeg?_src=imagekit&amp;tr=dpr-2,c-at_max,h-500,q-60,w-740 2x, https://ik.imagekit.io/tvlk/xpe-asset/dsIfD0QxFcgaDmB6sQchobk5CmBu9PzsWhwFXGFxJ179jzSxIGG5kZNhhHY-p7nw/xxt/experience/image/C-ng-vi-n-Kh-ng-Long--3--jpg-ec24e90f650e75f4a952ef0a08cd8dce.jpeg?_src=imagekit&amp;tr=dpr-3,c-at_max,h-500,q-60,w-740 3x\" decoding=\"async\" style=\"max-width: 100%; object-fit: fill; object-position: 50% 50%;\"><p>Cùng lập hội để khám phá Công viên Khủng long đầy hấp dẫn</p><img importance=\"low\" loading=\"lazy\" src=\"https://ik.imagekit.io/tvlk/xpe-asset/dsIfD0QxFcgaDmB6sQchobk5CmBu9PzsWhwFXGFxJ179jzSxIGG5kZNhhHY-p7nw/xxt/experience/image/z4665865267322-3b385ae3c96dbee57be90c480fb6425b-jpg-2d8bced827a4e854825e97acf603f7ad.jpeg?_src=imagekit&amp;tr=c-at_max,h-500,q-60,w-740\" srcset=\"https://ik.imagekit.io/tvlk/xpe-asset/dsIfD0QxFcgaDmB6sQchobk5CmBu9PzsWhwFXGFxJ179jzSxIGG5kZNhhHY-p7nw/xxt/experience/image/z4665865267322-3b385ae3c96dbee57be90c480fb6425b-jpg-2d8bced827a4e854825e97acf603f7ad.jpeg?_src=imagekit&amp;tr=c-at_max,h-500,q-60,w-740 1x, https://ik.imagekit.io/tvlk/xpe-asset/dsIfD0QxFcgaDmB6sQchobk5CmBu9PzsWhwFXGFxJ179jzSxIGG5kZNhhHY-p7nw/xxt/experience/image/z4665865267322-3b385ae3c96dbee57be90c480fb6425b-jpg-2d8bced827a4e854825e97acf603f7ad.jpeg?_src=imagekit&amp;tr=dpr-2,c-at_max,h-500,q-60,w-740 2x, https://ik.imagekit.io/tvlk/xpe-asset/dsIfD0QxFcgaDmB6sQchobk5CmBu9PzsWhwFXGFxJ179jzSxIGG5kZNhhHY-p7nw/xxt/experience/image/z4665865267322-3b385ae3c96dbee57be90c480fb6425b-jpg-2d8bced827a4e854825e97acf603f7ad.jpeg?_src=imagekit&amp;tr=dpr-3,c-at_max,h-500,q-60,w-740 3x\" decoding=\"async\" style=\"max-width: 100%; object-fit: fill; object-position: 50% 50%;\"><p>Sẽ không một khoảnh khắc nào bị lãng phí khi bạn ở đây</p><img importance=\"low\" loading=\"lazy\" src=\"https://ik.imagekit.io/tvlk/xpe-asset/dsIfD0QxFcgaDmB6sQchobk5CmBu9PzsWhwFXGFxJ179jzSxIGG5kZNhhHY-p7nw/xxt/experience/image/5-png-077e2fe9e733b95e2186b9579626c39a.png?_src=imagekit&amp;tr=c-at_max,h-500,q-60,w-740\" srcset=\"https://ik.imagekit.io/tvlk/xpe-asset/dsIfD0QxFcgaDmB6sQchobk5CmBu9PzsWhwFXGFxJ179jzSxIGG5kZNhhHY-p7nw/xxt/experience/image/5-png-077e2fe9e733b95e2186b9579626c39a.png?_src=imagekit&amp;tr=c-at_max,h-500,q-60,w-740 1x, https://ik.imagekit.io/tvlk/xpe-asset/dsIfD0QxFcgaDmB6sQchobk5CmBu9PzsWhwFXGFxJ179jzSxIGG5kZNhhHY-p7nw/xxt/experience/image/5-png-077e2fe9e733b95e2186b9579626c39a.png?_src=imagekit&amp;tr=dpr-2,c-at_max,h-500,q-60,w-740 2x, https://ik.imagekit.io/tvlk/xpe-asset/dsIfD0QxFcgaDmB6sQchobk5CmBu9PzsWhwFXGFxJ179jzSxIGG5kZNhhHY-p7nw/xxt/experience/image/5-png-077e2fe9e733b95e2186b9579626c39a.png?_src=imagekit&amp;tr=dpr-3,c-at_max,h-500,q-60,w-740 3x\" decoding=\"async\" style=\"max-width: 100%; object-fit: fill; object-position: 50% 50%;\"><p>Được bao quanh bởi thiên nhiên xanh mát và phong cảnh đẹp như tranh vẽ, công viên mang đến một nơi nghỉ ngơi yên tĩnh cho những du khách muốn thư giãn và hòa mình vào vẻ đẹp thiên nhiên</p>"
+}
