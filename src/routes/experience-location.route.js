@@ -23,4 +23,7 @@ const router = Router();
  */
 router.get("/top", experienceLocationController.getTopExperienceLocations);
 router.get("/get-detail/:id", experienceLocationController.getExperienceLocationsById);
+router.post("/create-detail", experienceLocationController.createExperienceLocation);
+router.put("/:id", experienceLocationController.updateExperienceLocationById);
+router.delete("/:id", experienceLocationController.deleteExperienceLocationById);
 module.exports = router;
