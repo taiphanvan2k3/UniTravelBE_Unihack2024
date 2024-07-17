@@ -30,5 +30,7 @@ ProvinceSchema.set("toJSON", {
     },
 });
 
+ProvinceSchema.index({ code: 1 });
+
 const Province = mongoose.model("Province", ProvinceSchema);
 module.exports = Province;
