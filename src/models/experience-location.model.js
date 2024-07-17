@@ -5,8 +5,8 @@ const ReviewPhotoSchema = new mongoose.Schema({
     date: {
         month: String,
         day: String,
-        year: String
-    }
+        year: String,
+    },
 });
 
 const ReviewSchema = new mongoose.Schema({
@@ -15,7 +15,7 @@ const ReviewSchema = new mongoose.Schema({
     reviewText: String,
     score: String,
     language: String,
-    reviewPhotos: [ReviewPhotoSchema]
+    reviewPhotos: [ReviewPhotoSchema],
 });
 
 const ExperienceLocationSchema = new mongoose.Schema(
@@ -26,9 +26,9 @@ const ExperienceLocationSchema = new mongoose.Schema(
         detailedPageUrl: { type: String, required: true },
         address: { type: String, required: true },
         time: { type: String },
-    description: { type: String },
-    reviews: [ReviewSchema],
-    price: {
+        description: { type: String },
+        reviews: [ReviewSchema],
+        price: {
             originalPrice: {
                 type: String,
                 required: true,
@@ -70,9 +70,6 @@ ExperienceLocationSchema.set("toJSON", {
     },
 });
 
-const ExperienceLocation = mongoose.model(
-    "ExperienceLocation",
-    ExperienceLocationSchema
-);
+const ExperienceLocation = mongoose.model("ExperienceLocation", ExperienceLocationSchema);
 
 module.exports = ExperienceLocation;

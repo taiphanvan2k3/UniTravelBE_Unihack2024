@@ -38,6 +38,38 @@ class ExperienceLocationController {
             next(error);
         }
     }
+
+    async createExperienceLocation(req, res, next) {
+        try {
+            const locationData = req.body;
+            const newExperienceLocation = await experienceLocationsDetailSerivice.createExperienceLocation(locationData);
+            console.log("newExperienceLocation", newExperienceLocation);
+            return res.status(201).json(newExperienceLocation);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async updateExperienceLocationById(req, res, next) {
+        try {
+            const locationId = req.params.id;
+            const updateData = req.body;
+            const updatedLocation = await experienceLocationsDetailSerivice.updateExperienceLocationById(locationId, updateData);
+            return res.status(200).json(updatedLocation);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async deleteExperienceLocationById(req, res, next) {
+        try {
+            const locationId = req.params.id;
+            const result = await experienceLocationsDetailSerivice.deleteExperienceLocationById(locationId);
+            return res.status(200).json(result);
+        } catch (error) {
+            next(error);
+        }
+    }
 }
 
 module.exports = new ExperienceLocationController();
