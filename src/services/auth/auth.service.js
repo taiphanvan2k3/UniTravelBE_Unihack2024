@@ -8,6 +8,7 @@ const {
     admin,
 } = require("../../config/firebase.js");
 const userService = require("../user/user-detail.service.js");
+const { logError } = require("../logger.service.js");
 
 class AuthService {
     constructor() {
@@ -42,7 +43,7 @@ class AuthService {
             });
         } catch (error) {
             if (error.code === "auth/email-already-in-use") {
-                const existingUser = await userService.findUserByEmail(email);
+                const existingUser = await userService.findUser("email", email);
                 if (existingUser.isVerified) {
                     throw new Error("Email is already in use");
                 } else {
@@ -63,9 +64,33 @@ class AuthService {
     async verifyToken(token) {
         try {
             const decodeToken = await admin.auth().verifyIdToken(token);
-            return await userService.findUserById(decodeToken.uid);
+            return await userService.findUser(
+                "firebaseUserId",
+                decodeToken.uid
+            );
         } catch (error) {
             throw new Error(error.message);
+        }
+    }
+
+    async updateUserClaimsIfNecessary(userCredential, userIdInSystem) {
+        try {
+            const userId = userCredential.user.uid;
+            let token = userCredential._tokenResponse.idToken;
+            const userRecord = await admin.auth().getUser(userId);
+            if (
+                !userRecord.customClaims ||
+                userRecord.customClaims.userIdInSystem !==
+                    userIdInSystem.toString()
+            ) {
+                await admin
+                    .auth()
+                    .setCustomUserClaims(userId, { userIdInSystem });
+                token = await userCredential.user.getIdToken(true);
+            }
+            return token;
+        } catch (error) {
+            logError("updateUserClaimsIfNecessary", error.message);
         }
     }
 
@@ -81,9 +106,14 @@ class AuthService {
                 throw new Error("Email is not verified");
             }
 
-            const token = userCredential._tokenResponse.idToken;
             const user = await userService.createOrUpdateUser(
                 userCredential.user
+            );
+
+            // Update claims
+            const token = await this.updateUserClaimsIfNecessary(
+                userCredential,
+                user.userId
             );
 
             return {
@@ -91,6 +121,9 @@ class AuthService {
                 userInfo: user,
             };
         } catch (error) {
+            if (error.message == "Email is not verified") {
+                throw new Error(error.message);
+            }
             throw new Error("Invalid email or password");
         }
     }
@@ -98,7 +131,7 @@ class AuthService {
     async signOut(userId) {
         try {
             await signOut(this.auth);
-            await userService.updateUser(userId, { isOnline: false });
+            await userService.updateUser("firebaseUserId", userId, { isOnline: false });
         } catch (error) {
             throw new Error(error.message);
         }
@@ -149,7 +182,7 @@ class AuthService {
             );
 
             userFromDB.userId = userCredential.user.uid;
-            userService.updateUser(oldUserId, userFromDB);
+            userService.updateUser("userId", oldUserId, userFromDB);
         } catch (error) {
             console.log(error.message);
         }

@@ -2,7 +2,8 @@ const User = require("../../models/user.model");
 
 const convertUserDBToUser = (userDB) => {
     return {
-        userId: userDB.userId,
+        userId: userDB._id,
+        firebaseUserId: userDB.firebaseUserId,
         email: userDB.email,
         username: userDB.username,
         displayName: userDB.displayName,
@@ -15,22 +16,9 @@ const convertUserDBToUser = (userDB) => {
     };
 };
 
-const findUserById = async (userId) => {
+const findUser = async (type, value) => {
     try {
-        const user = await User.findOne({ userId });
-        if (user) {
-            return convertUserDBToUser(user);
-        }
-        return null;
-    } catch (error) {
-        console.log(error.message);
-        throw error;
-    }
-};
-
-const findUserByEmail = async (email) => {
-    try {
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ [type]: value });
         if (user) {
             return convertUserDBToUser(user);
         }
@@ -46,7 +34,8 @@ const updateUserOnlineStatus = async (userDB) => {
     userDB.isVerified = true;
     await userDB.save();
     return {
-        userId: userDB.userId,
+        userId: userDB._id,
+        firebaseUserId: userDB.firebaseUserId,
         email: userDB.email,
         username: userDB.username,
         displayName: userDB.displayName,
@@ -61,10 +50,10 @@ const updateUserOnlineStatus = async (userDB) => {
 };
 
 const createTempUser = async (user) => {
-    let userDB = await User.findOne({ userId: user.uid });
+    let userDB = await User.findOne({ firebaseUserId: user.uid });
     if (!userDB) {
         const userInfo = {
-            userId: user.uid,
+            firebaseUserId: user.uid,
             email: user.email,
             username: user.email.split("@")[0],
             displayName: user.displayName,
@@ -84,12 +73,12 @@ const createTempUser = async (user) => {
 
 const createOrUpdateUser = async (user) => {
     try {
-        let userDB = await User.findOne({ userId: user.uid });
+        let userDB = await User.findOne({ firebaseUserId: user.uid });
         if (userDB) {
             return await updateUserOnlineStatus(userDB);
         } else {
             const userInfo = {
-                userId: user.uid,
+                firebaseUserId: user.uid,
                 email: user.email,
                 username: user.email.split("@")[0],
                 displayName: user.displayName ?? user.email.split("@")[0],
@@ -103,6 +92,7 @@ const createOrUpdateUser = async (user) => {
 
             userDB = new User(userInfo);
             await userDB.save();
+            userInfo.userId = userDB._id;
             return userInfo;
         }
     } catch (error) {
@@ -111,10 +101,12 @@ const createOrUpdateUser = async (user) => {
     }
 };
 
-const updateUser = async (userId, data) => {
+const updateUser = async (identifier, identifierValue, data) => {
     try {
-        const result = await User.updateOne({ userId }, { $set: data });
-
+        const result = await User.updateOne(
+            { [identifier]: identifierValue },
+            { $set: data }
+        );
         if (result.nModified === 0) {
             throw new Error("Update user failed");
         }
@@ -125,8 +117,7 @@ const updateUser = async (userId, data) => {
 };
 
 module.exports = {
-    findUserById,
-    findUserByEmail,
+    findUser,
     createTempUser,
     createOrUpdateUser,
     updateUser,
