@@ -1,8 +1,9 @@
 /**
  * Firebase Auth Middleware using Firebase Admin SDK
  */
-
 const { admin } = require("../config/firebase.js");
+const { createNamespace } = require("node-request-context");
+const appState = createNamespace("AppState");
 
 const verifyToken = async (req, res, next) => {
     let accessToken = req.headers?.authorization || req.cookies?.access_token;
@@ -15,9 +16,8 @@ const verifyToken = async (req, res, next) => {
 
     try {
         const decodeToken = await admin.auth().verifyIdToken(accessToken);
-
-        // Parse thông tin user từ token vào req.user
         req.user = decodeToken;
+        appState.context.currentUser = decodeToken;
         next();
     } catch (error) {
         next(error);
