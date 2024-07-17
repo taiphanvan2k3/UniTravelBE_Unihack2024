@@ -1,4 +1,5 @@
-const { admin } = require("../../config/firebase");
+const { logInfo, logError } = require("./logger.service.js");
+const { admin } = require("../config/firebase");
 const fs = require("fs");
 const path = require("path");
 
@@ -15,7 +16,7 @@ const uploadFileToStorage = async (file, bucketName) => {
     return new Promise((resolve, reject) => {
         try {
             const fileName = `${bucketName}/${file.originalName}`;
-            console.log(fileName);
+            logInfo("uploadFileToStorage", `Start uploading file ${fileName}`);
             const fileUpload = bucket.file(fileName);
 
             const blobStream = fileUpload.createWriteStream({
@@ -35,9 +36,9 @@ const uploadFileToStorage = async (file, bucketName) => {
                     file.originalName
                 );
 
-                console.log(
-                    "File uploaded successfully. Public URL:",
-                    publicUrl
+                logInfo(
+                    "uploadFileToStorage",
+                    `File uploaded successfully: ${publicUrl}`
                 );
                 resolve(publicUrl);
             });
@@ -45,7 +46,7 @@ const uploadFileToStorage = async (file, bucketName) => {
             // Ghi dữ liệu file vào storage, và các sự kiện error, finish sẽ được gọi khi có lỗi hoặc khi ghi file thành công
             blobStream.end(file.buffer);
         } catch (error) {
-            console.error("Error uploading file:", error);
+            logError("uploadFileToStorage", `Error uploading file: ${error}`);
             reject(new Error(error));
         }
     });
