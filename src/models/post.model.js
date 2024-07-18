@@ -2,8 +2,6 @@ const mongoose = require("mongoose");
 
 const PostSchema = new mongoose.Schema(
     {
-        // authorId: Firebase user id
-        authorId: { type: String, required: true },
         author: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User",
@@ -14,9 +12,14 @@ const PostSchema = new mongoose.Schema(
         mediaUrls: { type: [String], required: false },
         createdAt: { type: Date, default: Date.now },
         commentCount: { type: Number, default: 0 },
-        likeCount: { type: Number, default: 0 },
-        likedUserIds: { type: [String], default: [] },
-        likedUsers: {
+        upvoteCount: { type: Number, default: 0 },
+        downvoteCount: { type: Number, default: 0 },
+        upvoteUsers: {
+            type: [mongoose.Schema.Types.ObjectId],
+            ref: "User",
+            default: [],
+        },
+        downvoteUsers: {
             type: [mongoose.Schema.Types.ObjectId],
             ref: "User",
             default: [],
@@ -44,5 +47,6 @@ PostSchema.set("toObject", {
     },
 });
 
+PostSchema.index({ authorId: 1 });
 const Post = mongoose.model("Post", PostSchema);
 module.exports = Post;

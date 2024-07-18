@@ -6,6 +6,10 @@ const { logInfo, logError } = require("../logger.service.js");
 const { getNamespace } = require("node-request-context");
 const { uploadFileFromFilePath } = require("../firestore-utils.service");
 const appState = getNamespace("AppState");
+const UPLOAD_TYPES = {
+    post: "post",
+    comment: "comment",
+};
 
 const createNewPost = async (postInfo) => {
     try {
@@ -18,7 +22,6 @@ const createNewPost = async (postInfo) => {
 
         const newPost = new Post({
             ...postInfo,
-            authorId: currentUserId,
             author: currentUser._id,
         });
 
@@ -26,7 +29,16 @@ const createNewPost = async (postInfo) => {
         const postId = newPost._id;
 
         // Không cần chờ upload file xong mới trả về response
-        uploadFilesToFirebaseStorage(postInfo.images, postInfo.videos, postId);
+        uploadFilesToFirebaseStorage(
+            {
+                postId,
+            },
+            UPLOAD_TYPES.post,
+            postInfo.images,
+            postInfo.videos
+        );
+
+        logInfo("createNewPost", "End");
         return newPost.toObject();
     } catch (error) {
         logError("createNewPost", error);
@@ -44,25 +56,81 @@ const addComment = async (postId, commentInfo) => {
         }
 
         const newComment = new Comment({
-            ...commentInfo,
-            userId: currentUserId,
+            content: commentInfo.content,
             user: currentUser._id,
-            postId,
+            post: postId,
             parentCommentId: null,
         });
         await newComment.save();
+        const commentId = newComment._id;
+
+        uploadFilesToFirebaseStorage(
+            {
+                postId,
+                commentId,
+            },
+            UPLOAD_TYPES.comment,
+            commentInfo.images,
+            commentInfo.videos
+        );
+
+        logInfo("addComment", "End");
+        return newComment.toObject();
     } catch (error) {
         logError("addComment", error);
         throw error;
     }
 };
 
-const uploadFilesToFirebaseStorage = async (images, videos, postId) => {
+const addReplyComment = async (postId, parentCommentId, commentInfo) => {
+    try {
+        logInfo("addReplyComment", "Start");
+        const currentUserId = appState.context.currentUser.userIdInSystem;
+        const [currentUser, parentComment] = await Promise.all([
+            User.findById(currentUserId),
+            Comment.findById(parentCommentId),
+        ]);
+
+        if (!currentUser || !parentComment) {
+            throw new Error("User or Parent Comment not found");
+        }
+
+        const newComment = new Comment({
+            content: commentInfo.content,
+            user: currentUser._id,
+            post: postId,
+            parentCommentId,
+        });
+
+        const commentId = newComment._id;
+        parentComment.replies.push(commentId);
+        await Promise.all([newComment.save(), parentComment.save()]);
+        uploadFilesToFirebaseStorage(
+            {
+                postId,
+                commentId,
+            },
+            UPLOAD_TYPES.comment,
+            commentInfo.images,
+            commentInfo.videos
+        );
+    } catch (error) {
+        logError("addReplyComment", error);
+        throw error;
+    }
+};
+
+const uploadFilesToFirebaseStorage = async (
+    identifiers,
+    uploadType,
+    images,
+    videos
+) => {
+    const files = [];
     try {
         logInfo("uploadFilesToFirebaseStorage", "Start");
         const bucketName = "post-media";
 
-        const files = [];
         if (images) {
             images.forEach((image) => {
                 files.push(image);
@@ -79,23 +147,38 @@ const uploadFilesToFirebaseStorage = async (images, videos, postId) => {
         );
 
         const mediaUrls = await Promise.all(promises);
-        const post = await Post.findById(postId);
-        post.mediaUrls = mediaUrls;
-        await post.save();
+        if (uploadType == UPLOAD_TYPES.post) {
+            const post = await Post.findById(identifiers.postId);
+            post.mediaUrls = mediaUrls;
+            await post.save();
+        } else if (uploadType == UPLOAD_TYPES.comment) {
+            const [comment, post] = await Promise.all([
+                Comment.findById(identifiers.commentId),
+                Post.findById(identifiers.postId),
+            ]);
+
+            if (!comment || !post) {
+                throw new Error("Comment or Post not found");
+            }
+
+            comment.mediaUrls = mediaUrls;
+            post.commentCount += 1;
+            await Promise.all([comment.save(), post.save()]);
+        }
 
         logInfo("uploadFilesToFirebaseStorage", "End");
-
-        // Xử lý xóa file sau khi đã upload lên storage
-        files.forEach((file) => {
-            fs.unlinkSync(file.path);
-        });
     } catch (error) {
         logError("uploadFilesToFirebaseStorage", error);
         throw error;
+    } finally {
+        files.forEach((file) => {
+            fs.unlinkSync(file.path);
+        });
     }
 };
 
 module.exports = {
     createNewPost,
     addComment,
+    addReplyComment,
 };

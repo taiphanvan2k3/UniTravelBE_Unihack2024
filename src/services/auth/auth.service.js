@@ -73,7 +73,7 @@ class AuthService {
         }
     }
 
-    async updateUserClaimsIfNecessary(userCredential, userIdInSystem) {
+    async updateUserClaimsIfNecessary(userCredential, userInSystem) {
         try {
             const userId = userCredential.user.uid;
             let token = userCredential._tokenResponse.idToken;
@@ -81,11 +81,13 @@ class AuthService {
             if (
                 !userRecord.customClaims ||
                 userRecord.customClaims.userIdInSystem !==
-                    userIdInSystem.toString()
+                    userInSystem.userId.toString() ||
+                userRecord.customClaims.roles !== userInSystem.roles
             ) {
-                await admin
-                    .auth()
-                    .setCustomUserClaims(userId, { userIdInSystem });
+                await admin.auth().setCustomUserClaims(userId, {
+                    userIdInSystem: userInSystem.userId.toString(),
+                    roles: userInSystem.roles,
+                });
                 token = await userCredential.user.getIdToken(true);
             }
             return token;
@@ -113,7 +115,7 @@ class AuthService {
             // Update claims
             const token = await this.updateUserClaimsIfNecessary(
                 userCredential,
-                user.userId
+                user
             );
 
             return {
@@ -131,7 +133,9 @@ class AuthService {
     async signOut(userId) {
         try {
             await signOut(this.auth);
-            await userService.updateUser("firebaseUserId", userId, { isOnline: false });
+            await userService.updateUser("firebaseUserId", userId, {
+                isOnline: false,
+            });
         } catch (error) {
             throw new Error(error.message);
         }

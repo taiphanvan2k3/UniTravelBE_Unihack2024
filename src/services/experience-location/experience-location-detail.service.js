@@ -4,7 +4,10 @@ const { logInfo, logError } = require("../logger.service.js");
 const getExperienceLocationsById = async (experienceLocationId) => {
     try {
         logInfo("getExperienceLocationsById", "Start");
-        const experienceLocation = await ExperienceLocation.findById(experienceLocationId, '-__v');
+        const experienceLocation = await ExperienceLocation.findById(
+            experienceLocationId,
+            "-__v"
+        );
 
         logInfo("getExperienceLocationsById", "End");
         return experienceLocation;
@@ -32,7 +35,10 @@ const createExperienceLocation = async (locationData) => {
 const updateExperienceLocationById = async (id, locationData) => {
     try {
         logInfo("updateExperienceLocationById", "Start");
-        const updatedExperienceLocation = new ExperienceLocation.findByIdAndUpdate(id, locationData, { new: true});
+        const updatedExperienceLocation =
+            new ExperienceLocation.findByIdAndUpdate(id, locationData, {
+                new: true,
+            });
         logInfo("updateExperienceLocationById", "End");
         return updatedExperienceLocation;
     } catch (error) {
@@ -41,10 +47,11 @@ const updateExperienceLocationById = async (id, locationData) => {
     }
 };
 
-const deleteExperienceLocationById  = async (id) => {
+const deleteExperienceLocationById = async (id) => {
     try {
         logInfo("deleteExperienceLocationById ", "Start");
-        const deletedExperienceLocation = await ExperienceLocation.findByIdAndDelete(id);
+        const deletedExperienceLocation =
+            await ExperienceLocation.findByIdAndDelete(id);
         logInfo("deleteExperienceLocationById ", "End");
         return deletedExperienceLocation;
     } catch (error) {
@@ -57,5 +64,5 @@ module.exports = {
     getExperienceLocationsById,
     createExperienceLocation,
     updateExperienceLocationById,
-    deleteExperienceLocationById
+    deleteExperienceLocationById,
 };
