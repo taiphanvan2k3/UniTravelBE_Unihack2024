@@ -8,49 +8,6 @@ const MAX_VIDEO_COUNT = 2;
 
 /**
  * @swagger
- * /posts/create:
- *   post:
- *     summary: Create a new post in an experience location
- *     tags:
- *       - PostController
- *     requestBody:
- *       required: true
- *       content:
- *         multipart/form-data:
- *           schema:
- *             type: object
- *             properties:
- *               title:
- *                 type: string
- *               content:
- *                 type: string
- *               images:
- *                 type: array
- *                 items:
- *                   type: string
- *                   format: binary
- *                 description: Only upload 5 images at most
- *               videos:
- *                 type: array
- *                 items:
- *                   type: string
- *                   format: binary
- *                 description: Only upload 2 videos at most
- *     responses:
- *       201:
- *         description: Successfully created
- *       400:
- *         description: Invalid input
- */
-router.post(
-    "/create",
-    verifyToken,
-    handleUpload(MAX_IMAGE_COUNT, MAX_VIDEO_COUNT),
-    postController.createNewPost
-);
-
-/**
- * @swagger
  * /:postId/create:
  *   post:
  *     summary: Add a comment to a post
