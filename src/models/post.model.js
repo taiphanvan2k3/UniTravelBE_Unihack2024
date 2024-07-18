@@ -2,24 +2,26 @@ const mongoose = require("mongoose");
 
 const PostSchema = new mongoose.Schema(
     {
+        experienceLocation: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "ExperienceLocation",
+            required: true,
+        },
         author: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User",
             required: true,
         },
-        title: { type: String, required: true },
         content: { type: String, required: true },
         mediaUrls: { type: [String], required: false },
         createdAt: { type: Date, default: Date.now },
-        commentCount: { type: Number, default: 0 },
-        upvoteCount: { type: Number, default: 0 },
-        downvoteCount: { type: Number, default: 0 },
-        upvoteUsers: {
+        comments: {
             type: [mongoose.Schema.Types.ObjectId],
-            ref: "User",
+            ref: "Comment",
             default: [],
         },
-        downvoteUsers: {
+        upvoteCount: { type: Number, default: 0 },
+        upvoteUsers: {
             type: [mongoose.Schema.Types.ObjectId],
             ref: "User",
             default: [],

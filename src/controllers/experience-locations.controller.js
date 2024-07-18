@@ -1,5 +1,6 @@
 const listOfExperienceLocationService = require("../services/experience-location/list-of-experience-locations.service.js");
-const experienceLocationsDetailSerivice = require("../services/experience-location/experience-location-detail.service.js");
+const experienceLocationsDetailService = require("../services/experience-location/experience-location-detail.service.js");
+const postDetailService = require("../services/post/post-detail.service.js");
 
 class ExperienceLocationController {
     async getListExperienceLocationsByProvince(req, res, next) {
@@ -31,8 +32,16 @@ class ExperienceLocationController {
     async getExperienceLocationsById(req, res, next) {
         try {
             const experienceLocationId = req.params.id;
-            console.log("experienceLocationId", experienceLocationId);
-            const experienceLocation = await experienceLocationsDetailSerivice.getExperienceLocationsById(experienceLocationId);
+            const experienceLocation =
+                await experienceLocationsDetailService.getExperienceLocationsById(
+                    experienceLocationId
+                );
+
+            if (!experienceLocation) {
+                return res.status(404).json({
+                    message: "Experience location not found",
+                });
+            }
             return res.status(200).json(experienceLocation);
         } catch (error) {
             next(error);
@@ -42,10 +51,38 @@ class ExperienceLocationController {
     async createExperienceLocation(req, res, next) {
         try {
             const locationData = req.body;
-            const newExperienceLocation = await experienceLocationsDetailSerivice.createExperienceLocation(locationData);
-            console.log("newExperienceLocation", newExperienceLocation);
+            const newExperienceLocation =
+                await experienceLocationsDetailService.createExperienceLocation(
+                    locationData
+                );
             return res.status(201).json(newExperienceLocation);
         } catch (error) {
+            next(error);
+        }
+    }
+
+    async createNewPost(req, res, next) {
+        try {
+            const experienceLocationId = req.params.id;
+            const { content } = req.body;
+            const { images, videos } = req.files;
+            const newPost = await postDetailService.createNewPost(
+                experienceLocationId,
+                {
+                    content,
+                    images,
+                    videos,
+                }
+            );
+
+            res.status(201).json({
+                data: newPost,
+                hasUploadMedia: images?.length > 0 || videos?.length > 0,
+            });
+        } catch (error) {
+            res.status(400).json({
+                message: error.message,
+            });
             next(error);
         }
     }
@@ -54,7 +91,17 @@ class ExperienceLocationController {
         try {
             const locationId = req.params.id;
             const updateData = req.body;
-            const updatedLocation = await experienceLocationsDetailSerivice.updateExperienceLocationById(locationId, updateData);
+            const updatedLocation =
+                await experienceLocationsDetailService.updateExperienceLocationById(
+                    locationId,
+                    updateData
+                );
+
+            if (!updatedLocation) {
+                return res.status(404).json({
+                    message: "Experience location not found",
+                });
+            }
             return res.status(200).json(updatedLocation);
         } catch (error) {
             next(error);
@@ -64,7 +111,16 @@ class ExperienceLocationController {
     async deleteExperienceLocationById(req, res, next) {
         try {
             const locationId = req.params.id;
-            const result = await experienceLocationsDetailSerivice.deleteExperienceLocationById(locationId);
+            const result =
+                await experienceLocationsDetailService.deleteExperienceLocationById(
+                    locationId
+                );
+
+            if (!result) {
+                return res.status(404).json({
+                    message: "Experience location not found",
+                });
+            }
             return res.status(200).json(result);
         } catch (error) {
             next(error);

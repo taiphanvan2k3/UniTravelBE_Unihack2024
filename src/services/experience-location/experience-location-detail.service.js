@@ -17,10 +17,15 @@ const getExperienceLocationsById = async (experienceLocationId) => {
     }
 };
 
+const getPostsInExperienceLocation = async (
+    experienceLocationId,
+    pageIndex,
+    pageSize
+) => {};
+
 const createExperienceLocation = async (locationData) => {
     try {
         logInfo("createExperienceLocation", "Start");
-
         const newExperienceLocation = new ExperienceLocation(locationData);
         await newExperienceLocation.save();
 
@@ -36,9 +41,10 @@ const updateExperienceLocationById = async (id, locationData) => {
     try {
         logInfo("updateExperienceLocationById", "Start");
         const updatedExperienceLocation =
-            new ExperienceLocation.findByIdAndUpdate(id, locationData, {
+            await ExperienceLocation.findByIdAndUpdate(id, locationData, {
                 new: true,
             });
+
         logInfo("updateExperienceLocationById", "End");
         return updatedExperienceLocation;
     } catch (error) {
@@ -52,6 +58,7 @@ const deleteExperienceLocationById = async (id) => {
         logInfo("deleteExperienceLocationById ", "Start");
         const deletedExperienceLocation =
             await ExperienceLocation.findByIdAndDelete(id);
+
         logInfo("deleteExperienceLocationById ", "End");
         return deletedExperienceLocation;
     } catch (error) {

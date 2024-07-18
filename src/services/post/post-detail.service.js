@@ -11,7 +11,7 @@ const UPLOAD_TYPES = {
     comment: "comment",
 };
 
-const createNewPost = async (postInfo) => {
+const createNewPost = async (experienceLocationId, postInfo) => {
     try {
         logInfo("createNewPost", "Start");
         const currentUserId = appState.context.currentUser.userIdInSystem;
@@ -22,6 +22,7 @@ const createNewPost = async (postInfo) => {
 
         const newPost = new Post({
             ...postInfo,
+            experienceLocation: experienceLocationId,
             author: currentUser._id,
         });
 
@@ -50,7 +51,11 @@ const addComment = async (postId, commentInfo) => {
     try {
         logInfo("addComment", "Start");
         const currentUserId = appState.context.currentUser.userIdInSystem;
-        const currentUser = await User.findById(currentUserId);
+        const [currentUser, post] = await Promise.all([
+            User.findById(currentUserId),
+            Post.findById(postId),
+        ]);
+
         if (!currentUser) {
             throw new Error("User not found");
         }
@@ -61,8 +66,11 @@ const addComment = async (postId, commentInfo) => {
             post: postId,
             parentCommentId: null,
         });
+        post.comments.push(newComment._id);
+
         await newComment.save();
         const commentId = newComment._id;
+        await post.save();
 
         uploadFilesToFirebaseStorage(
             {
@@ -162,7 +170,6 @@ const uploadFilesToFirebaseStorage = async (
             }
 
             comment.mediaUrls = mediaUrls;
-            post.commentCount += 1;
             await Promise.all([comment.save(), post.save()]);
         }
 
