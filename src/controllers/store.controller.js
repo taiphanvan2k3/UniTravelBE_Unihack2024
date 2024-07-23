@@ -25,7 +25,10 @@ class StoreController {
         try {
             const storeId = req.params.id;
             const updateData = req.body;
-            const updatedStore = await storeService.updateStoreById(storeId, updateData);
+            const updatedStore = await storeService.updateStoreById(
+                storeId,
+                updateData
+            );
             return res.status(200).json(updatedStore);
         } catch (error) {
             next(error);
@@ -46,6 +49,16 @@ class StoreController {
         try {
             const stores = await storeService.getAllStores();
             return res.status(200).json(stores);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async getQRCodeUrl(req, res, next) {
+        try {
+            const { storeId } = req.params;
+            const qrCodeUrl = await storeService.getQRCodeUrl(storeId);
+            return res.status(200).json({ qrCodeUrl });
         } catch (error) {
             next(error);
         }
