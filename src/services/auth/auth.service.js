@@ -9,6 +9,7 @@ const {
 } = require("../../config/firebase.js");
 const userService = require("../user/user-detail.service.js");
 const { logError } = require("../logger.service.js");
+const constants = require("../../common/constants.js");
 
 class AuthService {
     constructor() {
@@ -40,6 +41,7 @@ class AuthService {
                 email: userCredential.user.email,
                 displayName,
                 role,
+                imageUrl: constants.DEFAULT_USER_AVATAR,
             });
         } catch (error) {
             if (error.code === "auth/email-already-in-use") {

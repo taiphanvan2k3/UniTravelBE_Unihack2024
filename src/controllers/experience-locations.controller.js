@@ -1,6 +1,7 @@
 const listOfExperienceLocationService = require("../services/experience-location/list-of-experience-locations.service.js");
 const experienceLocationsDetailService = require("../services/experience-location/experience-location-detail.service.js");
 const postDetailService = require("../services/post/post-detail.service.js");
+const listPostsService = require("../services/post/list-posts.service.js");
 
 class ExperienceLocationController {
     async getListExperienceLocationsByProvince(req, res, next) {
@@ -11,6 +12,22 @@ class ExperienceLocationController {
                     provinceCode
                 );
             return res.status(200).json(experienceLocations);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async getPostsInExperienceLocation(req, res, next) {
+        try {
+            const experienceLocationId = req.params.id;
+            const pageIndex = Number(req.query.pageIndex) || 0;
+            const pageSize = Number(req.query.pageSize) || 10;
+            const posts = await listPostsService.getPostsInExperienceLocation(
+                experienceLocationId,
+                pageIndex,
+                pageSize
+            );
+            return res.status(200).json(posts);
         } catch (error) {
             next(error);
         }

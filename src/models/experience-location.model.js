@@ -1,23 +1,5 @@
 const mongoose = require("mongoose");
 
-const ReviewPhotoSchema = new mongoose.Schema({
-    photoUrl: String,
-    date: {
-        month: String,
-        day: String,
-        year: String,
-    },
-});
-
-const ReviewSchema = new mongoose.Schema({
-    reviewerName: String,
-    timestamp: String,
-    reviewText: String,
-    score: String,
-    language: String,
-    reviewPhotos: [ReviewPhotoSchema],
-});
-
 const ExperienceLocationSchema = new mongoose.Schema(
     {
         locationId: { type: String, required: true },
@@ -27,7 +9,6 @@ const ExperienceLocationSchema = new mongoose.Schema(
         address: { type: String, required: true },
         time: { type: String },
         description: { type: String },
-        reviews: [ReviewSchema],
         price: {
             originalPrice: {
                 type: String,
@@ -57,6 +38,7 @@ ExperienceLocationSchema.set("toObject", {
         ret.id = ret._id;
         delete ret.__v;
         delete ret._id;
+        delete ret.reviews;
         return ret;
     },
 });
@@ -66,10 +48,14 @@ ExperienceLocationSchema.set("toJSON", {
         ret.id = ret._id;
         delete ret.__v;
         delete ret._id;
+        delete ret.reviews;
         return ret;
     },
 });
 
-const ExperienceLocation = mongoose.model("ExperienceLocation", ExperienceLocationSchema);
+const ExperienceLocation = mongoose.model(
+    "ExperienceLocation",
+    ExperienceLocationSchema
+);
 
 module.exports = ExperienceLocation;

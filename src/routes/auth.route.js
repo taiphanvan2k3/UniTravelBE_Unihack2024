@@ -2,6 +2,15 @@ const Router = require("express");
 const verifyToken = require("../middlewares/firebase-auth.middleware.js");
 const firebaseAuthController = require("../controllers/auth.controller.js");
 const router = Router();
+/**
+ * @swagger
+ * components:
+ *   securitySchemes:
+ *     bearerAuth:
+ *       type: http
+ *       scheme: bearer
+ *       bearerFormat: JWT
+ */
 
 /**
  * @swagger
@@ -99,7 +108,10 @@ router.post("/verify-token", firebaseAuthController.verifyToken);
  * /auth/sign-out:
  *   post:
  *     summary: Sign out user
- *     tags: [FirebaseAuthController]
+ *     tags: 
+ *       - FirebaseAuthController
+ *     security:
+ *       - bearerAuth: []
  *     requestBody:
  *       required: true
  *       content:
@@ -112,8 +124,6 @@ router.post("/verify-token", firebaseAuthController.verifyToken);
  *               email:
  *                 type: string
  *                 example: "Admin@123"
- *     security:
- *       - BearerAuth: []
  *     responses:
  *       200:
  *         description: User signed out successfully

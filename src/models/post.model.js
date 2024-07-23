@@ -49,6 +49,7 @@ PostSchema.set("toObject", {
     },
 });
 
-PostSchema.index({ authorId: 1 });
+PostSchema.index({ experienceLocation: 1, upvoteCount: -1, createdAt: -1 });
+
 const Post = mongoose.model("Post", PostSchema);
 module.exports = Post;
