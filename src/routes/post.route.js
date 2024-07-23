@@ -8,7 +8,7 @@ const MAX_VIDEO_COUNT = 2;
 
 /**
  * @swagger
- * /{postId}/add-comment:
+ * /posts/{postId}/add-comment:
  *   post:
  *     summary: Add a comment to a post
  *     tags:
@@ -60,7 +60,7 @@ router.post(
 
 /**
  * @swagger
- * /{postId}/{commentId}/add-reply:
+ * /posts/{postId}/{commentId}/add-reply:
  *   post:
  *     summary: Add a reply to a comment
  *     tags:

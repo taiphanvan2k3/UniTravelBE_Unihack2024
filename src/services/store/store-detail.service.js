@@ -8,7 +8,7 @@ const Store = require("../../models/store.model");
 const User = require("../../models/user.model.js");
 const appState = getNamespace("AppState");
 
-const createStore = async (storeData) => {
+const createStore = async (storeData, medias) => {
     try {
         logInfo("createStore", "Start");
         const currentUserId = appState.context.currentUser.userIdInSystem;
@@ -20,9 +20,17 @@ const createStore = async (storeData) => {
         const newStore = new Store({
             ...storeData,
             owner: currentUser._id,
+            province: storeData.provinceId,
         });
-
         await newStore.save();
+
+        // Không cần chờ upload file xong mới trả về response
+        uploadFilesToFirebaseStorage(
+            newStore,
+            medias.thumbnail.length > 0 ? medias.thumbnail[0] : null,
+            medias.images,
+            medias.videos
+        );
         logInfo("createStore", "End");
         return newStore;
     } catch (error) {
@@ -139,6 +147,61 @@ const getQRCodeUrl = async (storeId) => {
         throw new Error("getQRCodeUrl: " + error.message);
     }
 };
+
+//#region Private functions
+
+const uploadFilesToFirebaseStorage = async (
+    store,
+    thumbnail,
+    images,
+    videos
+) => {
+    const files = [];
+    try {
+        logInfo("uploadFilesToFirebaseStorage", "Start");
+        const bucketName = "store-media";
+
+        if (images) {
+            images.forEach((image) => {
+                files.push(image);
+            });
+        }
+        if (videos) {
+            videos.forEach((video) => {
+                files.push(video);
+            });
+        }
+
+        const thumbnailUploadPromise = thumbnail
+            ? uploadFileFromFilePath(thumbnail.path, bucketName)
+            : Promise.resolve(null);
+
+        const detailedImageUploadPromises = files.map((file) =>
+            uploadFileFromFilePath(file.path, bucketName)
+        );
+
+        const [thumbnailUrl, ...mediaUrls] = await Promise.all([
+            thumbnailUploadPromise,
+            ...detailedImageUploadPromises,
+        ]);
+
+        store.thumbnailUrl = thumbnailUrl;
+        store.mediaUrls = mediaUrls;
+        await store.save();
+
+        logInfo("uploadFilesToFirebaseStorage", "End");
+    } catch (error) {
+        logError("uploadFilesToFirebaseStorage", error);
+        throw error;
+    } finally {
+        if (thumbnail) files.push(thumbnail);
+        files.forEach((file) => {
+            fs.unlinkSync(file.path);
+        });
+    }
+};
+
+//#endregion
 
 module.exports = {
     createStore,
