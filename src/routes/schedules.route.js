@@ -8,7 +8,7 @@ const router = Router();
  *   get:
  *     summary: Get schedule AI from Gemini by province code
  *     tags:
- *       - schedulesController
+ *       - SchedulesController
  *     parameters:
  *       - in: path
  *         name: provinceCode
@@ -27,7 +27,7 @@ router.get("/get-by-province/:provinceCode", schedulesController.getScheduleAI);
  *   get:
  *     summary: Get schedule AI from Gemini by experience location
  *     tags:
- *       - schedulesController
+ *       - SchedulesController
  *     parameters:
  *       - in: path
  *         name: experienceLocationId

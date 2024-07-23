@@ -38,6 +38,7 @@ const handleUpload = (maxImageCount, maxVideoCount) => {
         // Nếu một trong các loại file vượt quá số lượng thì nó sẽ ngừng upload và trả về lỗi
         // Tại cùng 1 lúc chỉ có hoặc images hoặc videos bị lỗi vì nếu 1 trong 2 bị lỗi thì middleware sẽ dừng lại
         const middleware = upload.fields([
+            { name: "thumbnail", maxCount: 1 },
             { name: "images", maxCount: maxImageCount },
             { name: "videos", maxCount: maxVideoCount },
         ]);

@@ -3,8 +3,13 @@ const storeService = require("../services/store/store-detail.service");
 class StoreController {
     async createStore(req, res, next) {
         try {
+            const { thumbnail, images, videos } = req.files;
             const storeData = req.body;
-            const newStore = await storeService.createStore(storeData);
+            const newStore = await storeService.createStore(storeData, {
+                thumbnail,
+                images,
+                videos,
+            });
             return res.status(201).json(newStore);
         } catch (error) {
             next(error);
