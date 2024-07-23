@@ -1,13 +1,15 @@
-// geminiService.js
-
 const {
     GoogleGenerativeAI,
     HarmCategory,
     HarmBlockThreshold,
 } = require("@google/generative-ai");
+const { logInfo, logError } = require("../logger.service.js");
+
 const { GoogleAIFileManager } = require("@google/generative-ai/server");
-const userPrompt =
+const vietnamesePrompt =
     "Translate the name of dishes in the menu into Vietnamese. If the dishes have prices, display the prices in VND, with the currency included. In addition, if the dishes have descriptions, display them as well. Return json as an array of items with the following properties:\noriginalName (name before translating into Vietnamese), name (after translating), price (convert to Vietnam dong), description (translate to Vietnamese)\n";
+const englishPrompt =
+    "Translate the name of dishes in the menu into English. If the dishes have prices, display the prices in USD, with the currency included. In addition, if the dishes have descriptions, display them as well. Return json as an array of items with the following properties:\noriginalName (name before translating into English), name (after translating), price (convert to USD), description (translate to English)\n";
 
 class MenuExtractionService {
     constructor(apiKey) {
@@ -17,6 +19,8 @@ class MenuExtractionService {
         this.model = this.genAI.getGenerativeModel({
             model: "gemini-1.5-flash",
         });
+
+        logInfo("MenuExtractionService", "Initialized");
     }
 
     async uploadToGemini(path, mimeType) {
@@ -26,16 +30,18 @@ class MenuExtractionService {
                 displayName: path,
             });
             const file = uploadResult.file;
-            console.log(`Uploaded file ${file.displayName} as: ${file.name}`);
+
+            logInfo("uploadToGemini", `Uploaded file ${file.displayName}`);
             return file;
         } catch (error) {
-            console.error("Error uploading file:", error);
+            logError("uploadToGemini", error.message);
             throw error;
         }
     }
 
-    async processFileWithGemini(path, mimeType) {
+    async translateMenu(path, mimeType, language) {
         try {
+            logInfo("translateMenu", `Start processing file ${path}`);
             const file = await this.uploadToGemini(path, mimeType);
             const generationConfig = {
                 temperature: 1,
@@ -58,7 +64,10 @@ class MenuExtractionService {
                                 },
                             },
                             {
-                                text: userPrompt,
+                                text:
+                                    language === "vi"
+                                        ? vietnamesePrompt
+                                        : englishPrompt,
                             },
                         ],
                     },
@@ -70,20 +79,29 @@ class MenuExtractionService {
             // Lưu vào 1 file JSON
             const fs = require("fs");
             fs.writeFileSync(
-                "output.json",
+                "menu-translation-output.json",
                 result.response.text().replace("```json", "").replace("```", "")
             );
-            return result.response.text();
+
+            logInfo("translateMenu", "Processed file successfully");
+            return JSON.parse(
+                result.response.text().replace("```json", "").replace("```", "")
+            );
         } catch (error) {
-            console.error("Error processing file with Gemini:", error);
+            logError("processFileWithGemini", error.message);
             throw error;
         }
     }
 }
 
-(async () => {
-    const menuExtractionService = new MenuExtractionService(
-        "AIzaSyDnK-VUFpDgdK6hWq-F5XYPQ-xg1CeLzsY"
-    );
-    await menuExtractionService.processFileWithGemini("demo2.jpg", "image/jpeg");
-})();
+// (async () => {
+//     const menuExtractionService = new MenuExtractionService(
+//         "AIzaSyDnK-VUFpDgdK6hWq-F5XYPQ-xg1CeLzsY"
+//     );
+//     await menuExtractionService.processFileWithGemini(
+//         "demo2.jpg",
+//         "image/jpeg"
+//     );
+// })();
+
+module.exports = new MenuExtractionService(process.env.GEMINI_API_KEY);

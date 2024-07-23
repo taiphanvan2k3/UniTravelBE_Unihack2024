@@ -8,11 +8,20 @@ const MAX_VIDEO_COUNT = 2;
 
 /**
  * @swagger
- * /:postId/create:
+ * /{postId}/add-comment:
  *   post:
  *     summary: Add a comment to a post
  *     tags:
  *       - PostController
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - name: Id of
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID of the post to add a comment to
  *     requestBody:
  *       required: true
  *       content:

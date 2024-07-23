@@ -5,6 +5,7 @@ const provinceRouter = require("../routes/province.route.js");
 const storeRouter = require("../routes/store.route.js");
 const postRouter = require("../routes/post.route.js");
 const schedulesRouter = require("../routes/schedules.route.js");
+const geminiRouter = require("../routes/gemini.route.js");
 
 module.exports = (app) => {
     app.use("/user", userRouter);
@@ -14,4 +15,5 @@ module.exports = (app) => {
     app.use("/stores", storeRouter);
     app.use("/posts", postRouter);
     app.use("/schedules", schedulesRouter);
+    app.use("/gemini", geminiRouter);
 };

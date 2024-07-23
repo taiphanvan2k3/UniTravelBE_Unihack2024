@@ -69,12 +69,14 @@ router.get(
  *       - in: query
  *         name: pageIndex
  *         required: true
+ *         example: 1
  *         schema:
  *           type: integer
  *         description: The index of the page to retrieve
  *       - in: query
  *         name: pageSize
  *         required: true
+ *         example: 10
  *         schema:
  *           type: integer
  *         description: The number of posts per page
@@ -226,6 +228,15 @@ router.delete(
  *     summary: Create a new post in an experience location
  *     tags:
  *       - ExperienceLocationController
+  *     security:
+ *       - bearerAuth: []
+  *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Experience location ID
  *     requestBody:
  *       required: true
  *       content:
@@ -233,8 +244,6 @@ router.delete(
  *           schema:
  *             type: object
  *             properties:
- *               title:
- *                 type: string
  *               content:
  *                 type: string
  *               images:
