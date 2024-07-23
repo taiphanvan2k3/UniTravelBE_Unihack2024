@@ -1,4 +1,5 @@
 const ExperienceLocation = require("../../models/experience-location.model");
+const Post = require("../../models/post.model");
 const { logInfo, logError } = require("../logger.service.js");
 
 const getExperienceLocationsById = async (experienceLocationId) => {
@@ -16,12 +17,6 @@ const getExperienceLocationsById = async (experienceLocationId) => {
         throw error;
     }
 };
-
-const getPostsInExperienceLocation = async (
-    experienceLocationId,
-    pageIndex,
-    pageSize
-) => {};
 
 const createExperienceLocation = async (locationData) => {
     try {

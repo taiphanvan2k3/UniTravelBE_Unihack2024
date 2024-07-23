@@ -57,7 +57,7 @@ const createTempUser = async (user) => {
             email: user.email,
             username: user.email.split("@")[0],
             displayName: user.displayName,
-            imageUrl: "",
+            imageUrl: user.imageUrl ?? "",
             phoneNumber: "",
             address: "",
             isAdmin: false,

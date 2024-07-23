@@ -1,0 +1,93 @@
+
+[
+  {
+    "originalName": "Fish and Chips",
+    "name": "Cá và khoai tây chiên",
+    "price": "237.000 ₫",
+    "description": ""
+  },
+  {
+    "originalName": "Roast Dinner",
+    "name": "Bữa tối nướng",
+    "price": "283.000 ₫",
+    "description": ""
+  },
+  {
+    "originalName": "Toad in the Hole",
+    "name": "Ếch trong lỗ",
+    "price": "190.000 ₫",
+    "description": ""
+  },
+  {
+    "originalName": "Shepard's Pie",
+    "name": "Bánh mì thịt cừu của người chăn cừu",
+    "price": "223.000 ₫",
+    "description": ""
+  },
+  {
+    "originalName": "English Breakfast",
+    "name": "Bữa sáng kiểu Anh",
+    "price": "174.000 ₫",
+    "description": ""
+  },
+  {
+    "originalName": "Chicken & Mushroom Pies",
+    "name": "Bánh gà & nấm",
+    "price": "223.000 ₫",
+    "description": ""
+  },
+  {
+    "originalName": "Ham and Egg",
+    "name": "Giăm bông và trứng",
+    "price": "174.000 ₫",
+    "description": ""
+  },
+  {
+    "originalName": "Bangers and Mash",
+    "name": "Xúc xích và khoai tây nghiền",
+    "price": "212.000 ₫",
+    "description": ""
+  },
+  {
+    "originalName": "Apple Pie",
+    "name": "Bánh táo",
+    "price": "112.000 ₫",
+    "description": ""
+  },
+  {
+    "originalName": "Scone",
+    "name": "Bánh ngọt",
+    "price": "79.000 ₫",
+    "description": ""
+  },
+  {
+    "originalName": "Jelly",
+    "name": "Mứt",
+    "price": "71.000 ₫",
+    "description": ""
+  },
+  {
+    "originalName": "Tea",
+    "name": "Trà",
+    "price": "71.000 ₫",
+    "description": ""
+  },
+  {
+    "originalName": "Coffee",
+    "name": "Cà phê",
+    "price": "71.000 ₫",
+    "description": ""
+  },
+  {
+    "originalName": "Orange Juice",
+    "name": "Nước ép cam",
+    "price": "50.000 ₫",
+    "description": ""
+  },
+  {
+    "originalName": "Lemonade",
+    "name": "Nước chanh",
+    "price": "50.000 ₫",
+    "description": ""
+  }
+]

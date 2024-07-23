@@ -10,7 +10,7 @@ const listPersonalPosts = async (authorId, page, limit) => {
                 select: "username displayName imageUrl",
             })
             .sort({ createdAt: -1 })
-            .skip(page * limit)
+            .skip((page - 1) * limit)
             .limit(limit)
             .exec();
 
@@ -29,6 +29,30 @@ const listPersonalPosts = async (authorId, page, limit) => {
     }
 };
 
+const getPostsInExperienceLocation = async (
+    experienceLocationId,
+    pageIndex,
+    pageSize
+) => {
+    try {
+        logInfo("getPostsInExperienceLocation", "Start");
+        const posts = await Post.find({
+            experienceLocation: experienceLocationId,
+        })
+            .populate("author", "displayName imageUrl")
+            .sort({ upvoteCount: -1, createdAt: -1 })
+            .skip((pageIndex - 1) * pageSize)
+            .limit(pageSize);
+
+        logInfo("getPostsInExperienceLocation", "End");
+        return posts;
+    } catch (error) {
+        logError("getListExperienceLocationsByProvince", error.message);
+        throw error;
+    }
+};
+
 module.exports = {
     listPersonalPosts,
+    getPostsInExperienceLocation,
 };

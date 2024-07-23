@@ -1,0 +1,37 @@
+{
+  "itinerary": {
+    "title": "Lịch trình du lịch 1 ngày tại Đà Nẵng",
+    "description": "Dưới đây là một lịch trình tham quan tối ưu dựa trên các điểm bạn cung cấp, xem xét thời gian di chuyển và giờ mở cửa.",
+    "schedule": [
+      {
+        "time": "Sáng (8:00 - 12:00)",
+        "activities": [
+          {
+            "time": "8:00 - 8:30",
+            "description": "Ăn sáng tại một quán ăn địa phương gần nơi ở."
+          },
+          {
+            "time": "8:30 - 12:00",
+            "description": "Tham quan Sun World Ba Na Hills.",
+            "subActivities": [
+              {
+                "description": "Đi cáp treo lên núi để tận hưởng khung cảnh hùng vĩ."
+              },
+              {
+                "description": "Khám phá các điểm thu hút với giá trị như Vườn hoa Le Jardin D'Amour, Làng Pháp, Khu vui chơi Fantasy Park."
+              }
+            ]
+          },
+          {
+            "time": "11:00 - 12:00",
+            "description": "Ăn trưa tại nhà hàng nằm trong khu vực Sun World Ba Na Hills."
+          }
+        ]
+      },
+      {
+        "time": "Chiều (12:00 - 18:00)",
+        "activities": []
+      }
+    ]
+  }
+}

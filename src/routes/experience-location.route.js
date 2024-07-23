@@ -54,6 +54,70 @@ router.get(
 
 /**
  * @swagger
+ * /experience-locations/{id}/posts:
+ *   get:
+ *     summary: Get posts in an experience location
+ *     tags:
+ *       - ExperienceLocationController
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The ID of the experience location
+ *       - in: query
+ *         name: pageIndex
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: The index of the page to retrieve
+ *       - in: query
+ *         name: pageSize
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: The number of posts per page
+ *     responses:
+ *       200:
+ *         description: A list of posts
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   _id:
+ *                     type: string
+ *                     description: The post ID
+ *                   experienceLocation:
+ *                     type: string
+ *                     description: The experience location ID
+ *                   author:
+ *                     type: object
+ *                     properties:
+ *                       displayName:
+ *                         type: string
+ *                       imageUrl:
+ *                         type: string
+ *                   upvoteCount:
+ *                     type: integer
+ *                   createdAt:
+ *                     type: string
+ *                     format: date-time
+ *       400:
+ *         description: Bad request
+ *       404:
+ *         description: Experience location not found
+ */
+router.get(
+    "/:id/posts",
+    experienceLocationController.getPostsInExperienceLocation
+);
+
+/**
+ * @swagger
  * /experience-locations/create-detail:
  *   post:
  *     summary: Create a new experience location
