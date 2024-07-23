@@ -3,8 +3,8 @@ const Post = require("../../models/post.model.js");
 const User = require("../../models/user.model.js");
 const Comment = require("../../models/comment.model.js");
 const { logInfo, logError } = require("../logger.service.js");
-const { getNamespace } = require("node-request-context");
 const { uploadFileFromFilePath } = require("../firestore-utils.service");
+const { getNamespace } = require("node-request-context");
 const appState = getNamespace("AppState");
 const UPLOAD_TYPES = {
     post: "post",
