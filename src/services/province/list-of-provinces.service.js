@@ -15,6 +15,24 @@ const getListOfProvinces = async () => {
     }
 };
 
+const getProvinceNameByCode = async (provinceCode) => {
+    try {
+        logInfo("getProvinceNameByCode", "Start");
+        const province = await Provinces.findOne({ code: provinceCode });
+        if(province === null) {
+            logError("getProvinceNameByCode", "No province found with code: " + provinceCode);
+            throw new Error("Province not found");
+        }
+
+        logInfo("getProvinceNameByCode", "End");
+        return province.name;
+    } catch (error) {
+        logError("getProvinceNameByCode", error.message);
+        throw error
+    }
+}
+
 module.exports = {
     getListOfProvinces,
+    getProvinceNameByCode
 };

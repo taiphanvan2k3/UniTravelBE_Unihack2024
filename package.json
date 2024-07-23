@@ -11,6 +11,7 @@
   "author": "DUT_team",
   "license": "ISC",
   "dependencies": {
+    "@google/generative-ai": "^0.15.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "date-fns": "^3.6.0",
