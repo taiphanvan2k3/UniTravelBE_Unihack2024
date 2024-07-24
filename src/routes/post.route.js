@@ -116,4 +116,72 @@ router.post(
     postController.addReplyComment
 );
 
+/**
+ * @swagger
+ * /posts/new-feeds:
+ *   get:
+ *     summary: Get posts for new feeds
+ *     tags:
+ *       - PostController
+ *     parameters:
+ *       - name: pageIndex
+ *         in: query
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           description: Index of the page
+ *           default: 1
+ *       - name: pageSize
+ *         in: query
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           description: Number of items per page
+ *           default: 10
+ *     responses:
+ *       200:
+ *         description: List of posts
+ *       500:
+ *         description: Internal Server Error
+ */
+router.get("/new-feeds", postController.getListOfNewFeeds);
+
+/**
+ * @swagger
+ * /posts/personal-posts:
+ *   get:
+ *     summary: Get personal posts
+ *     tags:
+ *       - PostController
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - name: pageIndex
+ *         in: query
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           description: Index of the page
+ *           default: 1
+ *       - name: pageSize
+ *         in: query
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           description: Number of items per page
+ *           default: 10
+ *     responses:
+ *       200:
+ *         description: List of personal posts
+ *       401:
+ *         description: Unauthorized
+ *       500:
+ *         description: Internal Server Error
+ */
+router.get(
+    "/personal-posts",
+    verifyToken,
+    postController.getListOfPersonalPosts
+);
+
 module.exports = router;

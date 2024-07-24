@@ -150,14 +150,32 @@ const uploadFilesToFirebaseStorage = async (
             });
         }
 
-        const promises = files.map((file) =>
-            uploadFileFromFilePath(file.path, bucketName)
-        );
+        const imageUploadPromises =
+            images && images.length > 0
+                ? images.map((image) =>
+                      uploadFileFromFilePath(image.path, bucketName)
+                  )
+                : [];
 
-        const mediaUrls = await Promise.all(promises);
+        const videoUploadPromises =
+            videos && videos.length > 0
+                ? videos.map((video) =>
+                      uploadFileFromFilePath(video.path, bucketName)
+                  )
+                : [];
+
+        const mediaUrls = await Promise.all([
+            ...imageUploadPromises,
+            ...videoUploadPromises,
+        ]);
+
+        const imageUrls = mediaUrls.slice(0, images?.length ?? 0);
+        const videoUrls = mediaUrls.slice(images?.length ?? 0);
+
         if (uploadType == UPLOAD_TYPES.post) {
             const post = await Post.findById(identifiers.postId);
-            post.mediaUrls = mediaUrls;
+            post.imageUrls = imageUrls;
+            post.videoUrls = videoUrls;
             await post.save();
         } else if (uploadType == UPLOAD_TYPES.comment) {
             const [comment, post] = await Promise.all([
@@ -169,7 +187,8 @@ const uploadFilesToFirebaseStorage = async (
                 throw new Error("Comment or Post not found");
             }
 
-            comment.mediaUrls = mediaUrls;
+            comment.imageUrls = imageUrls;
+            comment.videoUrls = videoUrls;
             await Promise.all([comment.save(), post.save()]);
         }
 
