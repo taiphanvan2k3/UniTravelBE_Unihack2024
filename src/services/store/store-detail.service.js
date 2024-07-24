@@ -6,6 +6,7 @@ const { getNamespace } = require("node-request-context");
 
 const Store = require("../../models/store.model");
 const User = require("../../models/user.model.js");
+const CheckInHistory = require("../../models/checkin-history.model.js");
 const appState = getNamespace("AppState");
 
 const createStore = async (storeData, medias) => {
@@ -34,7 +35,7 @@ const createStore = async (storeData, medias) => {
         // Không cần chờ upload file xong mới trả về response
         uploadFilesToFirebaseStorage(
             newStore,
-            medias.thumbnail.length > 0 ? medias.thumbnail[0] : null,
+            medias.thumbnail?.length > 0 ? medias.thumbnail[0] : null,
             medias.images,
             medias.videos
         );
@@ -143,6 +144,54 @@ const getQRCodeUrl = async (storeId) => {
     }
 };
 
+const checkInStore = async (storeId, qrCodePath) => {
+    try {
+        logInfo("checkInStore", "Start");
+        const currentUserId = appState.context.currentUser.userIdInSystem;
+        const currentUser = await User.findById(currentUserId);
+        if (!currentUser) {
+            throw new Error("User not found");
+        }
+
+        const storeInfo = await qrCodeService.decodeQRCode(qrCodePath);
+        if (!storeInfo || storeInfo.storeId !== storeId) {
+            throw new Error("Invalid QR code");
+        }
+
+        const store = await Store.findById(storeInfo.storeId);
+        if (!store) {
+            throw new Error("Store not found");
+        }
+
+        let checkInHistory = await CheckInHistory.findOne({
+            user: currentUser._id,
+            store: store._id,
+        });
+
+        if (!checkInHistory) {
+            checkInHistory = new CheckInHistory({
+                user: currentUser._id,
+                store: store._id,
+            });
+        } else {
+            checkInHistory.lastCheckIn = Date.now();
+        }
+
+        await checkInHistory.save();
+        logInfo("checkInStore", "End");
+    } catch (error) {
+        logError("checkInStore", error.message);
+        throw new Error("checkInStore: " + error.message);
+    } finally {
+        fs.unlink(qrCodePath, (err) => {
+            if (err) {
+                logError("checkInStore", err.message);
+                throw new Error("checkInStore: " + err.message);
+            }
+        });
+    }
+};
+
 //#region Private functions
 
 const uploadFilesToFirebaseStorage = async (
@@ -170,18 +219,32 @@ const uploadFilesToFirebaseStorage = async (
         const thumbnailUploadPromise = thumbnail
             ? uploadFileFromFilePath(thumbnail.path, bucketName)
             : Promise.resolve(null);
+        const imageUploadPromises =
+            images && images.length > 0
+                ? images.map((image) =>
+                      uploadFileFromFilePath(image.path, bucketName)
+                  )
+                : [];
 
-        const detailedImageUploadPromises = files.map((file) =>
-            uploadFileFromFilePath(file.path, bucketName)
-        );
+        const videoUploadPromises =
+            videos && videos.length > 0
+                ? videos.map((video) =>
+                      uploadFileFromFilePath(video.path, bucketName)
+                  )
+                : [];
 
-        const [thumbnailUrl, ...mediaUrls] = await Promise.all([
+        const [thumbnailUrl, ...fileUrls] = await Promise.all([
             thumbnailUploadPromise,
-            ...detailedImageUploadPromises,
+            ...imageUploadPromises,
+            ...videoUploadPromises,
         ]);
 
+        const imageUrls = fileUrls.slice(0, images?.length ?? 0);
+        const videoUrls = fileUrls.slice(images?.length ?? 0);
+
         store.thumbnailUrl = thumbnailUrl;
-        store.mediaUrls = mediaUrls;
+        store.imageUrls = imageUrls;
+        store.videoUrls = videoUrls;
         await store.save();
 
         logInfo("uploadFilesToFirebaseStorage", "End");
@@ -205,4 +268,5 @@ module.exports = {
     deleteStoreById,
     getQRCodeUrl,
     generateQRCode,
+    checkInStore,
 };

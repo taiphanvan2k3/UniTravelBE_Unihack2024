@@ -60,10 +60,10 @@ const MAX_VIDEO_COUNT = 2;
  *                 example: 108.11263
  *                 required: true
  *               latitude:
-*                  type: number
-*                  description: Latitude of the store location
-*                  example: 16.12137
-*                  required: true
+ *                  type: number
+ *                  description: Latitude of the store location
+ *                  example: 16.12137
+ *                  required: true
  *               openingHours:
  *                 type: string
  *                 description: Opening hours of the store
@@ -250,6 +250,13 @@ router.post("/:storeId/get-qr-code", verifyToken, storeController.getQRCodeUrl);
  *         description: Internal server error
  */
 router.get("/:id", storeController.getStoreById);
+
+router.post(
+    "/:id/check-in",
+    verifyToken,
+    handleUpload(1, 0),
+    storeController.checkInStore
+);
 
 router.put("/:id", storeController.updateStoreById);
 router.delete("/:id", verifyToken, storeController.deleteStoreById);

@@ -15,7 +15,7 @@ const CheckInHistorySchema = new mongoose.Schema(
             ref: "User",
             required: true,
         },
-        checkInTime: { type: Date, default: Date.now },
+        lastCheckIn: { type: Date, default: Date.now },
     },
     {
         validateBeforeSave: true,
