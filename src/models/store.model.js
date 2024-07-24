@@ -15,7 +15,8 @@ const StoreSchema = new mongoose.Schema(
         },
         openingHours: { type: String, required: true }, // Ví dụ: "Mở | Thứ, 15:00-22:00"
         thumbnailUrl: { type: String },
-        mediaUrls: { type: [String] },
+        imageUrls: { type: [String] },
+        videoUrls: { type: [String] },
 
         // Ví dụ: "food store", "coffee"
         businessType: { type: String, required: true },

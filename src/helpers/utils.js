@@ -30,7 +30,30 @@ const calculateDistance = (lat1, lon1, lat2, lon2) => {
     return distance;
 };
 
+const deleteAllUploadedFiles = (...files) => {
+    files.forEach((element) => {
+        if (element) {
+            if (Array.isArray(element)) {
+                element.forEach((f) => {
+                    fs.unlink(f.path, (err) => {
+                        if (err) {
+                            console.error(err);
+                        }
+                    });
+                });
+                return;
+            }
+            fs.unlink(element.path, (err) => {
+                if (err) {
+                    console.error(err);
+                }
+            });
+        }
+    });
+};
+
 module.exports = {
     createFolderIfNotExist,
     calculateDistance,
+    deleteAllUploadedFiles,
 };

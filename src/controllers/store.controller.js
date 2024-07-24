@@ -1,10 +1,11 @@
 const storeService = require("../services/store/store-detail.service");
 const listOfStoresService = require("../services/store/list-of-stores.service");
+const { deleteAllUploadedFiles } = require("../helpers/utils");
 
 class StoreController {
     async createStore(req, res, next) {
+        const { thumbnail, images, videos } = req.files;
         try {
-            const { thumbnail, images, videos } = req.files;
             const storeData = req.body;
             const newStore = await storeService.createStore(storeData, {
                 thumbnail,
@@ -13,6 +14,7 @@ class StoreController {
             });
             return res.status(201).json(newStore);
         } catch (error) {
+            deleteAllUploadedFiles(thumbnail, images, videos);
             next(error);
         }
     }
@@ -111,6 +113,23 @@ class StoreController {
             const { storeId } = req.params;
             const qrCodeUrl = await storeService.getQRCodeUrl(storeId);
             return res.status(200).json({ qrCodeUrl });
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async checkInStore(req, res, next) {
+        try {
+            const { images } = req.files;
+            if (!images || images.length === 0) {
+                return res.status(400).json({
+                    message: "Images are required",
+                });
+            }
+
+            const storeId = req.params.id;
+            await storeService.checkInStore(storeId, images[0].path);
+            return res.status(200).json({ message: "Check in successfully" });
         } catch (error) {
             next(error);
         }
