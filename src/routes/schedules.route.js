@@ -4,9 +4,9 @@ const router = Router();
 
 /**
  * @swagger
- * /schedules/get-by-province/{provinceCode}:
+ * /schedules/get-by-province/{provinceCode}/{numDays}:
  *   get:
- *     summary: Get schedule AI from Gemini by province code
+ *     summary: Get schedule AI from Gemini by province code over multiple days
  *     tags:
  *       - SchedulesController
  *     parameters:
@@ -15,17 +15,24 @@ const router = Router();
  *         schema:
  *           type: string
  *         required: true
+ *         description: provinceCode of the province
+ *       - in: path
+ *         name: numDays
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: Number of days for the itinerary
  *     responses:
  *       200:
- *        description: Get schedule AI from Gemini by province code
+ *        description: Get schedule AI from Gemini by province code multi-day
  */
-router.get("/get-by-province/:provinceCode", schedulesController.getScheduleAI);
+router.get("/get-by-province/:provinceCode/:numDays", schedulesController.getScheduleAI);
 
 /**
  * @swagger
- * /schedules/get-by-experience-location/{experienceLocationId}:
+ * /schedules/get-by-experience-location/{experienceLocationId}/{numDays}:
  *   get:
- *     summary: Get schedule AI from Gemini by experience location
+ *     summary: Get schedule AI from Gemini for a specific location over multiple days
  *     tags:
  *       - SchedulesController
  *     parameters:
@@ -34,9 +41,18 @@ router.get("/get-by-province/:provinceCode", schedulesController.getScheduleAI);
  *         schema:
  *           type: string
  *         required: true
+ *         description: Unique ID of the experience location
+ *       - in: path
+ *         name: numDays
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: Number of days for the itinerary
  *     responses:
  *       200:
- *        description: Get schedule AI from Gemini by experience location
+ *        description: Successfully generated multi-day schedule from Gemini
+ *       404:
+ *        description: Location not found
  */
-router.get("/get-by-experience-location/:experienceLocationId", schedulesController.getScheduleForSpecificLocation);
+router.get("/get-by-experience-location/:experienceLocationId/:numDays", schedulesController.getScheduleForSpecificLocation);
 module.exports = router;

@@ -23,108 +23,73 @@ const extractJsonFromText = (text) => {
     }
 }
 
-const createStructuredPromptVietnamese = (locations, province) => {
-    let prompt = `Hãy trả về một lịch trình du lịch chi tiết cho một ngày tại ${province}, Việt Nam dưới dạng JSON, bao gồm tiêu đề, mô tả, và một lịch trình với các hoạt động chi tiết từ buổi sáng đến buổi tối. Các điểm tham quan gồm:`;
-    locations.forEach(loc => {
-        prompt += `\n- Tên địa điểm: "${loc.locationName}", Địa chỉ: "${loc.address}", Giờ mở cửa: "${loc.time}"`;
-    });
-    prompt += `\nCấu trúc JSON nên giống như sau:
-{
-  "itinerary": {
-    "title": "Lịch trình du lịch 1 ngày tại ${province}",
-    "description": "Dưới đây là một lịch trình tham quan tối ưu dựa trên các điểm bạn cung cấp, xem xét thời gian di chuyển và giờ mở cửa.",
-    "schedule": [
-      {
-        "time": "Sáng (8:00 - 12:00)",
-        "activities": [
-          {
-            "time": "8:00 - 8:30",
-            "description": "Ăn sáng tại một quán ăn địa phương gần nơi ở."
-          },
-          {
-            "time": "8:30 - 12:00",
-            "description": "Tham quan Sun World Ba Na Hills.",
-            "subActivities": [
-              {
-                "description": "Đi cáp treo lên núi để tận hưởng khung cảnh hùng vĩ."
-              },
-              {
-                "description": "Khám phá các điểm thu hút với giá trị như Vườn hoa Le Jardin D'Amour, Làng Pháp, Khu vui chơi Fantasy Park."
-              }
-            ]
-          },
-          {
-            "time": "11:00 - 12:00",
-            "description": "Ăn trưa tại nhà hàng nằm trong khu vực Sun World Ba Na Hills."
-          }
-        ]
-      },
-      {
-        "time": "Chiều (12:00 - 18:00)",
-        "activities": [
-          // Bổ sung các hoạt động chiều tại đây
-        ]
-      }
-    ]
+const createStructuredPromptVietnamese = (locations, province, numDays) => {
+  let prompt = `Hãy trả về một lịch trình du lịch chi tiết cho ${numDays} ngày tại ${province}, Việt Nam dưới dạng JSON, bao gồm tiêu đề, mô tả, và một lịch trình với các hoạt động chi tiết từng ngày. Các điểm tham quan gồm:`;
+  locations.forEach(loc => {
+      prompt += `\n- Tên địa điểm: "${loc.locationName}", Địa chỉ: "${loc.address}", Giờ mở cửa: "${loc.time}"`;
+  });
+  prompt += `\nCấu trúc JSON nên giống như sau:\n{\n  "itinerary": {\n    "title": "Lịch trình du lịch ${numDays} ngày tại ${province}",\n    "description": "Dưới đây là một lịch trình tham quan tối ưu dựa trên các điểm bạn cung cấp, xem xét thời gian di chuyển và giờ mở cửa.",\n    "schedule": [\n`;
+
+  // Loop through each day to generate the daily schedule
+  for (let i = 0; i < numDays; i++) {
+      prompt += `      {\n        "day": ${i + 1},\n        "activities": [\n          // Bổ sung các hoạt động cho ngày thứ ${i + 1} tại đây\n        ]\n      },\n`;
   }
-}
-`;
-    return prompt;
+
+  prompt = prompt.slice(0, -2); // Remove the last comma for proper JSON formatting
+  prompt += `\n    ]\n  }\n}\n`;
+
+  return prompt;
 }
 
-const createPromptForSingleLocation = (location) => {
-    return `
-Hãy trả về một lịch trình du lịch chi tiết cho một ngày dựa trên địa điểm "${location.locationName}". Lịch trình dưới dạng JSON nên bao gồm tiêu đề, mô tả, và một lịch trình với các hoạt động chi tiết từ buổi sáng đến buổi tối. Cấu trúc JSON đề nghị như sau:
-{
-  "itinerary": {
-    "title": "Lịch trình du lịch 1 ngày tại ${location.locationName}",
-    "description": "Dưới đây là một lịch trình tham quan tối ưu dựa trên ${location.locationName}, xem xét thời gian di chuyển và giờ mở cửa của địa điểm.",
-    "schedule": [
-      {
-        "time": "Sáng (8:00 - 12:00)",
-        "activities": [
-          {
-            "time": "8:00 - 8:30",
-            "description": "Ăn sáng tại một quán ăn địa phương gần nơi ở."
-          },
-          {
-            "time": "8:30 - 12:00",
-            "description": "Tham quan ${location.locationName}, điểm nhấn là các hoạt động có tại địa điểm.",
-            "subActivities": [
-              {
-                "description": "Chi tiết các hoạt động nổi bật tại địa điểm."
-              }
-            ]
-          },
-          {
-            "time": "11:00 - 12:00",
-            "description": "Ăn trưa tại nhà hàng trong hoặc gần địa điểm."
-          }
-        ]
-      },
-      {
-        "time": "Chiều (12:00 - 18:00)",
-        "activities": [
-          // Bổ sung các hoạt động chiều tại đây dựa trên địa điểm cụ thể
-        ]
-      },
-      {
-        "time": "Tối (18:00 - 22:00)",
-        "activities": [
-          // Bổ sung các hoạt động tối tại đây
-        ]
-      }
-    ]
+
+const createPromptForSingleLocation = (location, numDays) => {
+  let activities = [];
+  for (let day = 1; day <= numDays; day++) {
+      activities.push(`
+    {
+      "day": ${day},
+      "activities": [
+        {
+          "time": "8:00 - 9:00",
+          "description": "Ăn sáng tại một quán ăn gần ${location.locationName}."
+        },
+        {
+          "time": "9:30 - 11:30",
+          "description": "Tham quan các điểm nổi bật tại ${location.locationName}, bao gồm các hoạt động và điểm tham quan chính."
+        },
+        {
+          "time": "12:00 - 13:00",
+          "description": "Ăn trưa tại nhà hàng địa phương."
+        },
+        {
+          "time": "14:00 - 16:00",
+          "description": "Tiếp tục tham quan hoặc tham gia vào các hoạt động giải trí."
+        },
+        {
+          "time": "17:00 - 19:00",
+          "description": "Thư giãn tại ${location.locationName} hoặc tham gia các sự kiện buổi tối."
+        }
+      ]
+    }`);
   }
+
+  return `
+Hãy trả về một lịch trình du lịch chi tiết cho ${numDays} ngày tại "${location.locationName}". Lịch trình dưới dạng JSON nên bao gồm tiêu đề, mô tả, và các hoạt động chi tiết từ buổi sáng đến buổi tối như sau:
+{
+"itinerary": {
+  "title": "Lịch trình du lịch ${numDays} ngày tại ${location.locationName}",
+  "description": "Dưới đây là một lịch trình tham quan tối ưu dựa trên địa điểm ${location.locationName} cho ${numDays} ngày.",
+  "schedule": [${activities.join(',')}
+  ]
 }
-`;
-};
+}`;
+};  
 
 
 class SchedulesController {
     async getScheduleAI(req, res, next) {
         try {
-            const provinceCode = req.params.provinceCode;
+            const { provinceCode, numDays } = req.params;
             const experienceLocations =
                 await listOfExperienceLocationService.getListExperienceLocationsByProvince(provinceCode);
             const provinceName = await listOfProvincesService.getProvinceNameByCode(provinceCode);
@@ -136,7 +101,7 @@ class SchedulesController {
                 locationName: loc.locationName,
                 address: loc.address,
                 time: loc.time
-            })), provinceName);
+            })), provinceName, numDays);
 
             const result = await model.generateContent(prompt);
             const response = result.response;
@@ -150,7 +115,7 @@ class SchedulesController {
 
     async getScheduleForSpecificLocation(req, res, next) {
         try {
-            const experienceLocationId = req.params.experienceLocationId; 
+            const { experienceLocationId, numDays } = req.params;
 
             const experienceLocation = await experienceLocationDetailService.getExperienceLocationsById(experienceLocationId);
 
@@ -161,7 +126,7 @@ class SchedulesController {
             const genAI = new GoogleGenerativeAI(process.env.API_KEY_GEMINI);
             const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash", temperature: 0.5 });
 
-            const prompt = createPromptForSingleLocation(experienceLocation,);
+            const prompt = createPromptForSingleLocation(experienceLocation, numDays);
 
             const result = await model.generateContent(prompt);
             const response = result.response;
