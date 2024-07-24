@@ -14,7 +14,7 @@ const routes = require("./src/routes");
 const errorHandler = require("./src/helpers/error-handler.js");
 
 // Crawl data
-// const seedData = require("./src/models/InitDB/DBinitialize.js");
+const seedData = require("./src/models/InitDB/DbInitialize.js");
 
 const app = express();
 app.use(
@@ -43,6 +43,7 @@ mongoose
     .connect(process.env.MONGO_URI)
     .then(() => {
         logInfo("main.js", "Connected to MongoDB successfully");
+        seedData();
     })
     .catch((err) => console.log(err));
 

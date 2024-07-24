@@ -1,4 +1,5 @@
 const storeService = require("../services/store/store-detail.service");
+const listOfStoresService = require("../services/store/list-of-stores.service");
 
 class StoreController {
     async createStore(req, res, next) {
@@ -50,9 +51,50 @@ class StoreController {
         }
     }
 
-    async getAllStores(req, res, next) {
+    async getListOfStoresInProvince(req, res, next) {
         try {
-            const stores = await storeService.getAllStores();
+            const { provinceId } = req.params;
+            const { businessType } = req.query;
+            if (!provinceId) {
+                return res.status(400).json({
+                    message: "Province ID is required",
+                });
+            }
+
+            const stores = await listOfStoresService.getListOfStoresInProvince(
+                provinceId,
+                businessType
+            );
+            return res.status(200).json(stores);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async getListOwnStores(req, res, next) {
+        try {
+            const stores = await listOfStoresService.getListOwnStores();
+            return res.status(200).json(stores);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async getListOfNearbyStores(req, res, next) {
+        try {
+            const { latitude, longitude, radius, businessType } = req.query;
+            if (!latitude || !longitude) {
+                return res.status(400).json({
+                    message: "Latitude and Longitude are required",
+                });
+            }
+
+            const stores = await listOfStoresService.getListOfNearbyStores(
+                longitude,
+                latitude,
+                radius,
+                businessType
+            );
             return res.status(200).json(stores);
         } catch (error) {
             next(error);

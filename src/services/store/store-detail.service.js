@@ -21,6 +21,13 @@ const createStore = async (storeData, medias) => {
             ...storeData,
             owner: currentUser._id,
             province: storeData.provinceId,
+            addressOnMap: {
+                type: "Point",
+                coordinates: [
+                    storeData.longitude ?? "108.11263",
+                    storeData.latitude ?? "16.12137",
+                ],
+            },
         });
         await newStore.save();
 
@@ -74,18 +81,6 @@ const deleteStoreById = async (id) => {
     } catch (error) {
         logError("deleteStoreById", error.message);
         throw new Error("deleteStoreById: " + error.message);
-    }
-};
-
-const getAllStores = async () => {
-    try {
-        logInfo("getAllStores", "Start");
-        const stores = await Store.find();
-        logInfo("getAllStores", "End");
-        return stores;
-    } catch (error) {
-        logError("getAllStores", error.message);
-        throw new Error("getAllStores: " + error.message);
     }
 };
 
@@ -208,7 +203,6 @@ module.exports = {
     getStoreById,
     updateStoreById,
     deleteStoreById,
-    getAllStores,
     getQRCodeUrl,
     generateQRCode,
 };
