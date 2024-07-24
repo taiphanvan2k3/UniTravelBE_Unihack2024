@@ -54,6 +54,16 @@ const MAX_VIDEO_COUNT = 2;
  *                 description: Detailed address of the store
  *                 example: "123 Store Address, City, Country"
  *                 required: true
+ *               longitude:
+ *                 type: number
+ *                 description: Longitude of the store location
+ *                 example: 108.11263
+ *                 required: true
+ *               latitude:
+*                  type: number
+*                  description: Latitude of the store location
+*                  example: 16.12137
+*                  required: true
  *               openingHours:
  *                 type: string
  *                 description: Opening hours of the store
@@ -217,7 +227,30 @@ router.get("/nearby-stores", storeController.getListOfNearbyStores);
  */
 router.post("/:storeId/get-qr-code", verifyToken, storeController.getQRCodeUrl);
 
+/**
+ * @swagger
+ * /stores/{id}:
+ *   get:
+ *     summary: Get store by ID
+ *     tags:
+ *       - StoreController
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         description: ID of the store to get
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Store found
+ *       404:
+ *         description: Store not found
+ *       500:
+ *         description: Internal server error
+ */
 router.get("/:id", storeController.getStoreById);
+
 router.put("/:id", storeController.updateStoreById);
 router.delete("/:id", verifyToken, storeController.deleteStoreById);
 
