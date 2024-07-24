@@ -3,6 +3,8 @@ const { logError } = require("../services/logger.service");
 const listOfExperienceLocationService = require("../services/experience-location/list-of-experience-locations.service.js");
 const listOfProvincesService = require("../services/province/list-of-provinces.service.js");
 const experienceLocationDetailService = require("../services/experience-location/experience-location-detail.service.js");
+const scheduleService = require("../services/schedule/schedule-detail.service.js");
+const listOfSchedulesService = require("../services/schedule/list-of-schedules.service.js");
 
 const extractJsonFromText = (text) => {
     try {
@@ -83,7 +85,7 @@ Hãy trả về một lịch trình du lịch chi tiết cho ${numDays} ngày t�
   ]
 }
 }`;
-};  
+};
 
 
 class SchedulesController {
@@ -115,7 +117,7 @@ class SchedulesController {
 
     async getScheduleForSpecificLocation(req, res, next) {
         try {
-            const { experienceLocationId, numDays } = req.params;
+            const { experienceLocationId } = req.params;
 
             const experienceLocation = await experienceLocationDetailService.getExperienceLocationsById(experienceLocationId);
 
@@ -126,7 +128,7 @@ class SchedulesController {
             const genAI = new GoogleGenerativeAI(process.env.API_KEY_GEMINI);
             const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash", temperature: 0.5 });
 
-            const prompt = createPromptForSingleLocation(experienceLocation, numDays);
+            const prompt = createPromptForSingleLocation(experienceLocation, 1);
 
             const result = await model.generateContent(prompt);
             const response = result.response;
@@ -134,6 +136,80 @@ class SchedulesController {
             return res.send(extractJsonFromText(response.text()));
         } catch (error) {
             logError("getScheduleForSpecificLocation", error.message);
+            next(error);
+        }
+    }
+
+    async createSchedule(req, res, next) {
+      try {
+          const schedule = await scheduleService.createSchedule(req.body);
+          res.status(201).json(schedule);
+      } catch (error) {
+          next(error);
+      }
+  }
+
+    async getListOfSchedule(req, res, next) {
+        try {
+            const schedules = await listOfSchedulesService.getListOfSchedule();
+            res.status(200).json(schedules);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async getListOfScheduleByProvince(req, res, next) {
+        try {
+            const { provinceId } = req.params;
+            const schedules = await listOfSchedulesService.getListOfScheduleByProvince(provinceId);
+            res.status(200).json(schedules);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async getListOfScheduleByLocation(req, res, next) {
+        try {
+            const { locationId } = req.params;
+            const schedules = await listOfSchedulesService.getListOfScheduleByLocation(locationId);
+            res.status(200).json(schedules);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async getScheduleById(req, res, next) {
+        try {
+            const schedule = await scheduleService.getScheduleById(req.params.id);
+            if (!schedule) {
+                return res.status(404).send({ message: "Schedule not found" });
+            }
+            res.status(200).json(schedule);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async updateSchedule(req, res, next) {
+        try {
+            const schedule = await scheduleService.updateScheduleById(req.params.id, req.body);
+            if (!schedule) {
+                return res.status(404).send({ message: "Schedule not found" });
+            }
+            res.status(200).json(schedule);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async deleteSchedule(req, res, next) {
+        try {
+            const result = await scheduleService.deleteScheduleById(req.params.id);
+            if (!result) {
+                return res.status(404).send({ message: "Schedule not found" });
+            }
+            res.status(204).send();
+        } catch (error) {
             next(error);
         }
     }
