@@ -81,10 +81,105 @@ router.post(
     storeController.createStore
 );
 
-router.get("/", storeController.getAllStores);
-router.get("/:id", storeController.getStoreById);
-router.put("/:id", storeController.updateStoreById);
-router.delete("/:id", verifyToken, storeController.deleteStoreById);
+/**
+ * @swagger
+ * /stores/my-stores:
+ *   get:
+ *     summary: Get list of stores owned by the current user
+ *     tags:
+ *       - StoreController
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: List of stores owned by the current user
+ *       401:
+ *         description: Unauthorized
+ *       500:
+ *         description: Internal server error
+ */
+router.get("/my-stores", verifyToken, storeController.getListOwnStores);
+
+/**
+ * @swagger
+ * /stores/{provinceId}/available-stores:
+ *  get:
+ *    summary: Get a list of available stores in a specific province
+ *    description: Retrieves a list of stores that are available in the specified province. You can optionally filter the results by business type.
+ *    tags:
+ *      - StoreController
+ *    parameters:
+ *      - name: provinceId
+ *        in: path
+ *        description: The ID of the province to filter stores by.
+ *        required: true
+ *        schema:
+ *          type: string
+ *      - name: businessType
+ *        in: query
+ *        description: The type of business to filter the stores by, such as (food store, coffee). Use 'all' to get stores of all types.
+ *        required: false
+ *        schema:
+ *          type: string
+ *          default: all
+ *    responses:
+ *      200:
+ *        description: A list of stores available in the specified province.
+ *      400:
+ *        description: Bad request. The province ID might be invalid or missing.
+ *      500:
+ *        description: Internal server error. An error occurred while retrieving the stores.
+ */
+router.get(
+    "/:provinceId/available-stores",
+    storeController.getListOfStoresInProvince
+);
+
+/**
+ * @swagger
+ * /stores/nearby-stores:
+ *   get:
+ *     summary: Get a list of nearby stores
+ *     description: Retrieves a list of stores that are near a specific location. You can optionally filter the results by business type.
+ *     tags:
+ *       - StoreController
+ *     parameters:
+ *       - name: longitude
+ *         in: query
+ *         description: The longitude of the location to search for nearby stores.
+ *         required: true
+ *         schema:
+ *           type: string
+ *           example: "108.11263"
+ *       - name: latitude
+ *         in: query
+ *         description: The latitude of the location to search for nearby stores.
+ *         required: true
+ *         schema:
+ *           type: string
+ *           example: "16.12137"
+ *       - name: radius
+ *         in: query
+ *         description: The maximum distance in meters to search for nearby stores.
+ *         required: true
+ *         schema:
+ *           type: string
+ *       - name: businessType
+ *         in: query
+ *         description: The type of business to filter the stores by, such as (food store, coffee). Use 'all' to get stores of all types.
+ *         required: false
+ *         schema:
+ *           type: string
+ *           default: all
+ *     responses:
+ *       200:
+ *         description: A list of nearby stores
+ *       400:
+ *         description: Bad request. The latitude and longitude might be missing.
+ *       500:
+ *         description: Internal server error. An error occurred while retrieving the stores.
+ */
+router.get("/nearby-stores", storeController.getListOfNearbyStores);
 
 /**
  * @swagger
@@ -121,5 +216,9 @@ router.delete("/:id", verifyToken, storeController.deleteStoreById);
  *         description: Store not found
  */
 router.post("/:storeId/get-qr-code", verifyToken, storeController.getQRCodeUrl);
+
+router.get("/:id", storeController.getStoreById);
+router.put("/:id", storeController.updateStoreById);
+router.delete("/:id", verifyToken, storeController.deleteStoreById);
 
 module.exports = router;

@@ -94,14 +94,4 @@ class MenuExtractionService {
     }
 }
 
-// (async () => {
-//     const menuExtractionService = new MenuExtractionService(
-//         "AIzaSyDnK-VUFpDgdK6hWq-F5XYPQ-xg1CeLzsY"
-//     );
-//     await menuExtractionService.processFileWithGemini(
-//         "demo2.jpg",
-//         "image/jpeg"
-//     );
-// })();
-
 module.exports = new MenuExtractionService(process.env.GEMINI_API_KEY);

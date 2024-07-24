@@ -1,11 +1,12 @@
 const Province = require("../../models/province.model.js");
+const { logInfo, logError } = require("../../services/logger.service.js");
 
 const seedProvinces = async () => {
     try {
         // Kiểm tra xem tồn tại dữ liệu trong bảng Province không
         const provincesFromDB = await Province.find();
         if (provincesFromDB.length > 0) {
-            console.log("Provinces collection already exists");
+            logInfo("seedProvinces", "Province already initialized");
             return;
         }
 
@@ -19,8 +20,9 @@ const seedProvinces = async () => {
         });
 
         await Province.insertMany(provincesObj);
+        logInfo("seedProvinces", "Province initialized");
     } catch (error) {
-        console.log(`Error at ${__filename} with error: ${error.message}`);
+        logError("seedProvinces", error);
     }
 };
 
