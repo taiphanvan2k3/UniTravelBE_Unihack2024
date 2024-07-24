@@ -21,6 +21,11 @@ class StoreController {
         try {
             const storeId = req.params.id;
             const store = await storeService.getStoreById(storeId);
+            if (!store) {
+                return res.status(404).json({
+                    message: "Store not found",
+                });
+            }
             return res.status(200).json(store);
         } catch (error) {
             next(error);
