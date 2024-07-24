@@ -5,7 +5,12 @@ const PostSchema = new mongoose.Schema(
         experienceLocation: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "ExperienceLocation",
-            required: true,
+            required: false,
+        },
+        store: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Store",
+            required: false,
         },
         author: {
             type: mongoose.Schema.Types.ObjectId,
@@ -13,7 +18,8 @@ const PostSchema = new mongoose.Schema(
             required: true,
         },
         content: { type: String, required: true },
-        mediaUrls: { type: [String], required: false },
+        imageUrls: { type: [String], required: false },
+        videoUrls: { type: [String], required: false },
         createdAt: { type: Date, default: Date.now },
         comments: {
             type: [mongoose.Schema.Types.ObjectId],
@@ -26,9 +32,25 @@ const PostSchema = new mongoose.Schema(
             ref: "User",
             default: [],
         },
+        downvoteUsers: {
+            type: [mongoose.Schema.Types.ObjectId],
+            ref: "User",
+            default: [],
+        },
     },
-    { toJSON: { virtuals: true }, toObject: { virtuals: true } }
+    {
+        toJSON: { virtuals: true },
+        toObject: { virtuals: true },
+        validateBeforeSave: true,
+    }
 );
+
+PostSchema.pre("save", function (next) {
+    if (!this.experienceLocation && !this.store) {
+        throw new Error("experienceLocation or store is required");
+    }
+    next();
+});
 
 PostSchema.set("toJSON", {
     transform: (doc, ret) => {

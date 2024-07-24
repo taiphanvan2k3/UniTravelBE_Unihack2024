@@ -1,4 +1,5 @@
 const postDetailService = require("../services/post/post-detail.service.js");
+const listOfPostsService = require("../services/post/list-posts.service.js");
 
 class PostsController {
     async addComment(req, res, next) {
@@ -34,6 +35,34 @@ class PostsController {
             );
 
             res.status(201).json(newComment);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async getListOfNewFeeds(req, res, next) {
+        try {
+            const { pageIndex, pageSize } = req.query;
+            const posts = await listOfPostsService.getPostsForNewFeeds(
+                pageIndex,
+                pageSize
+            );
+
+            res.status(200).json(posts);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async getListOfPersonalPosts(req, res, next) {
+        try {
+            const { pageIndex, pageSize } = req.query;
+            const posts = await listOfPostsService.listPersonalPosts(
+                pageIndex,
+                pageSize
+            );
+
+            res.status(200).json(posts);
         } catch (error) {
             next(error);
         }
