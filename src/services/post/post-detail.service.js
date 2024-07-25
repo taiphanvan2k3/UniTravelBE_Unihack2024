@@ -152,6 +152,8 @@ const addReplyComment = async (postId, parentCommentId, commentInfo) => {
             commentInfo.images,
             commentInfo.videos
         );
+
+        return newComment.toObject();
     } catch (error) {
         logError("addReplyComment", error);
         throw error;

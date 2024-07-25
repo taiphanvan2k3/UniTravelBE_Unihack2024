@@ -74,12 +74,19 @@ const getPostsInLocation = async (
             .populate("author", "displayName imageUrl")
             .populate({
                 path: "comments",
-                options: { sort: { createdAt: -1 }, limit: 1 },
-                select: "content imageUrls videoUrls replies",
-                populate: {
-                    path: "user",
-                    select: "displayName imageUrl",
-                },
+                options: { sort: { createdAt: -1 }, limit: 3 },
+                select: "content imageUrls videoUrls upvoteCount replies",
+                populate: [
+                    {
+                        path: "user",
+                        select: "displayName imageUrl",
+                    },
+                    {
+                        path: "replies",
+                        select: "content imageUrls videoUrls upvoteCount replies",
+                        options: { sort: { createdAt: -1 }, limit: 3 },
+                    },
+                ],
             })
             .sort({ upvoteCount: -1, createdAt: -1 })
             .skip((pageIndex - 1) * pageSize)
@@ -114,10 +121,18 @@ const getPostsForNewFeeds = async (pageIndex, pageSize) => {
             .populate({
                 path: "comments",
                 options: { sort: { createdAt: -1 }, limit: 3 },
-                populate: {
-                    path: "user",
-                    select: "displayName imageUrl",
-                },
+                select: "content imageUrls videoUrls upvoteCount replies",
+                populate: [
+                    {
+                        path: "user",
+                        select: "displayName imageUrl",
+                    },
+                    {
+                        path: "replies",
+                        select: "content imageUrls videoUrls upvoteCount replies",
+                        options: { sort: { createdAt: -1 }, limit: 3 },
+                    },
+                ],
             })
             .sort({ createdAt: -1 })
             .skip((pageIndex - 1) * pageSize)
