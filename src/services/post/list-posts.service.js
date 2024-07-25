@@ -80,6 +80,33 @@ const getPostsInExperienceLocation = async (
     }
 };
 
+const getPostsInLocation = async (
+    locationId,
+    locationType,
+    pageIndex,
+    pageSize
+) => {
+    try {
+        logInfo("getPostsInExperienceLocation", "Start");
+        const query =
+            locationType === "store"
+                ? { store: locationId }
+                : { experienceLocation: locationId };
+
+        const posts = await Post.find(query)
+            .populate("author", "displayName imageUrl")
+            .sort({ upvoteCount: -1, createdAt: -1 })
+            .skip((pageIndex - 1) * pageSize)
+            .limit(pageSize);
+
+        logInfo("getPostsInExperienceLocation", "End");
+        return posts;
+    } catch (error) {
+        logError("getListExperienceLocationsByProvince", error.message);
+        throw error;
+    }
+};
+
 const getPostsForNewFeeds = async (pageIndex, pageSize) => {
     try {
         logInfo("getPostsForNewFeeds", "Start");
