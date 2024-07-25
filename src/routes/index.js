@@ -8,7 +8,7 @@ const schedulesRouter = require("../routes/schedules.route.js");
 const geminiRouter = require("../routes/gemini.route.js");
 
 module.exports = (app) => {
-    app.use("/user", userRouter);
+    app.use("/users", userRouter);
     app.use("/auth", authRouter);
     app.use("/experience-locations", experienceLocationRouter);
     app.use("/provinces", provinceRouter);

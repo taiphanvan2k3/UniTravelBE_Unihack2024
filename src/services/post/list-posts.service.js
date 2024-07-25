@@ -57,29 +57,6 @@ const listPersonalPosts = async (page, limit) => {
     }
 };
 
-const getPostsInExperienceLocation = async (
-    experienceLocationId,
-    pageIndex,
-    pageSize
-) => {
-    try {
-        logInfo("getPostsInExperienceLocation", "Start");
-        const posts = await Post.find({
-            experienceLocation: experienceLocationId,
-        })
-            .populate("author", "displayName imageUrl")
-            .sort({ upvoteCount: -1, createdAt: -1 })
-            .skip((pageIndex - 1) * pageSize)
-            .limit(pageSize);
-
-        logInfo("getPostsInExperienceLocation", "End");
-        return posts;
-    } catch (error) {
-        logError("getListExperienceLocationsByProvince", error.message);
-        throw error;
-    }
-};
-
 const getPostsInLocation = async (
     locationId,
     locationType,
@@ -87,7 +64,7 @@ const getPostsInLocation = async (
     pageSize
 ) => {
     try {
-        logInfo("getPostsInExperienceLocation", "Start");
+        logInfo("getPostsInLocation", "Start");
         const query =
             locationType === "store"
                 ? { store: locationId }
@@ -108,7 +85,7 @@ const getPostsInLocation = async (
             .skip((pageIndex - 1) * pageSize)
             .limit(pageSize);
 
-        logInfo("getPostsInExperienceLocation", "End");
+        logInfo("getPostsInLocation", "End");
         return posts;
     } catch (error) {
         logError("getListExperienceLocationsByProvince", error.message);
@@ -157,7 +134,6 @@ const getPostsForNewFeeds = async (pageIndex, pageSize) => {
 
 module.exports = {
     listPersonalPosts,
-    getPostsInExperienceLocation,
     getPostsForNewFeeds,
     getPostsInLocation,
 };

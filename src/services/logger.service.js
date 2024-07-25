@@ -20,9 +20,9 @@ const logInfo = (caller, message = "Start") => {
 };
 
 const logError = (caller, message) => {
-    const dateTime = `${format(new Date(), "dd-MM-yyyy\tHH:mm:ss")}`;
+    const dateTime = `${format(new Date(), "dd-MM-yyyy HH:mm:ss")}`;
     console.log(
-        `${orange} ${dateTime}${red}ERROR: [${caller}] ${message}${reset}`
+        `${orange}${dateTime} ${red}ERROR: [${caller}] ${message}${reset}`
     );
 };
 

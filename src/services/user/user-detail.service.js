@@ -1,4 +1,9 @@
+const { logInfo, logError } = require("../logger.service.js");
+const { getNamespace } = require("node-request-context");
+const appState = getNamespace("AppState");
+
 const User = require("../../models/user.model");
+const UserVoucher = require("../../models/user-voucher.model");
 
 const convertUserDBToUser = (userDB) => {
     return {
@@ -116,9 +121,47 @@ const updateUser = async (identifier, identifierValue, data) => {
     }
 };
 
+const getVouchers = async (userId) => {
+    try {
+        logInfo("getVouchers", "Start");
+        const currentUserId = appState.context.currentUser.userIdInSystem;
+        const currentUser = await User.findById(currentUserId);
+        if (!currentUser) {
+            throw new Error("404-User not found");
+        }
+
+        if (userId !== currentUserId.toString()) {
+            throw new Error("400-UserId is not valid");
+        }
+
+        // Group by voucher theo loại
+        const vouchers = await UserVoucher.find({
+            user: currentUser._id,
+        }).populate("voucher");
+
+        const groupedVouchers = {};
+        vouchers.forEach((userVoucher) => {
+            const voucher = userVoucher.voucher;
+            if (!groupedVouchers[voucher.code]) {
+                groupedVouchers[voucher.code] = [];
+            }
+            groupedVouchers[voucher.code].push({
+                voucher,
+            });
+        });
+
+        logInfo("getVouchers", "End");
+        return groupedVouchers;
+    } catch (error) {
+        logError("getVouchers", error.message);
+        throw new Error("getVouchers: " + error.message);
+    }
+};
+
 module.exports = {
     findUser,
     createTempUser,
     createOrUpdateUser,
     updateUser,
+    getVouchers,
 };
