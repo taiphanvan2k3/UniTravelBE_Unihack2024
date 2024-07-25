@@ -1,10 +1,6 @@
 const Router = require("express");
 const experienceLocationController = require("../controllers/experience-locations.controller.js");
-const verifyToken = require("../middlewares/firebase-auth.middleware.js");
-const handleUpload = require("../middlewares/multipart-upload-support.middleware.js");
 const router = Router();
-const MAX_IMAGE_COUNT = 5;
-const MAX_VIDEO_COUNT = 2;
 
 /**
  * @swagger
@@ -219,56 +215,6 @@ router.put("/:id", experienceLocationController.updateExperienceLocationById);
 router.delete(
     "/:id",
     experienceLocationController.deleteExperienceLocationById
-);
-
-/**
- * @swagger
- * /experience-locations/{id}/create-post:
- *   post:
- *     summary: Create a new post in an experience location
- *     tags:
- *       - ExperienceLocationController
-  *     security:
- *       - bearerAuth: []
-  *     parameters:
- *       - name: id
- *         in: path
- *         required: true
- *         schema:
- *           type: string
- *         description: Experience location ID
- *     requestBody:
- *       required: true
- *       content:
- *         multipart/form-data:
- *           schema:
- *             type: object
- *             properties:
- *               content:
- *                 type: string
- *               images:
- *                 type: array
- *                 items:
- *                   type: string
- *                   format: binary
- *                 description: Only upload 5 images at most
- *               videos:
- *                 type: array
- *                 items:
- *                   type: string
- *                   format: binary
- *                 description: Only upload 2 videos at most
- *     responses:
- *       201:
- *         description: Successfully created
- *       400:
- *         description: Invalid input
- */
-router.post(
-    "/:id/create-post",
-    verifyToken,
-    handleUpload(MAX_IMAGE_COUNT, MAX_VIDEO_COUNT),
-    experienceLocationController.createNewPost
 );
 
 module.exports = router;

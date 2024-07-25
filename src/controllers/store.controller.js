@@ -108,6 +108,22 @@ class StoreController {
         }
     }
 
+    async getPostsInStore(req, res, next) {
+        try {
+            const storeId = req.params.id;
+            const pageIndex = Number(req.query.pageIndex) || 0;
+            const pageSize = Number(req.query.pageSize) || 10;
+            const posts = await listOfStoresService.getPostsInStore(
+                storeId,
+                pageIndex,
+                pageSize
+            );
+            return res.status(200).json(posts);
+        } catch (error) {
+            next(error);
+        }
+    }
+
     async getQRCodeUrl(req, res, next) {
         try {
             const { storeId } = req.params;

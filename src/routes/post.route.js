@@ -8,6 +8,59 @@ const MAX_VIDEO_COUNT = 2;
 
 /**
  * @swagger
+ * /experience-locations/{id}/create-post:
+ *   post:
+ *     summary: Create a new post in an experience location
+ *     tags:
+ *       - ExperienceLocationController
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Experience location ID
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               content:
+ *                 type: string
+ *               locationType:
+ *                 type: string
+ *                 enum: [store, experienceLocation]
+ *               images:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *                   format: binary
+ *                 description: Only upload 5 images at most
+ *               videos:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *                   format: binary
+ *                 description: Only upload 2 videos at most
+ *     responses:
+ *       201:
+ *         description: Successfully created
+ *       400:
+ *         description: Invalid input
+ */
+router.post(
+    "/:id/create-post",
+    verifyToken,
+    handleUpload(MAX_IMAGE_COUNT, MAX_VIDEO_COUNT),
+    postController.createNewPost
+);
+
+/**
+ * @swagger
  * /posts/{postId}/add-comment:
  *   post:
  *     summary: Add a comment to a post

@@ -2,6 +2,44 @@ const postDetailService = require("../services/post/post-detail.service.js");
 const listOfPostsService = require("../services/post/list-posts.service.js");
 
 class PostsController {
+    async createNewPost(req, res, next) {
+        try {
+            // Location này có thể là experienceLocationId hoặc storeId
+            const locationId = req.params.id;
+            const { content, locationType } = req.body;
+            const { images, videos } = req.files;
+
+            if (
+                locationType !== "experienceLocation" &&
+                locationType !== "store"
+            ) {
+                return res.status(400).json({
+                    message: "Invalid location type",
+                });
+            }
+
+            const newPost = await postDetailService.createNewPost(
+                locationId,
+                locationType,
+                {
+                    content,
+                    images,
+                    videos,
+                }
+            );
+
+            res.status(201).json({
+                data: newPost,
+                hasUploadMedia: images?.length > 0 || videos?.length > 0,
+            });
+        } catch (error) {
+            res.status(400).json({
+                message: error.message,
+            });
+            next(error);
+        }
+    }
+
     async addComment(req, res, next) {
         try {
             const { postId } = req.params;

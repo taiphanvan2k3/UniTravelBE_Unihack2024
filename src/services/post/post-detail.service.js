@@ -1,7 +1,4 @@
 const fs = require("fs");
-const Post = require("../../models/post.model.js");
-const User = require("../../models/user.model.js");
-const Comment = require("../../models/comment.model.js");
 const { logInfo, logError } = require("../logger.service.js");
 const { uploadFileFromFilePath } = require("../firestore-utils.service");
 const { getNamespace } = require("node-request-context");
@@ -11,20 +8,46 @@ const UPLOAD_TYPES = {
     comment: "comment",
 };
 
-const createNewPost = async (experienceLocationId, postInfo) => {
+const Post = require("../../models/post.model.js");
+const User = require("../../models/user.model.js");
+const Comment = require("../../models/comment.model.js");
+const Store = require("../../models/store.model.js");
+const ExperienceLocation = require("../../models/experience-location.model.js");
+
+const createNewPost = async (locationId, locationType, postInfo) => {
     try {
         logInfo("createNewPost", "Start");
         const currentUserId = appState.context.currentUser.userIdInSystem;
-        const currentUser = await User.findById(currentUserId);
+        const [currentUser, store, experienceLocation] = await Promise.all([
+            User.findById(currentUserId),
+            Store.findById(locationId),
+            ExperienceLocation.findById(locationId),
+        ]);
+
         if (!currentUser) {
             throw new Error("User not found");
         }
 
-        const newPost = new Post({
-            ...postInfo,
-            experienceLocation: experienceLocationId,
-            author: currentUser._id,
-        });
+        let newPost = null;
+        if (locationType === "experienceLocation") {
+            if (!experienceLocation) {
+                throw new Error("Experience location not found");
+            }
+            newPost = new Post({
+                ...postInfo,
+                experienceLocation: locationId,
+                author: currentUser._id,
+            });
+        } else {
+            if (!store) {
+                throw new Error("Store not found");
+            }
+            newPost = new Post({
+                ...postInfo,
+                store: locationId,
+                author: currentUser._id,
+            });
+        }
 
         await newPost.save();
         const postId = newPost._id;

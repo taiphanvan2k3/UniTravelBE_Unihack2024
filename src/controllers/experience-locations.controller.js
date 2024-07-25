@@ -1,6 +1,5 @@
 const listOfExperienceLocationService = require("../services/experience-location/list-of-experience-locations.service.js");
 const experienceLocationsDetailService = require("../services/experience-location/experience-location-detail.service.js");
-const postDetailService = require("../services/post/post-detail.service.js");
 const listPostsService = require("../services/post/list-posts.service.js");
 
 class ExperienceLocationController {
@@ -74,32 +73,6 @@ class ExperienceLocationController {
                 );
             return res.status(201).json(newExperienceLocation);
         } catch (error) {
-            next(error);
-        }
-    }
-
-    async createNewPost(req, res, next) {
-        try {
-            const experienceLocationId = req.params.id;
-            const { content } = req.body;
-            const { images, videos } = req.files;
-            const newPost = await postDetailService.createNewPost(
-                experienceLocationId,
-                {
-                    content,
-                    images,
-                    videos,
-                }
-            );
-
-            res.status(201).json({
-                data: newPost,
-                hasUploadMedia: images?.length > 0 || videos?.length > 0,
-            });
-        } catch (error) {
-            res.status(400).json({
-                message: error.message,
-            });
             next(error);
         }
     }
