@@ -8,6 +8,17 @@ const CommentSchema = new mongoose.Schema({
     videoUrls: { type: [String], required: false },
     createdAt: { type: Date, default: Date.now },
     parentCommentId: { type: String, required: false },
+    upvoteCount: { type: Number, default: 0 },
+    upvoteUsers: {
+        type: [mongoose.Schema.Types.ObjectId],
+        ref: "User",
+        default: [],
+    },
+    downvoteUsers: {
+        type: [mongoose.Schema.Types.ObjectId],
+        ref: "User",
+        default: [],
+    },
     replies: {
         type: [mongoose.Schema.Types.ObjectId],
         ref: "Comment",

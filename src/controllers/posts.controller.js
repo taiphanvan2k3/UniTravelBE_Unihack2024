@@ -78,6 +78,25 @@ class PostsController {
         }
     }
 
+    async upvotePost(req, res, next) {
+        try {
+            const { postId } = req.params;
+            await postDetailService.upvotePost(postId);
+
+            res.status(200).json({
+                message: "Upvote post successfully",
+            });
+        } catch (error) {
+            if (error.message.includes("-")) {
+                const [statusCode, message] = error.message.split("-");
+                return res.status(statusCode).json({
+                    message,
+                });
+            }
+            next(error);
+        }
+    }
+
     async getListOfNewFeeds(req, res, next) {
         try {
             const { pageIndex, pageSize } = req.query;

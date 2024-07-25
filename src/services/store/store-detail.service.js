@@ -51,7 +51,7 @@ const getStoreById = async (id) => {
     try {
         logInfo("getStoreById", "Start");
         const store = await Store.findById(id);
-        let storeData = store.toObject();
+        let storeData = store?.toObject();
         if (store) {
             const pageIndex = 1;
             const pageSize = 10;

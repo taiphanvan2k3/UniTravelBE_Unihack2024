@@ -21,8 +21,9 @@ class ExperienceLocationController {
             const experienceLocationId = req.params.id;
             const pageIndex = Number(req.query.pageIndex) || 0;
             const pageSize = Number(req.query.pageSize) || 10;
-            const posts = await listPostsService.getPostsInExperienceLocation(
+            const posts = await listPostsService.getPostsInLocation(
                 experienceLocationId,
+                "experienceLocation",
                 pageIndex,
                 pageSize
             );

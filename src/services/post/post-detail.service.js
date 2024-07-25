@@ -7,12 +7,19 @@ const UPLOAD_TYPES = {
     post: "post",
     comment: "comment",
 };
+const {
+    mileStoneRange,
+    mileStones,
+} = require("../../services/voucher/milestone.js");
 
 const Post = require("../../models/post.model.js");
 const User = require("../../models/user.model.js");
 const Comment = require("../../models/comment.model.js");
 const Store = require("../../models/store.model.js");
 const ExperienceLocation = require("../../models/experience-location.model.js");
+const CheckInHistory = require("../../models/checkin-history.model.js");
+const Voucher = require("../../models/voucher.model.js");
+const UserVoucher = require("../../models/user-voucher.model.js");
 
 const createNewPost = async (locationId, locationType, postInfo) => {
     try {
@@ -145,8 +152,92 @@ const addReplyComment = async (postId, parentCommentId, commentInfo) => {
             commentInfo.images,
             commentInfo.videos
         );
+
+        return newComment.toObject();
     } catch (error) {
         logError("addReplyComment", error);
+        throw error;
+    }
+};
+
+const upvotePost = async (postId) => {
+    try {
+        logInfo("upvotePost", "Start");
+        const currentUserId = appState.context.currentUser.userIdInSystem;
+        const [currentUser, post] = await Promise.all([
+            User.findById(currentUserId),
+            Post.findById(postId),
+        ]);
+
+        if (!currentUser || !post) {
+            throw new Error("User or Post not found");
+        }
+
+        const isUpvoteOnStore = post.store ? true : false;
+        const isCheckIn = isUpvoteOnStore
+            ? await CheckInHistory.exists({
+                  user: currentUser._id,
+                  store: post.store,
+              })
+            : await CheckInHistory.exists({
+                  user: currentUser._id,
+                  experienceLocation: post.experienceLocation,
+              });
+        if (!isCheckIn) {
+            throw new Error("401-User has not checked in yet");
+        }
+
+        if (post.upvoteUsers.includes(currentUser._id)) {
+            post.upvoteUsers = post.upvoteUsers.filter(
+                (userId) => userId.toString() !== currentUser._id.toString()
+            );
+            post.upvoteCount -= 1;
+        } else {
+            post.upvoteUsers.push(currentUser._id);
+            post.upvoteCount += 1;
+        }
+
+        let author = null;
+        if (mileStones[post.upvoteCount]) {
+            author = await User.findById(post.author);
+            let existingMileStone = author.mileStonePosts?.find(
+                (mileStone) => mileStone.voteMilestone === post.upvoteCount
+            );
+            if (existingMileStone) {
+                existingMileStone.quantity += 1;
+            } else {
+                author.mileStonePosts.push({
+                    voteMilestone: post.upvoteCount,
+                    quantity: 1,
+                });
+                existingMileStone = author.mileStonePosts[0];
+            }
+
+            // Tạo voucher
+            const voucherMileStone = mileStones[post.upvoteCount];
+            const rangeOfVoucher = mileStoneRange[voucherMileStone];
+            if (rangeOfVoucher.includes(existingMileStone.quantity)) {
+                const voucher = await Voucher.findOne({
+                    code: voucherMileStone,
+                });
+
+                const voucherForUser = new UserVoucher({
+                    user: author._id,
+                    voucher: voucher._id,
+                    expiredAt: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+                });
+                await voucherForUser.save();
+            }
+        }
+
+        if (!author) {
+            await post.save();
+        } else {
+            await Promise.all([post.save(), author.save()]);
+        }
+        logInfo("upvotePost", "End");
+    } catch (error) {
+        logError("upvotePost", error);
         throw error;
     }
 };
@@ -230,4 +321,5 @@ module.exports = {
     createNewPost,
     addComment,
     addReplyComment,
+    upvotePost,
 };

@@ -237,4 +237,5 @@ router.get(
     postController.getListOfPersonalPosts
 );
 
+router.post("/:postId/upvote", verifyToken, postController.upvotePost);
 module.exports = router;

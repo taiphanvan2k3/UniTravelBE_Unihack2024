@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const storeController = require("../controllers/store.controller");
 const verifyToken = require("../middlewares/firebase-auth.middleware.js");
 const handleUpload = require("../middlewares/multipart-upload-support.middleware.js");
 const MAX_IMAGE_COUNT = 5;
 const MAX_VIDEO_COUNT = 2;
+const storeController = require("../controllers/store.controller");
 
 /**
  * @swagger

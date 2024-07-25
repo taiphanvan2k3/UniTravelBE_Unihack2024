@@ -57,29 +57,6 @@ const listPersonalPosts = async (page, limit) => {
     }
 };
 
-const getPostsInExperienceLocation = async (
-    experienceLocationId,
-    pageIndex,
-    pageSize
-) => {
-    try {
-        logInfo("getPostsInExperienceLocation", "Start");
-        const posts = await Post.find({
-            experienceLocation: experienceLocationId,
-        })
-            .populate("author", "displayName imageUrl")
-            .sort({ upvoteCount: -1, createdAt: -1 })
-            .skip((pageIndex - 1) * pageSize)
-            .limit(pageSize);
-
-        logInfo("getPostsInExperienceLocation", "End");
-        return posts;
-    } catch (error) {
-        logError("getListExperienceLocationsByProvince", error.message);
-        throw error;
-    }
-};
-
 const getPostsInLocation = async (
     locationId,
     locationType,
@@ -87,7 +64,7 @@ const getPostsInLocation = async (
     pageSize
 ) => {
     try {
-        logInfo("getPostsInExperienceLocation", "Start");
+        logInfo("getPostsInLocation", "Start");
         const query =
             locationType === "store"
                 ? { store: locationId }
@@ -97,18 +74,25 @@ const getPostsInLocation = async (
             .populate("author", "displayName imageUrl")
             .populate({
                 path: "comments",
-                options: { sort: { createdAt: -1 }, limit: 1 },
-                select: "content imageUrls videoUrls replies",
-                populate: {
-                    path: "user",
-                    select: "displayName imageUrl",
-                },
+                options: { sort: { createdAt: -1 }, limit: 3 },
+                select: "content imageUrls videoUrls upvoteCount replies",
+                populate: [
+                    {
+                        path: "user",
+                        select: "displayName imageUrl",
+                    },
+                    {
+                        path: "replies",
+                        select: "content imageUrls videoUrls upvoteCount replies",
+                        options: { sort: { createdAt: -1 }, limit: 3 },
+                    },
+                ],
             })
             .sort({ upvoteCount: -1, createdAt: -1 })
             .skip((pageIndex - 1) * pageSize)
             .limit(pageSize);
 
-        logInfo("getPostsInExperienceLocation", "End");
+        logInfo("getPostsInLocation", "End");
         return posts;
     } catch (error) {
         logError("getListExperienceLocationsByProvince", error.message);
@@ -137,10 +121,18 @@ const getPostsForNewFeeds = async (pageIndex, pageSize) => {
             .populate({
                 path: "comments",
                 options: { sort: { createdAt: -1 }, limit: 3 },
-                populate: {
-                    path: "user",
-                    select: "displayName imageUrl",
-                },
+                select: "content imageUrls videoUrls upvoteCount replies",
+                populate: [
+                    {
+                        path: "user",
+                        select: "displayName imageUrl",
+                    },
+                    {
+                        path: "replies",
+                        select: "content imageUrls videoUrls upvoteCount replies",
+                        options: { sort: { createdAt: -1 }, limit: 3 },
+                    },
+                ],
             })
             .sort({ createdAt: -1 })
             .skip((pageIndex - 1) * pageSize)
@@ -157,7 +149,6 @@ const getPostsForNewFeeds = async (pageIndex, pageSize) => {
 
 module.exports = {
     listPersonalPosts,
-    getPostsInExperienceLocation,
     getPostsForNewFeeds,
     getPostsInLocation,
 };
