@@ -29,6 +29,15 @@ const StoreSchema = new mongoose.Schema(
     }
 );
 
+StoreSchema.set("toObject", {
+    transform: function (_, ret) {
+        ret.id = ret._id;
+        delete ret.__v;
+        delete ret._id;
+        return ret;
+    },
+});
+
 StoreSchema.index({ addressOnMap: "2dsphere" });
 StoreSchema.index({ owner: 1, businessType: 1 });
 StoreSchema.index({ province: 1, businessType: 1 });

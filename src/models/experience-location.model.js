@@ -39,6 +39,8 @@ ExperienceLocationSchema.set("toObject", {
         delete ret.__v;
         delete ret._id;
         delete ret.reviews;
+        delete ret.detailedPageUrl;
+        delete ret.locationId;
         return ret;
     },
 });
@@ -49,6 +51,8 @@ ExperienceLocationSchema.set("toJSON", {
         delete ret.__v;
         delete ret._id;
         delete ret.reviews;
+        delete ret.detailedPageUrl;
+        delete ret.locationId;
         return ret;
     },
 });

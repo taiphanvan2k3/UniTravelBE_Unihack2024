@@ -12,7 +12,7 @@ const MAX_VIDEO_COUNT = 2;
  *   post:
  *     summary: Create a new post in an experience location
  *     tags:
- *       - ExperienceLocationController
+ *       - StoreController
  *     security:
  *       - bearerAuth: []
  *     parameters:
