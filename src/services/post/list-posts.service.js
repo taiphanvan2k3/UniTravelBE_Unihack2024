@@ -95,6 +95,15 @@ const getPostsInLocation = async (
 
         const posts = await Post.find(query)
             .populate("author", "displayName imageUrl")
+            .populate({
+                path: "comments",
+                options: { sort: { createdAt: -1 }, limit: 1 },
+                select: "content imageUrls videoUrls replies",
+                populate: {
+                    path: "user",
+                    select: "displayName imageUrl",
+                },
+            })
             .sort({ upvoteCount: -1, createdAt: -1 })
             .skip((pageIndex - 1) * pageSize)
             .limit(pageSize);
@@ -110,17 +119,36 @@ const getPostsInLocation = async (
 const getPostsForNewFeeds = async (pageIndex, pageSize) => {
     try {
         logInfo("getPostsForNewFeeds", "Start");
-        const posts = Post.find({
-            imageUrls: { $ne: [] },
+        let postsData = await Post.find({
+            $or: [
+                { imageUrls: { $exists: true, $ne: [] } },
+                { videoUrls: { $exists: true, $ne: [] } },
+            ],
         })
             .populate("author", "displayName imageUrl")
-            .sort({ upvoteCount: -1, createdAt: -1 })
+            .populate({
+                path: "experienceLocation",
+                select: "locationName address",
+            })
+            .populate({
+                path: "store",
+                select: "name detailAddress",
+            })
+            .populate({
+                path: "comments",
+                options: { sort: { createdAt: -1 }, limit: 3 },
+                populate: {
+                    path: "user",
+                    select: "displayName imageUrl",
+                },
+            })
+            .sort({ createdAt: -1 })
             .skip((pageIndex - 1) * pageSize)
             .limit(pageSize)
-            .select("author content imageUrls upvoteCount");
+            .exec();
 
         logInfo("getPostsForNewFeeds", "End");
-        return posts;
+        return postsData;
     } catch (error) {
         logError("getPostsForNewFeeds", error.message);
         throw error;
@@ -131,4 +159,5 @@ module.exports = {
     listPersonalPosts,
     getPostsInExperienceLocation,
     getPostsForNewFeeds,
+    getPostsInLocation,
 };

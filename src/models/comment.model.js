@@ -4,7 +4,8 @@ const CommentSchema = new mongoose.Schema({
     post: { type: mongoose.Schema.Types.ObjectId, ref: "Post", required: true },
     user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
     content: { type: String, required: true },
-    mediaUrls: { type: [String], required: false },
+    imageUrls: { type: [String], required: false },
+    videoUrls: { type: [String], required: false },
     createdAt: { type: Date, default: Date.now },
     parentCommentId: { type: String, required: false },
     replies: {

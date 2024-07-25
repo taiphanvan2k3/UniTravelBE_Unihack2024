@@ -1,9 +1,10 @@
 const qrCodeService = require("../qr-code/qr-generation.service");
 const { uploadFileFromFilePath } = require("../firestore-utils.service");
 const { logInfo, logError } = require("../logger.service.js");
-const fs = require("fs");
 const { getNamespace } = require("node-request-context");
+const { getPostsInLocation } = require("../post/list-posts.service");
 
+const fs = require("fs");
 const Store = require("../../models/store.model");
 const User = require("../../models/user.model.js");
 const CheckInHistory = require("../../models/checkin-history.model.js");
@@ -50,8 +51,21 @@ const getStoreById = async (id) => {
     try {
         logInfo("getStoreById", "Start");
         const store = await Store.findById(id);
+        let storeData = store.toObject();
+        if (store) {
+            const pageIndex = 1;
+            const pageSize = 10;
+            storeData.comments = await getPostsInLocation(
+                store._id,
+                "store",
+                pageIndex,
+                pageSize
+            );
+            storeData.pageIndex = pageIndex;
+        }
+
         logInfo("getStoreById", "End");
-        return store;
+        return storeData;
     } catch (error) {
         logError("getStoreById", error.message);
         throw new Error("getStoreById: " + error.message);

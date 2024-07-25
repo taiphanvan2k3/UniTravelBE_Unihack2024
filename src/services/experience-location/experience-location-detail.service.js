@@ -1,6 +1,7 @@
-const ExperienceLocation = require("../../models/experience-location.model");
-const Post = require("../../models/post.model");
 const { logInfo, logError } = require("../logger.service.js");
+const { getPostsInLocation } = require("../post/list-posts.service");
+
+const ExperienceLocation = require("../../models/experience-location.model");
 
 const getExperienceLocationsById = async (experienceLocationId) => {
     try {
@@ -10,8 +11,21 @@ const getExperienceLocationsById = async (experienceLocationId) => {
             "-__v"
         );
 
+        const experienceLocationData = experienceLocation.toObject();
+        if (experienceLocation) {
+            const pageIndex = 1;
+            const pageSize = 10;
+            experienceLocationData.comments = await getPostsInLocation(
+                experienceLocation._id,
+                "experienceLocation",
+                pageIndex,
+                pageSize
+            );
+            experienceLocationData.pageIndex = pageIndex;
+        }
+
         logInfo("getExperienceLocationsById", "End");
-        return experienceLocation;
+        return experienceLocationData;
     } catch (error) {
         logError("getListExperienceLocationsByProvince", error.message);
         throw error;
