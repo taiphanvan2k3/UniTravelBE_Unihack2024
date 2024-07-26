@@ -26,61 +26,88 @@ const extractJsonFromText = (text) => {
 }
 
 const createStructuredPromptVietnamese = (locations, province, numDays) => {
-  let prompt = `Hãy trả về một lịch trình du lịch chi tiết cho ${numDays} ngày tại ${province}, Việt Nam dưới dạng JSON, bao gồm tiêu đề, mô tả, và một lịch trình với các hoạt động chi tiết từng ngày. Các điểm tham quan gồm:`;
-  locations.forEach(loc => {
-      prompt += `\n- Tên địa điểm: "${loc.locationName}", Địa chỉ: "${loc.address}", Giờ mở cửa: "${loc.time}"`;
-  });
-  prompt += `\nCấu trúc JSON nên giống như sau:\n{\n  "itinerary": {\n    "title": "Lịch trình du lịch ${numDays} ngày tại ${province}",\n    "description": "Dưới đây là một lịch trình tham quan tối ưu dựa trên các điểm bạn cung cấp, xem xét thời gian di chuyển và giờ mở cửa.",\n    "schedule": [\n`;
+    let prompt = `Hãy trả về một lịch trình du lịch chi tiết cho ${numDays} ngày tại ${province}, Việt Nam dưới dạng JSON, bao gồm tiêu đề, mô tả, và một lịch trình với các hoạt động chi tiết từng ngày. Các điểm tham quan gồm:`;
 
-  // Loop through each day to generate the daily schedule
-  for (let i = 0; i < numDays; i++) {
-      prompt += `      {\n        "day": ${i + 1},\n        "activities": [\n          // Bổ sung các hoạt động cho ngày thứ ${i + 1} tại đây\n        ]\n      },\n`;
-  }
+    // Define activities array for each location
+    let locationActivities = locations.map(loc => {
+        let openingTime = "09:00";
+        let closingTime = "21:00";
+        if (loc.time && loc.time.includes(",")) {
+            const hours = loc.time.split(", ")[1];
+            if (hours) {
+                [openingTime, closingTime] = hours.split("-");
+            }
+        }
+        return {
+            name: loc.locationName,
+            address: loc.address,
+            openingTime,
+            closingTime
+        };
+    });
 
-  prompt = prompt.slice(0, -2); // Remove the last comma for proper JSON formatting
-  prompt += `\n    ]\n  }\n}\n`;
+    prompt += locationActivities.map(loc => `\n- Tên địa điểm: "${loc.name}", Địa chỉ: "${loc.address}", Giờ mở cửa: từ ${loc.openingTime} đến ${loc.closingTime}"`).join("");
 
-  return prompt;
+    prompt += `\nCấu trúc JSON nên giống như sau:\n{\n  "itinerary": {\n    "title": "Lịch trình du lịch ${numDays} ngày tại ${province}",\n    "description": "Dưới đây là một lịch trình tham quan tối ưu dựa trên các điểm bạn cung cấp, xem xét thời gian di chuyển và giờ mở cửa.",\n    "schedule": [\n`;
+
+    // Generate daily schedule using the location activities
+    for (let i = 0; i < numDays; i++) {
+        prompt += `      {\n        "day": ${i + 1},\n        "activities": [\n`;
+
+        locationActivities.forEach(loc => {
+            prompt += `          {\n            "time": "${loc.openingTime} - ${loc.closingTime}",\n            "description": "Visit ${loc.name}, exploring from ${loc.openingTime} to ${loc.closingTime}."\n          },\n`;
+        });
+
+        prompt += `        ]\n      },\n`;
+    }
+
+    prompt = prompt.slice(0, -2); // Remove the last comma for proper JSON formatting
+    prompt += `\n    ]\n  }\n}\n`;
+
+    return prompt;
 }
-
+    
 
 const createPromptForSingleLocation = (location, numDays) => {
-  let activities = [];
-  for (let day = 1; day <= numDays; day++) {
-      activities.push(`
+    let openingTime = "09:00";
+    let closingTime = "21:00";
+
+    // Check if location time is provided and extract hours
+    if (location.time && location.time.includes(",")) {
+        const hours = location.time.split(", ")[1]; // Assumes format "Mở | Thứ, 09:00-21:00"
+        if (hours) {
+            [openingTime, closingTime] = hours.split("-");
+        }
+    }
+
+    let activities = [];
+    for (let day = 1; day <= numDays; day++) {
+        activities.push(`
     {
       "day": ${day},
       "activities": [
         {
-          "time": "8:00 - 9:00",
-          "description": "Ăn sáng tại một quán ăn gần ${location.locationName}."
+          "time": "${openingTime}",
+          "description": "Bắt đầu ngày tại ${location.locationName}, khám phá ngay khi cửa mở."
         },
         {
-          "time": "9:30 - 11:30",
-          "description": "Tham quan các điểm nổi bật tại ${location.locationName}, bao gồm các hoạt động và điểm tham quan chính."
+          "time": "${openingTime} - ${closingTime}",
+          "description": "Tham quan các điểm nổi bật tại ${location.locationName}, bao gồm các hoạt động và điểm tham quan chính trong khoảng thời gian mở cửa."
         },
         {
-          "time": "12:00 - 13:00",
-          "description": "Ăn trưa tại nhà hàng địa phương."
-        },
-        {
-          "time": "14:00 - 16:00",
-          "description": "Tiếp tục tham quan hoặc tham gia vào các hoạt động giải trí."
-        },
-        {
-          "time": "17:00 - 19:00",
-          "description": "Thư giãn tại ${location.locationName} hoặc tham gia các sự kiện buổi tối."
+          "time": "${closingTime}",
+          "description": "Kết thúc tham quan tại ${location.locationName}, suy ngẫm về một ngày đầy ấn tượng."
         }
       ]
     }`);
-  }
+    }
 
-  return `
+    return `
 Hãy trả về một lịch trình du lịch chi tiết cho ${numDays} ngày tại "${location.locationName}". Lịch trình dưới dạng JSON nên bao gồm tiêu đề, mô tả, và các hoạt động chi tiết từ buổi sáng đến buổi tối như sau:
 {
 "itinerary": {
   "title": "Lịch trình du lịch ${numDays} ngày tại ${location.locationName}",
-  "description": "Dưới đây là một lịch trình tham quan tối ưu dựa trên địa điểm ${location.locationName} cho ${numDays} ngày.",
+  "description": "Dưới đây là một lịch trình tham quan tối ưu dựa trên địa điểm ${location.locationName} cho ${numDays} ngày, tận dụng tối đa giờ mở cửa từ ${openingTime} đến ${closingTime}.",
   "schedule": [${activities.join(',')}
   ]
 }
