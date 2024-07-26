@@ -178,6 +178,7 @@ class StoreController {
             if (!longitude || !latitude) {
                 return res.status(400).json({
                     message: "Longitude and Latitude are required",
+                    isSuccessful: false,
                 });
             }
             longitude = Number(longitude);
@@ -189,12 +190,15 @@ class StoreController {
                 longitude,
                 latitude
             );
-            return res.status(200).json({ message: "Check in successfully" });
+            return res
+                .status(200)
+                .json({ message: "Check in successfully", isSuccessful: true });
         } catch (error) {
             if (error.message.includes("-")) {
                 const [statusCode, message] = error.message.split("-");
                 return res.status(statusCode).json({
                     message,
+                    isSuccessful: false,
                 });
             }
             next(error);
