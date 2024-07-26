@@ -22,6 +22,13 @@ const UserSchema = new mongoose.Schema({
             quantity: { type: Number, default: 0 },
         },
     ],
+    badges: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Badge",
+            required: true,
+        },
+    ],
 });
 
 UserSchema.set("toJSON", {

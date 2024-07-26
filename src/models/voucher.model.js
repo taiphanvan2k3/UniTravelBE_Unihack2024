@@ -7,6 +7,8 @@ const VoucherSchema = new mongoose.Schema({
     discount: { type: Number, required: true },
     description: { type: String },
     createdAt: { type: Date, default: Date.now },
+    maximumDiscount: { type: Number, required: true },
+    remaining: { type: Number, required: true },
 });
 
 VoucherSchema.index({ code: 1 });

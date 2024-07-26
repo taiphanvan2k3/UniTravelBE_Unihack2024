@@ -154,7 +154,7 @@ const getVouchers = async (userId) => {
         return groupedVouchers;
     } catch (error) {
         logError("getVouchers", error.message);
-        throw new Error("getVouchers: " + error.message);
+        throw error;
     }
 };
 
