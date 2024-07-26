@@ -43,7 +43,6 @@ const MAX_VIDEO_COUNT = 0;
  */
 router.post(
     "/translate-menu",
-    verifyToken,
     handleUpload(MAX_IMAGE_COUNT, MAX_VIDEO_COUNT),
     geminiController.translateMenu
 );
