@@ -137,16 +137,66 @@ class StoreController {
     async checkInStore(req, res, next) {
         try {
             const { images } = req.files;
+            let { longitude, latitude } = req.body;
             if (!images || images.length === 0) {
                 return res.status(400).json({
                     message: "Images are required",
                 });
             }
 
+            if (!longitude || !latitude) {
+                return res.status(400).json({
+                    message: "Longitude and Latitude are required",
+                });
+            }
+            longitude = Number(longitude);
+            latitude = Number(latitude);
+
             const storeId = req.params.id;
-            await storeService.checkInStore(storeId, images[0].path);
+            await storeService.checkInStore(
+                storeId,
+                images[0].path,
+                longitude,
+                latitude
+            );
             return res.status(200).json({ message: "Check in successfully" });
         } catch (error) {
+            if (error.message.includes("-")) {
+                const [statusCode, message] = error.message.split("-");
+                return res.status(statusCode).json({
+                    message,
+                });
+            }
+            next(error);
+        }
+    }
+
+    async simpleCheckInStore(req, res, next) {
+        try {
+            const storeId = req.params.id;
+            let { userId, longitude, latitude } = req.body;
+            if (!longitude || !latitude) {
+                return res.status(400).json({
+                    message: "Longitude and Latitude are required",
+                });
+            }
+            longitude = Number(longitude);
+            latitude = Number(latitude);
+
+            await storeService.simpleCheckInStore(
+                userId,
+                storeId,
+                longitude,
+                latitude
+            );
+            return res.status(200).json({ message: "Check in successfully" });
+        } catch (error) {
+            if (error.message.includes("-")) {
+                const [statusCode, message] = error.message.split("-");
+                return res.status(statusCode).json({
+                    message,
+                });
+            }
             next(error);
         }
     }

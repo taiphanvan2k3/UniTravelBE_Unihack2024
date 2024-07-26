@@ -251,12 +251,102 @@ router.post("/:storeId/get-qr-code", verifyToken, storeController.getQRCodeUrl);
  */
 router.get("/:id", storeController.getStoreById);
 
-router.post(
-    "/:id/check-in",
-    verifyToken,
-    handleUpload(1, 0),
-    storeController.checkInStore
-);
+/**
+ * @swagger
+ * /stores/{id}/check-in:
+ *   post:
+ *     summary: Check in to a store
+ *     tags:
+ *       - StoreController
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         description: ID of the store to check in to
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               qrCode:
+ *                 type: string
+ *                 format: binary
+ *                 description: QR code image of the store
+ *                 required: true
+ *               longitude:
+ *                 type: number
+ *                 description: Longitude of the check-in location
+ *                 example: 108.11263
+ *                 required: true
+ *               latitude:
+ *                 type: number
+ *                 description: Latitude of the check-in location
+ *                 example: 16.12137
+ *                 required: true
+ *     responses:
+ *       201:
+ *         description: Check-in successful
+ *       400:
+ *         description: Invalid QR code
+ *       401:
+ *         description: Unauthorized or you are too far from the store
+ *       404:
+ *         description: Store not found or user not found
+ */
+router.post("/:id/check-in", storeController.checkInStore);
+
+/**
+ * @swagger
+ * /stores/{id}/simple-check-in:
+ *   post:
+ *     summary: Check in to a store without QR code
+ *     tags:
+ *       - StoreController
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         description: ID of the store to check in to
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               userId:
+ *                type: string
+ *                description: ID of the user checking in
+ *                required: true
+ *               longitude:
+ *                 type: number
+ *                 description: Longitude of the check-in location
+ *                 example: 108.11263
+ *                 required: true
+ *               latitude:
+ *                 type: number
+ *                 description: Latitude of the check-in location
+ *                 example: 16.12137
+ *                 required: true
+ *     responses:
+ *       201:
+ *         description: Check-in successful
+ *       400:
+ *         description: Invalid QR code
+ *       401:
+ *         description: Unauthorized or you are too far from the store
+ *       404:
+ *         description: Store not found or user not found
+ */
+router.post("/:id/simple-check-in", storeController.simpleCheckInStore);
 
 router.put("/:id", storeController.updateStoreById);
 router.delete("/:id", verifyToken, storeController.deleteStoreById);
