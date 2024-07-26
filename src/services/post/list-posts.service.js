@@ -72,6 +72,7 @@ const getPostsInLocation = async (
 
         const posts = await Post.find(query)
             .populate({
+                // Lấy thông tin của người viết bài
                 path: "author",
                 select: "username displayName imageUrl",
                 populate: {
@@ -85,6 +86,7 @@ const getPostsInLocation = async (
                 select: "content imageUrls videoUrls upvoteCount replies",
                 populate: [
                     {
+                        // Lấy thông tin của người comment
                         path: "user",
                         select: "displayName imageUrl",
                         populate: {
@@ -96,6 +98,15 @@ const getPostsInLocation = async (
                         path: "replies",
                         select: "content imageUrls videoUrls upvoteCount replies",
                         options: { sort: { createdAt: -1 }, limit: 3 },
+                        populate: {
+                            // Lấy thông tin của người comment reply
+                            path: "user",
+                            select: "displayName imageUrl badges",
+                            populate: {
+                                path: "badges",
+                                select: "type, imageUrl",
+                            },
+                        },
                     },
                 ],
             })
@@ -121,6 +132,7 @@ const getPostsForNewFeeds = async (pageIndex, pageSize) => {
             ],
         })
             .populate({
+                // Lấy thông tin của người viết bài
                 path: "author",
                 select: "username displayName imageUrl",
                 populate: {
@@ -142,6 +154,7 @@ const getPostsForNewFeeds = async (pageIndex, pageSize) => {
                 select: "content imageUrls videoUrls upvoteCount replies",
                 populate: [
                     {
+                        // Lấy thông tin của người comment
                         path: "user",
                         select: "displayName imageUrl badges",
                         populate: {
@@ -153,6 +166,15 @@ const getPostsForNewFeeds = async (pageIndex, pageSize) => {
                         path: "replies",
                         select: "content imageUrls videoUrls upvoteCount replies",
                         options: { sort: { createdAt: -1 }, limit: 3 },
+                        populate: {
+                            // Lấy thông tin của người comment reply
+                            path: "user",
+                            select: "displayName imageUrl badges",
+                            populate: {
+                                path: "badges",
+                                select: "type, imageUrl",
+                            },
+                        },
                     },
                 ],
             })
