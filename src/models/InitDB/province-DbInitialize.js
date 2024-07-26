@@ -20,7 +20,7 @@ const seedProvinces = async () => {
         });
 
         await Province.insertMany(provincesObj);
-        logInfo("seedProvinces", "Province initialized");
+        logInfo("seedProvinces", "Provinces are successfully initialized");
     } catch (error) {
         logError("seedProvinces", error);
     }

@@ -20,6 +20,7 @@ const ExperienceLocation = require("../../models/experience-location.model.js");
 const CheckInHistory = require("../../models/checkin-history.model.js");
 const Voucher = require("../../models/voucher.model.js");
 const UserVoucher = require("../../models/user-voucher.model.js");
+const Badge = require("../../models/badge.model.js");
 
 const createNewPost = async (locationId, locationType, postInfo) => {
     try {
@@ -173,8 +174,7 @@ const upvotePost = async (postId) => {
             throw new Error("User or Post not found");
         }
 
-        const isUpvoteOnStore = post.store ? true : false;
-        const isCheckIn = isUpvoteOnStore
+        const isCheckIn = post.store
             ? await CheckInHistory.exists({
                   user: currentUser._id,
                   store: post.store,
@@ -199,7 +199,7 @@ const upvotePost = async (postId) => {
 
         let author = null;
         if (mileStones[post.upvoteCount]) {
-            author = await User.findById(post.author);
+            author = await User.findById(post.author).populate("badges");
             let existingMileStone = author.mileStonePosts?.find(
                 (mileStone) => mileStone.voteMilestone === post.upvoteCount
             );
@@ -221,14 +221,49 @@ const upvotePost = async (postId) => {
                     code: voucherMileStone,
                 });
 
-                const voucherForUser = new UserVoucher({
-                    user: author._id,
-                    voucher: voucher._id,
-                    expiredAt: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
-                });
-                await voucherForUser.save();
+                if (voucher.remaining > 0) {
+                    const collectedVouchers = await UserVoucher.find({
+                        user: author._id,
+                        voucher: voucher._id,
+                        expiredAt: { $gte: new Date() },
+                        createdAt: {
+                            $gte: new Date(
+                                Date.now() - 30 * 24 * 60 * 60 * 1000
+                            ),
+                        },
+                    });
+
+                    // Kiểm tra xem tháng này user đã nhận voucher chưa
+                    // Nếu voucher 5%, 10% thì tối đa 2 voucher/tháng
+                    // Nếu voucher 15%, 20% thì tối đa 1 voucher/tháng
+                    if (
+                        ((voucher.code === "5% off" ||
+                            voucher.code === "10% off") &&
+                            collectedVouchers.length < 2) ||
+                        ((voucher.code === "15% off" ||
+                            voucher.code === "20% off") &&
+                            collectedVouchers.length < 1)
+                    ) {
+                        const voucherForUser = new UserVoucher({
+                            user: author._id,
+                            voucher: voucher._id,
+                            expiredAt: new Date(
+                                Date.now() + 30 * 24 * 60 * 60 * 1000
+                            ),
+                        });
+
+                        voucher.remaining -= 1;
+                        await Promise.all([
+                            voucherForUser.save(),
+                            voucher.save(),
+                        ]);
+                    }
+                }
             }
         }
+
+        // Tạo badge
+        await createBadge(author, post.upvoteCount);
 
         if (!author) {
             await post.save();
@@ -240,6 +275,33 @@ const upvotePost = async (postId) => {
         logError("upvotePost", error);
         throw error;
     }
+};
+
+const createBadge = async (author, upvoteCount) => {
+    try {
+        const availableBadge = await Badge.findOne({
+            upvoteCountMilestone: upvoteCount,
+            type: "traveler_sage",
+        });
+
+        if (availableBadge) {
+            if (author.badges.includes(availableBadge._id)) {
+                return;
+            }
+
+            // Xoá badge cũ của user đó
+            const oldBadge = author.badges.find(
+                (badge) => badge.type === "traveler_sage"
+            );
+
+            if (oldBadge) {
+                author.badges = author.badges.filter(
+                    (badge) => badge.toString() !== oldBadge.toString()
+                );
+            }
+            author.badges.push(availableBadge._id);
+        }
+    } catch (error) {}
 };
 
 const uploadFilesToFirebaseStorage = async (

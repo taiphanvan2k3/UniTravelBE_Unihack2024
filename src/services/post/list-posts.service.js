@@ -71,7 +71,14 @@ const getPostsInLocation = async (
                 : { experienceLocation: locationId };
 
         const posts = await Post.find(query)
-            .populate("author", "displayName imageUrl")
+            .populate({
+                path: "author",
+                select: "username displayName imageUrl",
+                populate: {
+                    path: "badges",
+                    select: "type, imageUrl",
+                },
+            })
             .populate({
                 path: "comments",
                 options: { sort: { createdAt: -1 }, limit: 3 },
@@ -80,6 +87,10 @@ const getPostsInLocation = async (
                     {
                         path: "user",
                         select: "displayName imageUrl",
+                        populate: {
+                            path: "badges",
+                            select: "type, imageUrl",
+                        },
                     },
                     {
                         path: "replies",
@@ -109,7 +120,14 @@ const getPostsForNewFeeds = async (pageIndex, pageSize) => {
                 { videoUrls: { $exists: true, $ne: [] } },
             ],
         })
-            .populate("author", "displayName imageUrl")
+            .populate({
+                path: "author",
+                select: "username displayName imageUrl",
+                populate: {
+                    path: "badges",
+                    select: "type, imageUrl",
+                },
+            })
             .populate({
                 path: "experienceLocation",
                 select: "locationName address",
@@ -125,7 +143,11 @@ const getPostsForNewFeeds = async (pageIndex, pageSize) => {
                 populate: [
                     {
                         path: "user",
-                        select: "displayName imageUrl",
+                        select: "displayName imageUrl badges",
+                        populate: {
+                            path: "badges",
+                            select: "type, imageUrl",
+                        },
                     },
                     {
                         path: "replies",
