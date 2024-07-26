@@ -1,7 +1,10 @@
 const { logInfo, logError } = require("../logger.service.js");
 const { getPostsInLocation } = require("../post/list-posts.service");
+const { calculateDistance } = require("../../helpers/utils.js");
 
+const User = require("../../models/user.model");
 const ExperienceLocation = require("../../models/experience-location.model");
+const CheckInHistory = require("../../models/checkin-history.model");
 
 const getExperienceLocationsById = async (experienceLocationId) => {
     try {
@@ -76,9 +79,64 @@ const deleteExperienceLocationById = async (id) => {
     }
 };
 
+const checkInExperienceLocation = async (
+    experienceId,
+    userId,
+    longitude,
+    latitude
+) => {
+    try {
+        logInfo("checkInExperienceLocation", "Start");
+        const currentUser = await User.findById(userId);
+        if (!currentUser) {
+            throw new Error("404-User not found");
+        }
+
+        const experienceLocation = await ExperienceLocation.findById(
+            experienceId
+        );
+        if (!experienceLocation) {
+            throw new Error("404-Experience location is not found");
+        }
+
+        // Kiểm tra về khoảng cách
+        const distance = calculateDistance(
+            Number(experienceLocation.latitude),
+            Number(experienceLocation.longitude),
+            latitude,
+            longitude
+        );
+
+        if (distance > 50) {
+            throw new Error("401-You are too far from the experience location");
+        }
+
+        let checkInHistory = await CheckInHistory.findOne({
+            user: currentUser._id,
+            experienceLocation: experienceLocation._id,
+        });
+
+        if (!checkInHistory) {
+            checkInHistory = new CheckInHistory({
+                user: currentUser._id,
+                experienceLocation: experienceLocation._id,
+            });
+        } else {
+            checkInHistory.lastCheckIn = Date.now();
+        }
+
+        await checkInHistory.save();
+        logInfo("checkInExperienceLocation", "End");
+    } catch (error) {
+        logError("checkInExperienceLocation", error.message);
+        throw error;
+    }
+};
+
 module.exports = {
     getExperienceLocationsById,
     createExperienceLocation,
     updateExperienceLocationById,
     deleteExperienceLocationById,
+    checkInExperienceLocation,
 };

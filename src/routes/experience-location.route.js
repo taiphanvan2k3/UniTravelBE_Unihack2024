@@ -217,4 +217,49 @@ router.delete(
     experienceLocationController.deleteExperienceLocationById
 );
 
+/**
+ * @swagger
+ * /experience-locations/{id}/check-in:
+ *   post:
+ *     summary: Check in to an experience location
+ *     tags:
+ *       - ExperienceLocationController
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         description: ID of the experience location
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               userId:
+ *                type: string
+ *                description: ID of the user checking in
+ *                required: true
+ *               longitude:
+ *                 type: number
+ *                 description: Longitude of the check-in location
+ *                 example: 108.11263
+ *                 required: true
+ *               latitude:
+ *                 type: number
+ *                 description: Latitude of the check-in location
+ *                 example: 16.12137
+ *                 required: true
+ *     responses:
+ *       201:
+ *         description: Check-in successful
+ *       401:
+ *         description: Unauthorized or you are too far from the experience location
+ *       404:
+ *         description: User or experience location not found
+ */
+router.post("/:id/check-in", experienceLocationController.checkIn);
+
 module.exports = router;

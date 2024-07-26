@@ -29,6 +29,8 @@ const ExperienceLocationSchema = new mongoose.Schema(
         crawledTotalReview: { type: Number, default: 0 },
         actualTotalReview: { type: Number, default: 0 },
         isEditByAdmin: { type: Boolean, default: false },
+        longitude: { type: Number },
+        latitude: { type: Number },
     },
     { toObject: { virtuals: true }, toJSON: { virtuals: true } }
 );

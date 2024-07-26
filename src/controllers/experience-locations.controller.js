@@ -117,6 +117,36 @@ class ExperienceLocationController {
             next(error);
         }
     }
+
+    async checkIn(req, res, next) {
+        try {
+            const { id } = req.params;
+            let { userId, longitude, latitude } = req.body;
+            if (!longitude || !latitude) {
+                return res.status(400).json({
+                    message: "Longitude and Latitude are required",
+                });
+            }
+            longitude = Number(longitude);
+            latitude = Number(latitude);
+
+            await experienceLocationsDetailService.checkInExperienceLocation(
+                id,
+                userId,
+                longitude,
+                latitude
+            );
+            return res.status(200).json({ message: "Check in successfully" });
+        } catch (error) {
+            if (error.message.includes("-")) {
+                const [statusCode, message] = error.message.split("-");
+                return res.status(statusCode).json({
+                    message,
+                });
+            }
+            next(error);
+        }
+    }
 }
 
 module.exports = new ExperienceLocationController();
