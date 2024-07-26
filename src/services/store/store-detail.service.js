@@ -3,6 +3,7 @@ const { uploadFileFromFilePath } = require("../firestore-utils.service");
 const { logInfo, logError } = require("../logger.service.js");
 const { getNamespace } = require("node-request-context");
 const { getPostsInLocation } = require("../post/list-posts.service");
+const { calculateDistance } = require("../../helpers/utils.js");
 
 const fs = require("fs");
 const Store = require("../../models/store.model");
@@ -158,23 +159,35 @@ const getQRCodeUrl = async (storeId) => {
     }
 };
 
-const checkInStore = async (storeId, qrCodePath) => {
+const checkInStore = async (storeId, qrCodePath, longitude, latitude) => {
     try {
         logInfo("checkInStore", "Start");
         const currentUserId = appState.context.currentUser.userIdInSystem;
         const currentUser = await User.findById(currentUserId);
         if (!currentUser) {
-            throw new Error("User not found");
+            throw new Error("404-User not found");
         }
 
         const storeInfo = await qrCodeService.decodeQRCode(qrCodePath);
         if (!storeInfo || storeInfo.storeId !== storeId) {
-            throw new Error("Invalid QR code");
+            throw new Error("400-Invalid QR code");
         }
 
         const store = await Store.findById(storeInfo.storeId);
         if (!store) {
-            throw new Error("Store not found");
+            throw new Error("404-Store not found");
+        }
+
+        // Kiểm tra về khoảng cách
+        const distance = calculateDistance(
+            store.addressOnMap.coordinates[1],
+            store.addressOnMap.coordinates[0],
+            latitude,
+            longitude
+        );
+
+        if (distance > 50) {
+            throw new Error("401-You are too far from the store");
         }
 
         let checkInHistory = await CheckInHistory.findOne({
@@ -195,7 +208,7 @@ const checkInStore = async (storeId, qrCodePath) => {
         logInfo("checkInStore", "End");
     } catch (error) {
         logError("checkInStore", error.message);
-        throw new Error("checkInStore: " + error.message);
+        throw error;
     } finally {
         fs.unlink(qrCodePath, (err) => {
             if (err) {
@@ -203,6 +216,53 @@ const checkInStore = async (storeId, qrCodePath) => {
                 throw new Error("checkInStore: " + err.message);
             }
         });
+    }
+};
+
+const simpleCheckInStore = async (userId, storeId, longitude, latitude) => {
+    try {
+        logInfo("checkInStore", "Start");
+        const currentUser = await User.findById(userId);
+        if (!currentUser) {
+            throw new Error("404-User not found");
+        }
+
+        const store = await Store.findById(storeId);
+        if (!store) {
+            throw new Error("404-Store not found");
+        }
+
+        // Kiểm tra về khoảng cách
+        const distance = calculateDistance(
+            store.addressOnMap.coordinates[1],
+            store.addressOnMap.coordinates[0],
+            latitude,
+            longitude
+        );
+
+        if (distance > 50) {
+            throw new Error("401-You are too far from the store");
+        }
+        
+        let checkInHistory = await CheckInHistory.findOne({
+            user: currentUser._id,
+            store: store._id,
+        });
+
+        if (!checkInHistory) {
+            checkInHistory = new CheckInHistory({
+                user: currentUser._id,
+                store: store._id,
+            });
+        } else {
+            checkInHistory.lastCheckIn = Date.now();
+        }
+
+        await checkInHistory.save();
+        logInfo("checkInStore", "End");
+    } catch (error) {
+        logError("checkInStore", error.message);
+        throw error;
     }
 };
 
@@ -283,4 +343,5 @@ module.exports = {
     getQRCodeUrl,
     generateQRCode,
     checkInStore,
+    simpleCheckInStore,
 };
