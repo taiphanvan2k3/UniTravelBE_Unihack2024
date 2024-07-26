@@ -6,6 +6,7 @@ const storeRouter = require("../routes/store.route.js");
 const postRouter = require("../routes/post.route.js");
 const schedulesRouter = require("../routes/schedules.route.js");
 const geminiRouter = require("../routes/gemini.route.js");
+const socialRouter = require("../routes/social.route.js");
 
 module.exports = (app) => {
     app.use("/users", userRouter);
@@ -16,4 +17,5 @@ module.exports = (app) => {
     app.use("/posts", postRouter);
     app.use("/schedules", schedulesRouter);
     app.use("/gemini", geminiRouter);
+    app.use("/social", socialRouter);
 };

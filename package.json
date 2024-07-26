@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@google/generative-ai": "^0.15.0",
+    "@paypal/checkout-server-sdk": "^1.0.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "date-fns": "^3.6.0",
@@ -27,6 +28,7 @@
     "mongoose": "^8.4.3",
     "multer": "^1.4.5-lts.1",
     "node-request-context": "^1.0.5",
+    "nodemailer": "^6.9.14",
     "puppeteer": "^22.13.0",
     "qr-image": "^3.2.0",
     "redis": "^4.6.14",
