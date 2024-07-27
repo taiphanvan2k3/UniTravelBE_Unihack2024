@@ -18,6 +18,8 @@ const convertUserDBToUser = (userDB) => {
         isAdmin: userDB.isAdmin,
         isVerified: userDB.isVerified,
         isOnline: userDB.isOnline,
+        roles: userDB.roles,
+        badges: userDB.badges,
     };
 };
 
@@ -128,14 +130,9 @@ const updateUser = async (identifier, identifierValue, data) => {
 const getVouchers = async (userId) => {
     try {
         logInfo("getVouchers", "Start");
-        const currentUserId = appState.context.currentUser.userIdInSystem;
-        const currentUser = await User.findById(currentUserId);
+        const currentUser = await User.findById(userId);
         if (!currentUser) {
             throw new Error("404-User not found");
-        }
-
-        if (userId !== currentUserId.toString()) {
-            throw new Error("400-UserId is not valid");
         }
 
         // Group by voucher theo loại

@@ -61,7 +61,7 @@ const createNewPost = async (locationId, locationType, postInfo) => {
         const postId = newPost._id;
 
         // Không cần chờ upload file xong mới trả về response
-        uploadFilesToFirebaseStorage(
+        const post = await uploadFilesToFirebaseStorage(
             {
                 postId,
             },
@@ -71,7 +71,7 @@ const createNewPost = async (locationId, locationType, postInfo) => {
         );
 
         logInfo("createNewPost", "End");
-        return newPost.toObject();
+        return post;
     } catch (error) {
         logError("createNewPost", error);
         throw error;
@@ -103,7 +103,7 @@ const addComment = async (postId, commentInfo) => {
         const commentId = newComment._id;
         await post.save();
 
-        uploadFilesToFirebaseStorage(
+        const comment = await uploadFilesToFirebaseStorage(
             {
                 postId,
                 commentId,
@@ -114,7 +114,7 @@ const addComment = async (postId, commentInfo) => {
         );
 
         logInfo("addComment", "End");
-        return newComment.toObject();
+        return comment;
     } catch (error) {
         logError("addComment", error);
         throw error;
@@ -144,7 +144,8 @@ const addReplyComment = async (postId, parentCommentId, commentInfo) => {
         const commentId = newComment._id;
         parentComment.replies.push(commentId);
         await Promise.all([newComment.save(), parentComment.save()]);
-        uploadFilesToFirebaseStorage(
+
+        const comment = await uploadFilesToFirebaseStorage(
             {
                 postId,
                 commentId,
@@ -154,7 +155,7 @@ const addReplyComment = async (postId, parentCommentId, commentInfo) => {
             commentInfo.videos
         );
 
-        return newComment.toObject();
+        return comment;
     } catch (error) {
         logError("addReplyComment", error);
         throw error;
@@ -353,6 +354,8 @@ const uploadFilesToFirebaseStorage = async (
             post.imageUrls = imageUrls;
             post.videoUrls = videoUrls;
             await post.save();
+            logInfo("uploadFilesToFirebaseStorage", "End");
+            return post.toObject();
         } else if (uploadType == UPLOAD_TYPES.comment) {
             const [comment, post] = await Promise.all([
                 Comment.findById(identifiers.commentId),
@@ -366,9 +369,9 @@ const uploadFilesToFirebaseStorage = async (
             comment.imageUrls = imageUrls;
             comment.videoUrls = videoUrls;
             await Promise.all([comment.save(), post.save()]);
+            logInfo("uploadFilesToFirebaseStorage", "End");
+            return comment.toObject();
         }
-
-        logInfo("uploadFilesToFirebaseStorage", "End");
     } catch (error) {
         logError("uploadFilesToFirebaseStorage", error);
         throw error;

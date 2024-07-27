@@ -5,6 +5,6 @@ const { limitRequest } = require("../middlewares/limiter.middleware");
 const UserController = require("../controllers/users.controller.js");
 
 router.get("/users", limitRequest, verifyToken, UserController.getAllUsers);
-router.get("/:id/my-vouchers", verifyToken, UserController.getMyVouchers);
+router.get("/:id/my-vouchers", UserController.getMyVouchers);
 
 module.exports = router;
