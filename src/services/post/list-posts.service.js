@@ -5,11 +5,10 @@ const appState = getNamespace("AppState");
 const User = require("../../models/user.model");
 const Post = require("../../models/post.model");
 
-const listPersonalPosts = async (page, limit) => {
+const listPersonalPosts = async (userId, page, limit) => {
     try {
         logInfo("listPersonalPosts", "Start");
-        const currentUserId = appState.context.currentUser.userIdInSystem;
-        const currentUser = await User.findById(currentUserId);
+        const currentUser = await User.findById(userId);
         if (!currentUser) {
             throw new Error("User not found");
         }
@@ -33,6 +32,9 @@ const listPersonalPosts = async (page, limit) => {
                 path: "store",
                 select: "name detailAddress",
             })
+            .populate({
+                path: "comments",
+            })
             .sort({ createdAt: -1 })
             .skip((page - 1) * limit)
             .limit(limit);
@@ -44,8 +46,8 @@ const listPersonalPosts = async (page, limit) => {
             delete postData.__v;
             return {
                 ...postData,
-                isUpVoted: post.upvoteUsers.includes(currentUserId),
-                isDownVoted: post.downvoteUsers.includes(currentUserId),
+                isUpVoted: post.upvoteUsers.includes(userId),
+                isDownVoted: post.downvoteUsers.includes(userId),
             };
         });
 
