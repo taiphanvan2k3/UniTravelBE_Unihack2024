@@ -49,8 +49,10 @@ class ExperienceLocationController {
     async getExperienceLocationsById(req, res, next) {
         try {
             const experienceLocationId = req.params.id;
+            const userId = req.query.userId;
             const experienceLocation =
                 await experienceLocationsDetailService.getExperienceLocationsById(
+                    userId,
                     experienceLocationId
                 );
 

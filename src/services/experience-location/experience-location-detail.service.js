@@ -6,7 +6,7 @@ const User = require("../../models/user.model");
 const ExperienceLocation = require("../../models/experience-location.model");
 const CheckInHistory = require("../../models/checkin-history.model");
 
-const getExperienceLocationsById = async (experienceLocationId) => {
+const getExperienceLocationsById = async (userId, experienceLocationId) => {
     try {
         logInfo("getExperienceLocationsById", "Start");
         const experienceLocation = await ExperienceLocation.findById(
@@ -18,13 +18,23 @@ const getExperienceLocationsById = async (experienceLocationId) => {
         if (experienceLocation) {
             const pageIndex = 1;
             const pageSize = 10;
-            experienceLocationData.comments = await getPostsInLocation(
+            experienceLocationData.posts = await getPostsInLocation(
                 experienceLocation._id,
                 "experienceLocation",
                 pageIndex,
                 pageSize
             );
             experienceLocationData.pageIndex = pageIndex;
+        }
+
+        if (userId) {
+            const checkInHistory = await CheckInHistory.findOne({
+                user: userId,
+                experienceLocation: experienceLocationId,
+            });
+            experienceLocationData.isCheckIn = !!checkInHistory;
+        } else {
+            experienceLocationData.isCheckIn = false;
         }
 
         logInfo("getExperienceLocationsById", "End");

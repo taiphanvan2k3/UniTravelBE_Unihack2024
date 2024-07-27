@@ -73,6 +73,8 @@ const getPostsInLocation = async (
                 : { experienceLocation: locationId };
 
         const posts = await Post.find(query)
+            .populate("experienceLocation")
+            .populate("store")
             .populate({
                 // Lấy thông tin của người viết bài
                 path: "author",
