@@ -19,7 +19,6 @@ const sendEmailPayment = async (emailDetails) => {
             transactionId,
             eventName,
             eventDate,
-            eventTime,
             location,
         } = emailDetails;
 
@@ -80,8 +79,7 @@ const sendEmailPayment = async (emailDetails) => {
                 <ul>
                     <li>Location: ${location}</li>
                     <li>Event: ${eventName}</li>
-                    <li>Date: ${eventDate}</li>
-                    <li>Time: ${eventTime}</li>
+                    <li>DateTime: ${eventDate}</li>
                 </ul>
                 <p>Please keep this information for your records.</p>
                 <p>If you have any questions or need further information, please do not hesitate to contact us.</p>

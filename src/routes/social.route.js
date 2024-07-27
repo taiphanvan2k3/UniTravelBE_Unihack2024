@@ -9,6 +9,18 @@ const socialController = require("../controllers/social.controller");
  *     summary: Create a PayPal payment
  *     tags: 
  *       - SocialController
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - price
+ *             properties:
+ *               price:
+ *                 type: number
+ *                 description: The total price to be paid, calculated in VND and converted to USD for processing.
  *     description: Creates a payment request to PayPal and returns the payment ID and approval URL.
  *     responses:
  *       201:
@@ -40,7 +52,7 @@ router.post("/create-payment", socialController.createPayment);
 /**
  * @swagger
  * /social/capture-payment:
-*   post:
+ *   post:
  *     summary: Capture a PayPal payment
  *     tags: 
  *       - SocialController
