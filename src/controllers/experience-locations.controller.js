@@ -143,7 +143,8 @@ class ExperienceLocationController {
         } catch (error) {
             if (error.message.includes("-")) {
                 const [statusCode, message] = error.message.split("-");
-                return res.status(statusCode).json({
+                return res.status(200).json({
+                    statusCode,
                     isSuccessful: false,
                     message,
                 });

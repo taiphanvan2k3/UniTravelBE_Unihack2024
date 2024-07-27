@@ -114,7 +114,9 @@ class PostsController {
     async getListOfPersonalPosts(req, res, next) {
         try {
             const { pageIndex, pageSize } = req.query;
+            const { userId } = req.body;
             const posts = await listOfPostsService.listPersonalPosts(
+                userId,
                 pageIndex,
                 pageSize
             );

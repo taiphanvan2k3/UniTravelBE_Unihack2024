@@ -223,6 +223,17 @@ router.get("/new-feeds", postController.getListOfNewFeeds);
  *           type: integer
  *           description: Number of items per page
  *           default: 10
+  *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               userId:
+ *                type: string
+ *                description: ID of the user checking in
+ *                required: true
  *     responses:
  *       200:
  *         description: List of personal posts
@@ -233,7 +244,6 @@ router.get("/new-feeds", postController.getListOfNewFeeds);
  */
 router.get(
     "/personal-posts",
-    verifyToken,
     postController.getListOfPersonalPosts
 );
 
