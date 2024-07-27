@@ -14,19 +14,23 @@ class SocialController {
             if (!req.body.price) {
                 return res.status(400).json({ message: "Price is required." });
             }
-    
+
             let price = Number(req.body.price);
             console.log(`Price: ${price}`);
             if (isNaN(price) || price <= 0) {
-                return res.status(400).json({ message: "Invalid or negative price format." });
+                return res
+                    .status(400)
+                    .json({ message: "Invalid or negative price format." });
             }
-    
-            const exchangeRate = 25321.3; 
+
+            const exchangeRate = 25321.3;
             let usdPrice = price / exchangeRate;
 
             // Ensure the converted price is greater than zero
             if (usdPrice <= 0) {
-                return res.status(400).json({ message: "Converted USD amount must be greater than zero." });
+                return res.status(400).json({
+                    message: "Converted USD amount must be greater than zero.",
+                });
             }
 
             // Format the price to two decimal places
@@ -38,12 +42,14 @@ class SocialController {
             request.prefer("return=representation");
             request.requestBody({
                 intent: "CAPTURE",
-                purchase_units: [{
-                    amount: {
-                        currency_code: "USD",
-                        value: usdPrice.toString()
-                    }
-                }]
+                purchase_units: [
+                    {
+                        amount: {
+                            currency_code: "USD",
+                            value: usdPrice.toString(),
+                        },
+                    },
+                ],
             });
 
             const response = await paypalClient.execute(request);
@@ -53,7 +59,6 @@ class SocialController {
             next(error);
         }
     }
-    
 
     async capturePayment(req, res, next) {
         try {
@@ -71,15 +76,19 @@ class SocialController {
     async sendEmail(req, res, next) {
         try {
             console.log(req.body.orderData);
-            const { orderData, locationName } = req.body;
+            const { orderData, locationName, tickets } = req.body;
             const emailDetails = {
                 recipientEmail: orderData.payer.email_address,
-                recipientName: orderData.payer.name.surname + " " + orderData.payer.name.middle_name + " " + orderData.payer.name.given_name,
+                recipientName:
+                    orderData.payer.name.surname +
+                    " " +
+                    orderData.payer.name.middle_name +
+                    " " +
+                    orderData.payer.name.given_name,
                 amount: orderData.purchase_units.length,
                 transactionId: orderData.id,
-                eventName: orderData.eventName,
-                eventDate: Date.now(),
                 location: locationName,
+                tickets,
             };
 
             const info = await mailService.sendEmailPayment(emailDetails);
