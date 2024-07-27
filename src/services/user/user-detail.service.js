@@ -51,6 +51,7 @@ const updateUserOnlineStatus = async (userDB) => {
         isVerified: userDB.isVerified,
         isOnline: userDB.isOnline,
         roles: userDB.roles,
+        badges: userDB.badges,
     };
 };
 
@@ -78,7 +79,9 @@ const createTempUser = async (user) => {
 
 const createOrUpdateUser = async (user) => {
     try {
-        let userDB = await User.findOne({ firebaseUserId: user.uid });
+        let userDB = await User.findOne({ firebaseUserId: user.uid }).populate(
+            "badges"
+        );
         if (userDB) {
             return await updateUserOnlineStatus(userDB);
         } else {
@@ -93,6 +96,7 @@ const createOrUpdateUser = async (user) => {
                 isAdmin: false,
                 isVerified: true,
                 isOnline: true,
+                badges: [],
             };
 
             userDB = new User(userInfo);
