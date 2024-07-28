@@ -130,10 +130,7 @@ const getPostsForNewFeeds = async (pageIndex, pageSize) => {
     try {
         logInfo("getPostsForNewFeeds", "Start");
         let postsData = await Post.find({
-            $or: [
-                { imageUrls: { $exists: true, $ne: [] } },
-                { videoUrls: { $exists: true, $ne: [] } },
-            ],
+            imageUrls: { $exists: true, $ne: [] },
         })
             .populate({
                 // Lấy thông tin của người viết bài

@@ -52,8 +52,8 @@ class ExperienceLocationController {
             const userId = req.query.userId;
             const experienceLocation =
                 await experienceLocationsDetailService.getExperienceLocationsById(
-                    userId,
-                    experienceLocationId
+                    experienceLocationId,
+                    userId
                 );
 
             if (!experienceLocation) {
