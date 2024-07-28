@@ -6,7 +6,7 @@ const User = require("../../models/user.model");
 const ExperienceLocation = require("../../models/experience-location.model");
 const CheckInHistory = require("../../models/checkin-history.model");
 
-const getExperienceLocationsById = async (userId, experienceLocationId) => {
+const getExperienceLocationsById = async (experienceLocationId, userId) => {
     try {
         logInfo("getExperienceLocationsById", "Start");
         const experienceLocation = await ExperienceLocation.findById(
