@@ -1,7 +1,12 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
-dotenv.config();
+const envFile =
+    process.env.NODE_ENV === "production"
+        ? ".env.production"
+        : ".env.development";
+
+dotenv.config({ path: envFile });
 
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -37,7 +42,10 @@ app.use(express.urlencoded({ extended: true }));
 
 // Nạp các route vào ứng dụng
 routes(app);
-app.use("/swagger", swaggerUI.serve, swaggerUI.setup(specs));
+
+if (process.env.NODE_ENV === "development") {
+    app.use("/swagger", swaggerUI.serve, swaggerUI.setup(specs));
+}
 
 // Middleware xử lý lỗi
 app.use(errorHandler);

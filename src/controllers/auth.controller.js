@@ -91,9 +91,14 @@ class AuthController {
                 password
             );
 
+            console.log("Is running on: ", process.env.NODE_ENV);
             res.cookie("access_token", token, {
                 maxAge: 3600000,
                 path: "/",
+                httpOnly: true,
+                secure: process.env.NODE_ENV === "production",
+                sameSite:
+                    process.env.NODE_ENV === "production" ? "none" : "lax",
             });
 
             res.status(200).json({
