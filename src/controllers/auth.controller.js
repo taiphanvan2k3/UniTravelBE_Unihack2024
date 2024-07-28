@@ -95,10 +95,10 @@ class AuthController {
                 "Is running on: ",
                 process.env.NODE_ENV,
                 ".Client host: ",
-                req.hostname
+                process.env.CLIENT_DOMAIN
             );
             res.cookie("access_token", token, {
-                domain: req.hostname,
+                domain: process.env.CLIENT_DOMAIN ?? "localhost",
                 maxAge: 3600000,
                 path: "/",
                 secure: process.env.NODE_ENV === "production",
