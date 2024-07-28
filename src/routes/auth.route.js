@@ -108,7 +108,7 @@ router.post("/verify-token", firebaseAuthController.verifyToken);
  * /auth/sign-out:
  *   post:
  *     summary: Sign out user
- *     tags: 
+ *     tags:
  *       - FirebaseAuthController
  *     security:
  *       - bearerAuth: []
@@ -132,7 +132,7 @@ router.post("/verify-token", firebaseAuthController.verifyToken);
  *       403:
  *         description: Forbidden, email does not match with token
  */
-router.post("/sign-out", verifyToken, firebaseAuthController.signOutUser);
+router.post("/sign-out", firebaseAuthController.signOutUser);
 
 /**
  * @swagger

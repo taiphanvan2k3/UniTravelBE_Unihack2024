@@ -19,7 +19,11 @@ const seedData = require("./src/models/InitDB/DbInitialize.js");
 const app = express();
 app.use(
     cors({
-        origin: ["http://localhost:5173"],
+        origin: [
+            "http://localhost:5173",
+            "https://lgprl5tl-5173.asse.devtunnels.ms",
+            "https://uni-travel-fe-unihack2024.vercel.app",
+        ],
         methods: ["GET", "POST"],
 
         // Nhằm cho phép client gửi cookie lên server
