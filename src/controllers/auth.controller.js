@@ -91,8 +91,14 @@ class AuthController {
                 password
             );
 
-            console.log("Is running on: ", process.env.NODE_ENV);
+            console.log(
+                "Is running on: ",
+                process.env.NODE_ENV,
+                ".Client host: ",
+                req.hostname
+            );
             res.cookie("access_token", token, {
+                domain: req.hostname,
                 maxAge: 3600000,
                 path: "/",
                 secure: process.env.NODE_ENV === "production",
