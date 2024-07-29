@@ -31,6 +31,9 @@ This project is a backend application developed for `Unihack 2024` using Node.js
     ```
 3. **Configure Environment Variables**
 
+    **With Firebase admin**:
+    Download the service account key from Firebase and save it as `key.json` in the root directory of the project.
+
     Create a .env.development file and configure the necessary environment variables:
     ```bash
     # Environment
