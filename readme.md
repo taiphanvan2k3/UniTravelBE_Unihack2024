@@ -29,9 +29,9 @@ This project is a backend application developed for `Unihack 2024` using Node.js
     ```bash
     npm install
     ```
-3. Configure Environment Variables
+3. **Configure Environment Variables**
 
-    Create a .env file and configure the necessary environment variables:
+    Create a .env.development file and configure the necessary environment variables:
     ```bash
     # Environment
     NODE_ENV=Development
@@ -74,7 +74,7 @@ This project is a backend application developed for `Unihack 2024` using Node.js
 
     ```
 
-4. Start the Application
+**4. Start the Application**
     ```bash
     npm start
     ```
