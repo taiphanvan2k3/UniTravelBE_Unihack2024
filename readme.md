@@ -2,20 +2,18 @@
 
 ## Introduction
 
-This project is a backend application developed for `Unihack 2024` using Node.js. It provides key features including:
+This project is a backend application developed for `Unihack 2024` using Node.js. It uses the following technologies:
 
+- **ExpressJS**: Web framework for Node.js to build APIs.
 - **Firebase Authentication**: User authentication via email.
-- **Gemini**: Use Gemini to generate travel itineraries for specific locations or provinces.
+- **Firebase Storage**: Store uploaded images and videos.
+- **Gemini API**: Use Gemini to generate travel itineraries for specific locations or provinces.
 - **QR Code**: Create and manage QR codes.
-- **MongoDB**: NoSQL database for data storage.
 - **PayPal**: Payment gateway for buying tickets.
+- **Crawl data**: Crawl tourist attractions from travel pages using **Puppeteer**
+- **MongoDB**: NoSQL database for data storage.
 
-## Features
-
-- **User Authentication**: Register and log in users via Firebase Authentication with email.
-- **QR Code Generation**: Generate QR codes for various purposes such as links, user information, etc.
-- **Data Creation with Gemini**: Generate dynamic content or data as required by the project.
-- **Data Storage**: Use MongoDB to store user information, QR codes, and other data.
+## Introduction
 
 ## Setup
 
